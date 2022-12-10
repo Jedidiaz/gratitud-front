@@ -1,0 +1,31 @@
+<div class="contenedor ">
+    <nav class="bar">
+        <div class="img">
+            <img src="../../../assets/logo gratitud.png" alt="">
+        </div>
+    </nav>
+    <div class="content-login">
+        <div class="form">
+            <form [formGroup]="formRegister" >
+                <h1>Ingresar</h1>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="floatingEmail" type="email" placeholder="name@example.com">
+                    <label for="floatingEmail">Email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="floatingEmail" type="password" placeholder="name@example.com">
+                    <label for="floatingEmail">Contraseña</label>
+                </div>
+                <p>olvidé mi contraseña. <span><a routerLink="/reset">Recuperar aquí</a></span></p>
+                <div class="btn-login">
+                    <button class="btn btn-primary">CONTINUAR</button>
+                </div>
+                <p>Aún no tengo una cuenta. <span><a routerLink="/register">Crear cuenta aquí</a></span></p>
+                <div class="btn-back">
+                    <button type="submit" routerLink=""><img src="../../../assets/arrow1.png"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<p>register works!</p>
