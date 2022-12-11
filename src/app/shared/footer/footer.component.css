@@ -1,5 +1,6 @@
 footer{
     width: 100vw;
+    background-color: #FCFCFC;
 }
 
 .contenedor{
@@ -96,7 +97,7 @@ ul li{
     }
 
     a{
-        font-size: 30px;
+        font-size: 40px;
     }
 
     ul li{
@@ -104,8 +105,8 @@ ul li{
     }
 
     .btn-users .btn{
-        width: 172px;
-        font-size: 18px;
+        width: 250px;
+        font-size: 25px;
     }
 
     .logo-footer{
@@ -130,6 +131,7 @@ ul li{
 
     .cookies{
         margin-bottom: 20px;
+        padding: 10px 150px;
     }
 
 }
