@@ -1,0 +1,200 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+section{
+    padding: 10px 10px 0 10px;
+}
+
+.contenedor section:nth-child(1), .contenedor section:nth-child(3){
+    background-color: white;
+}
+
+.contenedor section:nth-child(2), .contenedor section:nth-child(4){
+    background-color: #fff2ef;
+    padding-top: 40px;
+}
+.description h1{
+    color: #A07260;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.description h2{
+    color: #A07260;
+    font-size: 23px;
+}
+
+.caroousel{
+    width: 100%;
+}
+
+.caroousel img{
+    width: 100%;
+}
+
+:host::ng-deep .carousel-control-next-icon{
+    background-color: #A07260;
+}
+:host::ng-deep .carousel-control-prev-icon{
+    background-color: #A07260;
+}
+
+/*  section 2 */
+.des{
+    text-align: center;
+}
+h3{
+    color: #A07260;
+}
+
+h3 span{
+    font-weight: 600;
+}
+
+p{
+    color: #A07260;
+}
+
+.btn-crear{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.btn-crear .btn{
+    background-color: #F36A6A;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.imgsec {
+    width: 300px;
+    float: right;
+}
+
+.imgsec img{
+    width: 100%;
+}
+
+.creadores h2{
+    font-size: 24px;
+    color: #A07260 !important;
+}
+
+.creadores{
+    text-align: center;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.creadores h4{
+    font-size: 21px;
+    font-weight: 600;
+    color: #A07260;
+}
+
+.card{
+    width: 300px;
+}
+
+.card p{
+    font-size: 16px !important;
+}
+
+.img, .img img {
+    width: 100%;
+}
+
+.users{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 40px;
+}
+
+@media screen and (min-width: 1024px){
+    #uno{
+        padding: 20px 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .description{
+        width: 60%;
+    }
+
+    .caroousel{
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel{
+        width: 70%;
+    }
+
+    .description h1, .description h2 {
+        font-size: 40px;
+    }
+
+    :host::ng-deep .carousel-control-next{
+        right: -60px;
+    }
+    :host::ng-deep .carousel-control-prev{
+        left: -60px;
+    }
+
+    /* section 2 */
+
+    .des h3{
+        font-size: 50px;
+    }
+
+    .des p{
+        font-size: 30px;
+        padding: 40px 200px;
+    }
+
+    .btn-crear .btn{
+        font-size: 30px;
+    }
+
+    .btn-crear{
+        margin: 100px 0
+    }
+
+    .tres {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .des{
+        width: 60%;
+        padding: 20px 30px;
+    }
+
+    .tres .des p{
+        padding: 0 ;
+    }
+
+    .imgsec{
+        position: relative;
+        width: 40%;
+        height: 100%;
+        bottom: 0;
+    }
+
+    .imgsec img{
+        width: 100%;
+        height: 100%;
+    }
+
+}

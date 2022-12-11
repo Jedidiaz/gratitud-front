@@ -1,7 +1,68 @@
 <header>
-    <nav>
-        <div class="content-header">
-            header
+  <nav>
+    <div class="content-header">
+      <div class="img">
+        <img src="../../../assets/logo gratitud.png" alt="" />
+      </div>
+      <div class="buttons">
+        <ul>
+          <li>
+            <a routerLink="">Inicio</a>
+            <a routerLink="">Acerca de</a>
+            <a routerLink="">Blog</a>
+            <a routerLink="">Contacto</a>
+          </li>
+        </ul>
+        <div class="btn-users">
+          <button class="btn btn-primary" routerLink="/register">Crear cuenta</button>
+          <button class="btn btn-primary" routerLink="/login">Ingresar</button>
         </div>
-    </nav>
+      </div>
+      <!-- Menu side bar -->
+      <div class="menu">
+        <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      >
+      <i class="bi bi-list"></i>
+      </button>
+
+      <div
+        class="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="buttons-menu">
+                <ul>
+                  <li>
+                    <a href="">Inicio</a>
+                    <a href="">Acerca de</a>
+                    <a href="">Blog</a>
+                    <a href="">Contacto</a>
+                  </li>
+                </ul>
+                <div class="btn-users">
+                  <button class="btn btn-primary" routerLink="/register" type="button">Crear cuenta</button>
+                  <button class="btn btn-primary" routerLink="/login" type="button">Ingresar</button>
+                </div>
+              </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </nav>
 </header>

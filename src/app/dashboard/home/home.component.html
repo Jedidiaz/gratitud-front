@@ -1,3 +1,85 @@
 <app-header></app-header>
-    <router-outlet></router-outlet>
+<div class="contenedor">
+  <section id="uno">
+    <div class="description">
+      <h1>
+        Recibe y gestiona el cariño de tus seguidores para seguir creando y
+        contribuyendo al mundo.
+      </h1>
+      <br />
+      <h2>
+        "La gratitud es uno de los sentimientos más poderosos que puedes
+        experimentar, y compartirlo es un privilegio que llena el alma de
+        alegría en quien lo da y en quien lo recibe."
+      </h2>
+      <br />
+    </div>
+    <div class="caroousel">
+      <ngb-carousel *ngIf="carousel">
+        <ng-template ngbSlide *ngFor="let image of carousel">
+          <div class="picsum-img-wrapper">
+            <img [src]="image" alt="Random first slide" />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </section>
+  <section id="dos">
+    <div class="des">
+      <h3>Crea tu propio <span>link de gratitud</span></h3>
+      <p>
+        Cualquiera que sea la forma en que le contribuyas al mundo, siempre
+        habrá alguien que lo reconozca y quiera agradecértelo con palabras de
+        cariño y/o donar a tu labor. <br />
+        <br />
+        Crea una cuenta y facilita a tu audiencia el bello proceso de dar y
+        recibir en gratitud.
+      </p>
+    </div>
+    <div class="btn-crear">
+      <button class="btn btn-primary" type="button" routerLink="/register">
+        CREAR CUENTA
+      </button>
+    </div>
+  </section>
+  <section id="tres">
+    <div class="tres">
+      <div class="des">
+        <h3>¿Qué puedes hacer con tu <span>link de gratitud</span>?</h3>
+        <p>
+          Comparte tu link de gratitud a tus seguidores, alumnos, pacientes,
+          etc. y comienza a recibir testimonios por tu labor, así como
+          donaciones en amor. Selecciona los destacados para que se muestren en
+          tu perfil.
+          <br />
+          <br />
+          Aumenta la reputación de tu trabajo y acelera el crecimiento de lo que
+          más amas hacer.
+        </p>
+        <div class="btn-crear">
+            <button class="btn btn-primary" type="button" routerLink="/register">
+              CREAR CUENTA
+            </button>
+          </div>
+      </div>
+      <div class="imgsec">
+        <img src="../../../assets/section.png" alt="">
+      </div>
+    </div>
+  </section>
+  <section #4>
+    <div class="creadores">
+      <h2>Conoce a otros <span>creadores como tú</span></h2>
+      <div class="users">
+        <div class="cards" *ngFor="let card of users">
+          <div class="image">
+            <img [src]="card.image" alt="" />
+          </div>
+          <h4>{{ card.name }}</h4>
+          <p>{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 <app-footer></app-footer>
