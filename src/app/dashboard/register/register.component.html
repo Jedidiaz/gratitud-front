@@ -7,25 +7,23 @@
     <div class="content-login">
         <div class="form">
             <form [formGroup]="formRegister" >
-                <h1>Ingresar</h1>
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" type="email" placeholder="name@example.com">
-                    <label for="floatingEmail">Email</label>
+                <h1>Crea una cuenta con tu <span>URL</span> personalizada <span>gratis</span></h1>
+                <div class="test">
+                    <label for="url">gratitud.link/</label>
+                    <input class="form-control form-control-lg" type="text" placeholder="Tu nombre" id="url" formControlName="url">
                 </div>
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" type="password" placeholder="name@example.com">
-                    <label for="floatingEmail">Contraseña</label>
-                </div>
-                <p>olvidé mi contraseña. <span><a routerLink="/reset">Recuperar aquí</a></span></p>
                 <div class="btn-login">
-                    <button class="btn btn-primary">CONTINUAR</button>
+                    <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid">CONTINUAR</button>
                 </div>
-                <p>Aún no tengo una cuenta. <span><a routerLink="/register">Crear cuenta aquí</a></span></p>
-                <div class="btn-back">
-                    <button type="submit" routerLink=""><img src="../../../assets/arrow1.png"></button>
-                </div>
+                <p>Ya tienes tu cuenta? <span><a routerLink="/reset">Ingresa aquí</a></span></p>
+
             </form>
+            <div class="footer">
+                <hr/>
+                <p>Al regístrate aceptas nuestros <a href="">Términos y Condiciones</a> y <a href="">Política de Privacidad</a></p>
+                <p>This site is protected by reCAPTCHA and the Google</p>
+                <p><a href="">Terms of Service</a> and <a href="">Privacy Policy</a> aply</p>
+            </div>
         </div>
     </div>
 </div>
-<p>register works!</p>

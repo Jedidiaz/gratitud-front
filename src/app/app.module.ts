@@ -11,7 +11,9 @@ import { RecoveryPasswordComponent } from './dashboard/recovery-password/recover
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './dashboard/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     RecoveryPasswordComponent,
     HomeComponent,
+    HeaderComponent,
+    FooterComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

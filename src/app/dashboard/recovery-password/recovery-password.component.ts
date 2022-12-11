@@ -10,8 +10,7 @@ export class RecoveryPasswordComponent implements OnInit {
   formReset: FormGroup;
   constructor( private formBuilder: FormBuilder) {
     this.formReset = formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', Validators.required]
     })
   }
 

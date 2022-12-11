@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   formRegister: FormGroup;
+  value = 'hola';
   constructor( private formBuilder: FormBuilder) {
     this.formRegister = formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      url: ['', Validators.required],
     })
   }
 

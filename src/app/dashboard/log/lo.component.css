@@ -6,7 +6,6 @@
 }
 
 .bar{
-    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -61,14 +60,12 @@ label{
     font-size: 22px;
 }
 
-input{
+.form-control{
     border-color: #F36A6A;
-    color: #A07260;
-}
-
-.form-floating>.form-control, .form-floating>.form-control-plaintext {
+    text-align: center;
     height: 70px;
 }
+
 
 .btn-login button{
     width: 60%;
@@ -85,8 +82,14 @@ input{
     border-radius: 50%;
 }
 
-button:hover{
+.btn-login button:hover{
     opacity: 50%;
+}
+
+.btn-primary:disabled{
+    border: 1px solid #A07260 !important;
+    background-color: transparent !important;
+    color: #A07260;
 }
 
 @media only screen and (min-width: 1024px){
@@ -94,7 +97,7 @@ button:hover{
         font-weight: 500;
     }
 
-    .form-floating>.form-control, .form-floating>.form-control-plaintext {
+    input{
         width: 500px;
     }
 
