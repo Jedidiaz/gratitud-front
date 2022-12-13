@@ -6,7 +6,7 @@
   </nav>
   <div class="content-login">
     <div class="form">
-      <form [formGroup]="formLogin">
+      <form [formGroup]="formLogin" (ngSubmit)="login()">
         <h1>Ingresar</h1>
         <div class="form-floating">
           <input
@@ -36,6 +36,7 @@
           olvidé mi contraseña.
           <span><a routerLink="/reset">Recuperar aquí</a></span>
         </p>
+        <!-- BTN LOGIN ** --------------------------- ** -->
         <div class="btn-login">
           <button class="btn btn-primary" type="submit" [disabled]="!formLogin.valid">CONTINUAR</button>
         </div>
