@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  loged: boolean = false
   constructor() { }
 
   ngOnInit(): void {
+    if( localStorage.getItem('token') ){
+      this.loged = true;
+    }
+  }
+
+  logOut(){
+    localStorage.removeItem('token')
+    window.location.reload()
   }
 
 }

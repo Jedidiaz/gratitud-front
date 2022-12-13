@@ -40,7 +40,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     NgbModule,
     HttpClientModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
