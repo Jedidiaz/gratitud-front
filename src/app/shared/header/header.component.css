@@ -60,7 +60,7 @@ ul li a{
     align-items: center;
 }
 
-.btn-users .btn, .btn-users .btn{
+.btn-users .btn, .btn-users2 .btn{
     width: 172px;
     font-size: 18px;
     background-color: #F36A6A;
@@ -95,7 +95,7 @@ ul li a{
         margin: 0;
     }
 
-    .btn-users .btn{
+    .btn-users .btn, .btn-users2 .btn{
         margin: 0;
         border: none;
         padding: 10px 20px;

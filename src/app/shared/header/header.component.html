@@ -58,9 +58,12 @@
                     <a href="">Contacto</a>
                   </li>
                 </ul>
-                <div class="btn-users">
+                <div class="btn-users" *ngIf="!loged">
                   <button class="btn btn-primary" routerLink="/register" type="button">Crear cuenta</button>
                   <button class="btn btn-primary" routerLink="/login" type="button">Ingresar</button>
+                </div>
+                <div class="btn-users2" *ngIf="loged">
+                  <button class="btn btn-primary" (click)="logOut()">Cerrars sesion</button>
                 </div>
               </div>
         </div>
