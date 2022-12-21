@@ -18,6 +18,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { AcercaDeComponent } from './dashboard/acerca-de/acerca-de.component';
+import { PrivacidadComponent } from './dashboard/privacidad/privacidad.component';
+import { TerminosComponent } from './dashboard/terminos/terminos.component';
+import { ComisionesComponent } from './dashboard/comisiones/comisiones.component';
+import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AcercaDeComponent,
+    PrivacidadComponent,
+    TerminosComponent,
+    ComisionesComponent,
+    FrontCreatorComponent
 
 
   ],

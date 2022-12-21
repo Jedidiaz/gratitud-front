@@ -1,3 +1,8 @@
+import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
+import { TerminosComponent } from './dashboard/terminos/terminos.component';
+import { PrivacidadComponent } from './dashboard/privacidad/privacidad.component';
+import { ComisionesComponent } from './dashboard/comisiones/comisiones.component';
+import { AcercaDeComponent } from './dashboard/acerca-de/acerca-de.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +17,11 @@ const routes: Routes = [
   { path: 'login', component: LoComponent },
   { path: 'reset', component: RecoveryPasswordComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'acerca-de', component: AcercaDeComponent },
+  { path: 'terminos-y-condiciones', component: TerminosComponent },
+  { path: 'aviso-privacidad', component: PrivacidadComponent },
+  { path: 'comisiones', component: ComisionesComponent },
+  { path: 'front-creator', component: FrontCreatorComponent },
 ];
 
 

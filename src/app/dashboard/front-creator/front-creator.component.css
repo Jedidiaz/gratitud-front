@@ -1,0 +1,176 @@
+/* rating */
+i {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding-right: 0.1rem;
+  color: #d3d3d3;
+}
+
+.filled {
+  color: #F36A6A;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+h1, h2, h3, h5, span{
+  color: #A07260;
+}
+
+/* container */
+.container section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 0;
+}
+
+/* creator */
+.creator, .description, .share{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.creator h1{
+  font-weight: 700;
+}
+.creator span{
+  font-size: 14px;
+}
+
+/* description */
+.description h3{
+  font-weight: 700;
+}
+
+.description p{
+  font-size: 23px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.buttons .btn{
+  background-color: transparent;
+  border: 0;
+}
+
+/* share */
+.share{
+  margin-top: 50px;
+}
+
+.share h1{
+  font-weight: 700;
+}
+
+.share .btn{
+  background-color: #F36A6A;
+  border: 0;
+  border-radius: 50px;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+/*  section 2 */
+.container section:nth-child(2){
+  background-color: #fcf8f8;
+  padding: 100px 20px;
+}
+
+.container section:nth-child(2) h1 span{
+  font-weight: 700;
+}
+
+.container section:nth-child(2) img{
+  width: 40%;
+  margin: 40px 0;
+}
+
+.content-cards{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+
+.card-creator{
+  border: 1px solid #EDD0CA;
+  border-radius: 20px;
+  width: 300px;
+  padding: 10px 20px;
+  background-color: transparent;
+}
+
+.card-creator h5{
+  font-weight: 700;
+}
+
+.card-creator div:nth-child(2), .card-creator div:nth-child(4){
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+}
+
+.card-creator img{
+  margin: 10px 0 !important;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.card-creator div:nth-child(4){
+  margin-bottom: 20px;
+}
+
+.d-inline-flex{
+  gap: 10px;
+}
+
+.container section:nth-child(2) h3{
+  color: #F36A6A;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 1440px){
+
+  .share{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .share .btn{
+    width: 400px ;
+    padding: 20px ;
+  }
+
+  .container section:nth-child(2) img{
+    width: 300px;
+  }
+
+  .card-creator{
+    width: 400px;
+  }
+
+  .card-creator img{
+    width: 105px !important;
+  }
+
+  .card-creator div:nth-child(4){
+    padding: 40px;
+  }
+
+}
+

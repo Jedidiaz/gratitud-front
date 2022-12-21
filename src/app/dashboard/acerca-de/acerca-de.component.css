@@ -1,0 +1,23 @@
+.container{
+  width: 100%;
+  height: calc(100vh - 99.73px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-acercaDe{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-size: 40px;
+  color: #A07260;
+  font-weight: 700;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,38 @@
+.container{
+  width: 100%;
+  height: calc(100vh - 99.73px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-comisiones, .comisiones{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.comisiones{
+  gap: 0;
+}
+
+.content-comisiones .btn{
+  background-color: transparent;
+  border: 0;
+}
+
+.content-comisiones .btn:hover{
+  transform: translateX(-10px);
+  transition: .5s;
+}
+
+h1{
+  font-size: 40px;
+  color: #A07260;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
