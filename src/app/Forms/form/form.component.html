@@ -1,0 +1,36 @@
+<div class="contenedor">
+  <nav class="bar">
+    <div class="img">
+      <img src="../../../assets/logo gratitud.png" alt="" />
+    </div>
+  </nav>
+  <div class="content-form">
+    <div class="creator">
+      <img src="../../../assets/danielacorrea.png" />
+      <h3>Daniela Correa</h3>
+    </div>
+    <div class="text-box">
+      <div></div>
+      <div class="text">
+        <p>Hola, quiero conocerte ¿Cuál es tu nombre?</p>
+      </div>
+    </div>
+    <form [formGroup]="formName">
+      <div class="mb-3">
+        <label for="name" class="form-label"
+          >Email address</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Escribe tu nombre aquí"
+          required
+        />
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary" [disabled]="!formName.valid">Siguiente <img src="../../../assets/arrow1.png"></button>
+      </div>
+    </form>
+  </div>
+</div>

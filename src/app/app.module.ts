@@ -23,6 +23,7 @@ import { PrivacidadComponent } from './dashboard/privacidad/privacidad.component
 import { TerminosComponent } from './dashboard/terminos/terminos.component';
 import { ComisionesComponent } from './dashboard/comisiones/comisiones.component';
 import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
+import { FormComponent } from './Forms/form/form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.c
     PrivacidadComponent,
     TerminosComponent,
     ComisionesComponent,
-    FrontCreatorComponent
+    FrontCreatorComponent,
+    FormComponent
 
 
   ],

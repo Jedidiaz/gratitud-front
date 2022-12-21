@@ -10,6 +10,7 @@ import { LoComponent } from './dashboard/log/lo.component';
 import { RecoveryPasswordComponent } from './dashboard/recovery-password/recovery-password.component';
 import { RegisterComponent } from './dashboard/register/register.component';
 import { HomeComponent } from './dashboard/home/home.component';
+import { FormComponent } from './Forms/form/form.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'aviso-privacidad', component: PrivacidadComponent },
   { path: 'comisiones', component: ComisionesComponent },
   { path: 'front-creator', component: FrontCreatorComponent },
+  { path: 'form', component: FormComponent },
 ];
 
 
