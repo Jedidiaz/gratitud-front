@@ -1,7 +1,7 @@
 <div class="contenedor ">
     <nav class="bar">
         <div class="img">
-            <img src="../../../assets/logo gratitud.png" alt="">
+            <img src="../../../assets/logo gratitud.png" routerLink="/">
         </div>
     </nav>
     <div class="content-login">
@@ -13,7 +13,7 @@
                     <input class="form-control form-control-lg" type="text" placeholder="Tu nombre" id="url" formControlName="url">
                 </div>
                 <div class="btn-login">
-                    <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid">CONTINUAR</button>
+                    <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid" routerLink="/registro">CONTINUAR</button>
                 </div>
                 <p>Ya tienes tu cuenta? <span><a routerLink="/reset">Ingresa aquí</a></span></p>
 

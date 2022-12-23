@@ -1,3 +1,5 @@
+import { CreatoresComponent } from './dashboardCreators/creatores/creatores.component';
+import { RegistroComponent } from './Forms/registro/registro.component';
 import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
 import { TerminosComponent } from './dashboard/terminos/terminos.component';
 import { PrivacidadComponent } from './dashboard/privacidad/privacidad.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'comisiones', component: ComisionesComponent },
   { path: 'front-creator', component: FrontCreatorComponent },
   { path: 'form', component: FormComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'creators', component: CreatoresComponent },
 ];
 
 

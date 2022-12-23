@@ -24,6 +24,9 @@ import { TerminosComponent } from './dashboard/terminos/terminos.component';
 import { ComisionesComponent } from './dashboard/comisiones/comisiones.component';
 import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
 import { FormComponent } from './Forms/form/form.component';
+import { RegistroComponent } from './Forms/registro/registro.component';
+import { BarComponent } from './shared/bar/bar.component';
+import { CreatoresComponent } from './dashboardCreators/creatores/creatores.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { FormComponent } from './Forms/form/form.component';
     TerminosComponent,
     ComisionesComponent,
     FrontCreatorComponent,
-    FormComponent
+    FormComponent,
+    RegistroComponent,
+    BarComponent,
+    CreatoresComponent
 
 
   ],

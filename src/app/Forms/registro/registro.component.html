@@ -1,0 +1,70 @@
+<div class="contenedor">
+  <nav class="bar">
+    <div class="img">
+      <img src="../../../assets/logo gratitud.png" routerLink="/" />
+    </div>
+  </nav>
+  <div class="content-login" *ngIf="Verify">
+    <div class="form">
+      <form [formGroup]="formRegister">
+        <h1>
+          Ingresa tus información<br>de contacto
+        </h1>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Nombre"
+            id="name"
+            formControlName="url"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Email"
+            id="email"
+            formControlName="url"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Contraseña"
+            id="password"
+            formControlName="url"
+          />
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formRegister.valid"
+            (click)="verifyView()"
+          >
+            CONTINUAR
+          </button>
+        </div>
+      </form>
+      <div class="footer">
+        <hr />
+        <p>
+          Al regístrate aceptas nuestros <a href="">Términos y Condiciones</a> y
+          <a href="">Política de Privacidad</a>
+        </p>
+        <p>This site is protected by reCAPTCHA and the Google</p>
+        <p>
+          <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> aply
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="content-valid" *ngIf="!Verify">
+    <h1>Ve a tu bandeja de email</h1>
+    <br/>
+    <p>Te hemos enviado un correo electrónico para
+      verificar tu cuenta.</p>
+  </div>
+</div>

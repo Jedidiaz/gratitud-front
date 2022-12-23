@@ -1,0 +1,26 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.regalos h3{
+  font-size: calc(1.5rem + .6vw);
+  color: #A07260
+}
+
+.regalos span{
+  font-size: calc(1.8rem + .6vw);
+  color: #CBCBCB;
+}
+
+.img {
+  width: 180px;
+}
+
+.img img{
+  width: 100%;
+}
