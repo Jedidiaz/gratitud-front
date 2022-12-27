@@ -1,16 +1,6 @@
-/*  *------- */
 p, span, h3, a{
   color: #A07260;
 }
-
-ul, li, a{
-  text-decoration: none;
-  list-style: none;
-  font-size: 25px;
-}
-
-/* *_____________ */
-
 .container{
   display: flex;
   flex-direction: column;
@@ -19,55 +9,6 @@ ul, li, a{
   text-align: center;
   gap: 30px;
   margin-top: 50px;
-}
-
-.regalos h3{
-  font-size: calc(1.5rem + .6vw);
-}
-
-.regalos span{
-  font-size: calc(2.5rem + .6vw);
-  color: #CBCBCB;
-  font-weight: 600;
-}
-
-.img {
-  width: 180px;
-}
-
-.img img{
-  width: 100%;
-}
-
-.options p{
-  font-weight: 700 !important;
-  font-size: 20px;
-}
-
-.options p span{
-  font-weight: 400;
-}
-
-.options p i{
-  color: #F36A6A;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.options ul li{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-weight: 700;
-  margin: 20px 0 100px 0;
-}
-
-.options ul li a:hover{
-  color: #F36A6A;
-}
-
-ul{
-  padding: 0;
 }
 
 .box{
@@ -118,37 +59,7 @@ ul{
 
 }
 
-.options-secundary ul li {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.options-secundary ul li a{
-  font-size: 16px;
-  color: #616161;
-}
-
-/* pro */
-.pro-icon{
-  width: 50px;
-}
-
-h5{
-  color: #616161;
-}
-
-.pro-icon img{
-  width: 100%;
-}
-
 @media screen and (min-width: 1024px) {
-  .options-secundary ul li{
-    flex-direction: row;
-  }
-
-  .options-secundary ul li a{
-    font-size: 20px;
-  }
 
   .contentbox{
     padding: 30px 50px;

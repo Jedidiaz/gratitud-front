@@ -1,0 +1,42 @@
+<div class="contenedor">
+<div class="statistics">
+  <span>
+    <h3>CREADORES</h3>
+    <h3>120</h3>
+  </span>
+  <hr/>
+  <span>
+    <h3>USUARIOS</h3>
+    <h3>120</h3>
+  </span>
+  <hr/>
+  <span>
+    <h3>PROS</h3>
+    <h3>120</h3>
+  </span>
+  <hr/>
+  <span>
+    <h3>DONACIONES</h3>
+    <h3>120</h3>
+  </span>
+  <br/>
+  <br/>
+  <hr/>
+</div>
+<br/>
+<div class="requests">
+  <h1>SOLICITUDES DE RETIRO</h1>
+  <br/>
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let column of tablaSolicitud">
+        <th>{{column.id}}</th>
+        <th>{{column.name}}</th>
+        <th>{{column.email}}</th>
+        <th>{{column.date}}</th>
+        <th style="color: #F36A6A;">${{column.dispo}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

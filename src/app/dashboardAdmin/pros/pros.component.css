@@ -1,0 +1,55 @@
+/* th */
+th{
+  font-size: 23px;
+  font-weight: 400;
+  border-bottom: .5px solid #A07260;
+  color: rgb(87, 87, 87);
+  padding: 15px 8px;
+}
+
+.requests div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn{
+  background-color: transparent;
+  border: 0;
+  color: #F36A6A;
+  font-size: 25px;
+}
+
+.btn:active{
+  background-color: #CBCBCB;
+}
+
+.btn img{
+  margin-right: 20px;
+}
+
+input{
+  width: 600px;
+  height: 70px;
+  padding: 20px;
+  font-size: 24px;
+  border-color:#EDD0CA;
+  padding-right: 70px;
+}
+
+input::placeholder{
+  color: #CBCBCB;
+  font-size: 24px;
+}
+
+label{
+  display: flex;
+  position: absolute;
+  font-size: 40px;
+  height: 70px;
+  align-items: center;
+  justify-content: end;
+  padding-right: 20px;
+  width: 600px;
+  color: #A07260;
+}

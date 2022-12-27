@@ -1,0 +1,20 @@
+<div class="requests">
+  <div>
+    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png" (click)="Historial()" > DANIELA CORREA</button>
+  </div>
+  <br/>
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let column of tablaHistorial">
+        <th>{{column.id}}</th>
+        <th>{{column.name}}</th>
+        <th>{{column.email}}</th>
+        <th>{{column.ingresos}}</th>
+        <th style="color: #F36A6A;">${{column.pro}}</th>
+        <th style="color: #F36A6A;">{{column.pro}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

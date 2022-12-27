@@ -1,0 +1,26 @@
+<app-bar></app-bar>
+<app-pro></app-pro>
+<br/>
+<br/>
+<div class="container">
+  <h1>Mensajes de Cariño</h1>
+  <br/>
+  <div class="list">
+    <div class="messages" *ngFor="let message of messageList">
+      <div>
+        <span>{{message.id}}</span>
+        <h3>{{message.name}}</h3>
+      </div>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="message.view" id="view">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="message.view" id="view">
+          <i class="bi bi-eye-fill" (click)="viewMessage(message.id)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

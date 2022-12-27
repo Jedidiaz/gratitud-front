@@ -1,3 +1,9 @@
+import { MainAdminComponent } from './dashboardAdmin/main-admin/main-admin.component';
+import { AjustesComponent } from './dashboardCreators/ajustes/ajustes.component';
+import { RegalosComponent } from './dashboardCreators/regalos/regalos.component';
+import { MessageComponent } from './dashboardCreators/message/message.component';
+import { MenssagesComponent } from './dashboardCreators/menssages/menssages.component';
+import { EditBioComponent } from './dashboardCreators/edit-bio/edit-bio.component';
 import { CreatoresComponent } from './dashboardCreators/creatores/creatores.component';
 import { RegistroComponent } from './Forms/registro/registro.component';
 import { FrontCreatorComponent } from './dashboard/front-creator/front-creator.component';
@@ -28,6 +34,12 @@ const routes: Routes = [
   { path: 'form', component: FormComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'creators', component: CreatoresComponent },
+  { path: 'editar', component: EditBioComponent },
+  { path: 'messages', component: MenssagesComponent },
+  { path: 'messages/:id', component: MessageComponent },
+  { path: 'regalos-recibidos', component: RegalosComponent },
+  { path: 'ajustes', component: AjustesComponent },
+  { path: 'admin', component: MainAdminComponent },
 ];
 
 

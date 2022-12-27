@@ -1,0 +1,21 @@
+<div class="requests">
+  <div>
+    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png"> CREADORES</button>
+    <span>
+      <label for="search"><i class="bi bi-search-heart"></i></label>
+      <input type="text" id="search" class="form-control" placeholder="Buscar por nombre o apellido">
+    </span>
+  </div>
+  <br/>
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let column of tablaCreadores">
+        <th>{{column.id}}</th>
+        <th>{{column.name}}</th>
+        <th>{{column.email}}</th>
+        <th>{{column.date}}</th>
+        <th style="color: #F36A6A;">{{column.pro}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

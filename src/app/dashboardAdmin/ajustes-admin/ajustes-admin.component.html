@@ -1,0 +1,78 @@
+<div class="contenedor">
+  <div class="content-login" *ngIf="!Verify">
+    <div class="form">
+      <form [formGroup]="formAjustes">
+        <button type="button" class="btn btn-secondary"><img src="../../../assets/arrow1.png" > AJUSTES</button>
+        <br/>
+        <h3>PRECIO DE SUSCRIPCIÓN ANUAL PRO EN USD$</h3>
+        <div class="test">
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Año"
+            id="año"
+            formControlName="año"
+          />
+        </div>
+        <h3>PRECIO DE SUSCRIPCIÓN MENSUAL PRO EN USD$</h3>
+        <div class="test">
+          <input
+            class="form-control"
+            type="number"
+            placeholder="Mes"
+            id="mes"
+            formControlName="mes"
+          />
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formAjustes.valid"
+          >
+            ACTUALIZAR
+          </button>
+        </div>
+      </form>
+      <!-- password change -->
+      <form [formGroup]="formPassword">
+        <h3>NUEVA CONTRASEÑA</h3>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Contraseña Actual"
+            id="password"
+            formControlName="passwordA"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Nueva Contraseña"
+            id="passwordNew"
+            formControlName="password"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Repetir Contraseña"
+            id="repeatPassword"
+            formControlName="repeatPassword"
+          />
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formPassword.valid"
+          >
+            ACTUALIZAR
+          </button>
+        </div>
+      </form>
+</div>
+

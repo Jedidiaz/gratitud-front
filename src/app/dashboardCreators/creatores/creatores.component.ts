@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatoresComponent implements OnInit {
 
-  constructor() { }
+  pro: boolean = true
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  copyToClipboard(): void {
   }
 
 }

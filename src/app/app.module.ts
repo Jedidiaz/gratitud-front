@@ -27,6 +27,19 @@ import { FormComponent } from './Forms/form/form.component';
 import { RegistroComponent } from './Forms/registro/registro.component';
 import { BarComponent } from './shared/bar/bar.component';
 import { CreatoresComponent } from './dashboardCreators/creatores/creatores.component';
+import { EditBioComponent } from './dashboardCreators/edit-bio/edit-bio.component';
+import { ProComponent } from './shared/pro/pro.component';
+import { MenssagesComponent } from './dashboardCreators/menssages/menssages.component';
+import { MessageComponent } from './dashboardCreators/message/message.component';
+import { RegalosComponent } from './dashboardCreators/regalos/regalos.component';
+import { AjustesComponent } from './dashboardCreators/ajustes/ajustes.component';
+import { MainAdminComponent } from './dashboardAdmin/main-admin/main-admin.component';
+import { InicioComponent } from './dashboardAdmin/inicio/inicio.component';
+import { CreadoresComponent } from './dashboardAdmin/creadores/creadores.component';
+import { UsuariosComponent } from './dashboardAdmin/usuarios/usuarios.component';
+import { ProsComponent } from './dashboardAdmin/pros/pros.component';
+import { HistorialRetirosComponent } from './dashboardAdmin/historial-retiros/historial-retiros.component';
+import { AjustesAdminComponent } from './dashboardAdmin/ajustes-admin/ajustes-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +59,20 @@ import { CreatoresComponent } from './dashboardCreators/creatores/creatores.comp
     FormComponent,
     RegistroComponent,
     BarComponent,
-    CreatoresComponent
+    CreatoresComponent,
+    EditBioComponent,
+    ProComponent,
+    MenssagesComponent,
+    MessageComponent,
+    RegalosComponent,
+    AjustesComponent,
+    MainAdminComponent,
+    InicioComponent,
+    CreadoresComponent,
+    UsuariosComponent,
+    ProsComponent,
+    HistorialRetirosComponent,
+    AjustesAdminComponent
 
 
   ],

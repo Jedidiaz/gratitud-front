@@ -1,0 +1,39 @@
+<app-bar></app-bar>
+<app-pro *ngIf="!pro"></app-pro>
+<br/>
+<br/>
+<div class="container">
+  <div class="regalos">
+    <h3>REGALOS RECIBIDOS</h3>
+    <h1>$0.00</h1>
+  </div>
+  <div class="retiros">
+    <form [formGroup]="formRetiro" class="mb-3">
+      <h4>
+        Puedes retirar tu saldo, siempre y cuando sea mayor a US$100.00 (Usuarios
+        PRO)
+      </h4>
+      <input
+        type="number"
+        class="form-control"
+        id="money"
+        formControlName="retiro"
+        required
+        [readOnly]="!pro"
+      />
+      <h4>
+        Correo electrónico vinculado a PayPal para recibir
+        pagos.
+      </h4>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        required
+        [readOnly]="!pro"
+      />
+      <button type="submit" class="btn btn-primary" [disabled]="!pro">RETIRAR SALDO</button>
+    </form>
+  </div>
+</div>

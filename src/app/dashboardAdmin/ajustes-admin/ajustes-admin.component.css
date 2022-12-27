@@ -1,0 +1,112 @@
+.contenedor{
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.content-login{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 100px;
+}
+
+input{
+  border-color: #F36A6A;
+}
+
+.btn-login{
+  width: 600px;
+  display: flex;
+  justify-content: end;
+}
+
+.btn-login button{
+  padding: 15px 30px;
+  background-color: #F36A6A;
+  border: 0;
+  border-radius: 50px;
+  font-size: 24px;
+}
+
+button:hover{
+  opacity: 50%;
+}
+
+.btn-login button:disabled{
+  color: #A07260;
+  border: 1px solid #A07260;
+  background-color: transparent;
+  cursor: auto;
+}
+
+.test .form-control{
+  height: 70px;
+}
+
+.test .form-control::placeholder{
+  font-size: 24px;
+}
+
+h3{
+  color: rgb(58, 58, 58);
+  font-size: calc(.8rem + .6vw);
+}
+
+.btn-secondary{
+  background-color: transparent;
+  border: 0;
+  color: #F36A6A;
+  font-size: 24px;
+  width: 200px;
+}
+
+.btn-secondary img{
+  margin-right: 20px;
+}
+
+
+@media only screen and (min-width: 1024px){
+  h1{
+      font-weight: 500;
+      font-size: 40px;
+  }
+
+  .form-control {
+    width: 600px;
+  }
+
+  .img{
+      margin: 30px 30px 0 ;
+      justify-content: start;
+  }
+
+  label, .test .form-control{
+      font-size: 28px;
+  }
+
+  .test .form-control-lg{
+      height: 100px;
+      padding-left: 210px;
+  }
+
+  .test label{
+      height: 100px;
+  }
+
+  .content-valid h1 {
+    font-size: 50px;
+  }
+
+  .content-valid p{
+    font-size: 26px;
+    width: 600px;
+  }
+}

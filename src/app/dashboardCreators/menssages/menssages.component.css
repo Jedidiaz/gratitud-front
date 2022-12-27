@@ -1,0 +1,74 @@
+h3{
+  margin: 0;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container h1{
+  color: #A07260;
+  font-size: calc(1.775rem + 1.5vw);
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.messages, .messages div{
+  display: flex;
+  align-items: center;
+}
+
+.messages{
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #F36A6A;
+  border-radius: 10px;
+}
+
+input {
+  display: none;
+}
+
+.form-check{
+  padding: 0;
+  margin-left: 20px;
+}
+
+.form-check i{
+  font-size: 25px;
+  color: #F36A6A;
+  cursor: pointer;
+}
+
+.messages div:nth-child(1){
+  gap: 10px;
+}
+
+.messages div:nth-child(1) span{
+  font-size: 25px;
+  color: #A07260;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 1024px) {
+  .messages div:nth-child(1) span, .form-check i{
+    font-size: 40px;
+  }
+
+  .form-check i{
+    margin-left: 60px;
+  }
+
+  .messages{
+    padding: 10px 20px;
+  }
+}

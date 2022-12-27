@@ -1,0 +1,116 @@
+<app-bar></app-bar>
+<div class="contenedor">
+  <div class="content-login">
+    <h1>
+      Editar Bio
+    </h1>
+    <br/>
+    <div class="edit-img">
+      <img src="../../../assets/danielacorrea.png">
+      <i class="bi bi-pencil-fill"></i>
+    </div>
+    <div class="form">
+      <form [formGroup]="formEdit">
+        <div class="test">
+          <label for="url" class="urlink">gratitud.link/</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Usuario"
+            id="url"
+            formControlName="url"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Nombre"
+            id="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Actividad o profesion"
+            id="profesion"
+            formControlName="profesion"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Titulo"
+            id="titulo"
+            formControlName="titulo"
+          />
+        </div>
+        <div class="test">
+          <textarea class="form-control" id="description" formControlName="description" placeholder="describe brevemente quien eres y que haces" rows="3"></textarea>
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formEdit.valid"
+          >
+            GUARDAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="content-login">
+    <h1>
+      AGREGAR REDES SOCIALES
+    </h1>
+    <br/>
+    <div class="form">
+      <form [formGroup]="formRedes">
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Facebook"
+            id="facebook"
+            formControlName="facebook"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Instagram"
+            id="instagram"
+            formControlName="instagram"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="TikTok"
+            id="tiktok"
+            formControlName="tiktok"
+          />
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formRedes.valid"
+          >
+            GUARDAR
+          </button>
+        </div>
+      </form>
+      <div class="redes">
+
+      </div>
+    </div>
+  </div>
+</div>
+

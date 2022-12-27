@@ -1,0 +1,126 @@
+.contenedor{
+  width: 100vw;
+  height: auto;
+  margin: 0;
+  margin-top: 100px;
+}
+
+.content-login{
+  width: 100%;
+  height: calc( 100% - 200px );
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A07260;
+  font-size: 22px;
+}
+
+input{
+  border-color: #F36A6A;
+}
+
+.btn{
+  width: 60%;
+  height: 55px;
+  background-color: #F36A6A;
+  border: 0;
+  border-radius: 50px;
+  font-size: 20px;
+}
+
+
+.btn:hover{
+  opacity: 50%;
+}
+
+.btn-login button:disabled{
+  color: #A07260;
+  border: 1px solid #A07260;
+  background-color: transparent;
+  cursor: auto;
+}
+
+/* hs */
+h1 {
+  font-weight: 500;
+  color: #A07260;
+  font-size: calc(1.975rem + 1.5vw);
+}
+
+h2{
+  color: #CBCBCB;
+  font-size: calc(1.525rem + .9vw);
+}
+
+h3{
+  color: #A07260;
+  font-size: calc(.9rem + .6vw);
+}
+
+.test .form-control{
+  height: 70px;
+}
+
+.test .form-control::placeholder{
+  font-size: 20px;
+  color: #EDD0CA;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+p{
+  text-decoration: none;
+  color: #A07260;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 1024px){
+
+  .form-control {
+    width: 600px;
+  }
+
+  .img{
+      margin: 30px 30px 0 ;
+      justify-content: start;
+  }
+
+  label, .test .form-control{
+      font-size: 28px;
+  }
+
+  .test .form-control-lg{
+      height: 100px;
+      padding-left: 210px;
+  }
+
+  .test label{
+      height: 100px;
+  }
+
+  p{
+    font-size: 30px;
+  }
+}

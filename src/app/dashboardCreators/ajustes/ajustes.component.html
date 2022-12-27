@@ -1,0 +1,61 @@
+<app-bar></app-bar>
+<app-pro *ngIf="!pro"></app-pro>
+<div class="contenedor">
+  <div class="content-login">
+    <div class="form">
+      <form [formGroup]="formAjuste">
+        <h1>
+          AJUSTES
+        </h1>
+        <h2>daniela@email.com</h2>
+        <h3>CAMBIAR CONTRASEÑA</h3>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Contraseña actual"
+            id="passwordA"
+            formControlName="passwordA"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Nueva contraseña"
+            id="passwordN"
+            formControlName="passwordN"
+          />
+        </div>
+        <div class="test">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Repetir contraseña"
+            id="repeatPassword"
+            formControlName="repeatPassword"
+          />
+        </div>
+        <div class="btn-login">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!formAjuste.valid"
+            (click)="verifyView()"
+          >
+          GUARDAR
+          </button>
+        </div>
+      </form>
+      <div class="footer">
+        <p>RECUPERAR CONTRASEÑA</p>
+        <p>Enviar contraseña a mi correo</p>
+        <br/>
+        <button class="btn btn-primary" type="button">ENVIAR</button>
+        <br/>
+        <br/>
+        <p class="mb-5" *ngIf="pro">CANCELAR CUENTA PRO</p>
+      </div>
+    </div>
+  </div>
+</div>
