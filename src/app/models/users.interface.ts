@@ -1,11 +1,16 @@
 export interface ResponseI {
-    data?: LoginDataI
-    error?: string
+    name?: string
+    message?: string
+    error?: Error
     response: string
     token?: string
+    ok?: boolean
+    status?: number
+    statusText?: string
+    url?: string
+    isAdmin?: boolean
 }
 
-export interface LoginDataI{
-    name: string
-    role: string
+export interface Error{
+    message: string
 }

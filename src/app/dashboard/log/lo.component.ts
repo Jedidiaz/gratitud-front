@@ -29,16 +29,18 @@ export class LoComponent implements OnInit {
 
   login(){
     if (this.formLogin.valid){
-      this.userApi.login(this.formLogin.value).subscribe({
+      const formDataAuth = new FormData()
+      formDataAuth.append('email', this.formLogin.value.email)
+      formDataAuth.append('password', this.formLogin.value.password)
+      this.userApi.login(formDataAuth).subscribe({
         next: (re) => {
-          if (re.response === 'ok'){
-            localStorage.setItem('token', re.token!)
-            this.router.navigate([''])
-          }else{
-            alert(re.error)
-            this.formLogin.reset()
-          }
-        }, error: (err) => {console.log(err)}
+          localStorage.setItem('token', re.token!)
+          if (re.isAdmin)this.router.navigate(['/admin'])
+          else this.router.navigate([''])
+        }, error: (err) => {
+          alert(err)
+          this.formLogin.reset()
+        }
       })
     }
   }

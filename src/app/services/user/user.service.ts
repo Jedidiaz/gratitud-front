@@ -13,7 +13,20 @@ export class UserService {
 
   constructor( private http: HttpClient ) { }
 
-  login(form: {}):Observable<ResponseI>{
-    return this.http.post<ResponseI>(this.url + '/login', form)
+  //user api
+  login(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(this.url + 'login', form)
+  }
+
+  SignUp(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(this.url + 'register', form)
+  }
+  //token
+  setToken(Token: string){
+    localStorage.setItem('token', Token)
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
   }
 }

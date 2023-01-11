@@ -7,7 +7,7 @@
   <div class="img">
     <img src="../../../assets/default.png">
   </div>
-  <div class="pro-icon" *ngIf="pro">
+  <div class="pro-icon" *ngIf="!pro">
     <img src="../../../assets/PRO.png" >
     <h5>PRO</h5>
   </div>
@@ -23,7 +23,7 @@
       </li>
     </ul>
   </div>
-  <div class="pro" *ngIf="!pro">
+  <div class="pro" *ngIf="pro">
     <div class="box">
       <div class="contentbox">
         <h4>BENEFICIOS DE SER PRO</h4>

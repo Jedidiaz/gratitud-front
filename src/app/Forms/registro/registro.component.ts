@@ -14,7 +14,10 @@ export class RegistroComponent implements OnInit {
   Verify = false
   constructor( private formBuilder: FormBuilder) {
     this.formRegister = formBuilder.group({
-      url: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+
     })
   }
 
