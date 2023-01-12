@@ -13,6 +13,8 @@ export class LoComponent implements OnInit {
   formLogin: FormGroup;
   validEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
 
+  messageError: string = ''
+
   constructor( private formBuilder: FormBuilder, private userApi: UserService, private router: Router) {
     this.formLogin = formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(this.validEmail)]],
@@ -38,7 +40,10 @@ export class LoComponent implements OnInit {
           if (re.isAdmin)this.router.navigate(['/admin'])
           else this.router.navigate([''])
         }, error: (err) => {
-          alert(err)
+          if(err.status === 500)this.messageError = 'Este usuario no esta registrado'
+          else if (err.status === 400)this.messageError = 'Contraseña Incorrecta'
+
+          console.log(err)
           this.formLogin.reset()
         }
       })
