@@ -6,7 +6,7 @@
   </nav>
   <div class="content-login" *ngIf="!Verify">
     <div class="form">
-      <form [formGroup]="formRegister">
+      <form [formGroup]="formRegister" (submit)="register()">
         <h1>
           Ingresa tus información<br>de contacto
         </h1>
@@ -16,7 +16,7 @@
             type="text"
             placeholder="Nombre"
             id="name"
-            formControlName="url"
+            formControlName="name"
           />
         </div>
         <div class="test">
@@ -25,7 +25,7 @@
             type="email"
             placeholder="Email"
             id="email"
-            formControlName="url"
+            formControlName="email"
           />
         </div>
         <div class="test">
@@ -34,18 +34,18 @@
             type="password"
             placeholder="Contraseña"
             id="password"
-            formControlName="url"
+            formControlName="password"
           />
         </div>
-        <div class="btn-login">
+        <div class="btn-login" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <button
             class="btn btn-primary"
             type="submit"
             [disabled]="!formRegister.valid"
-            (click)="verifyView()"
           >
             CONTINUAR
           </button>
+          <span style="color: red; margin-top: 20px;">{{messageError}}</span>
         </div>
       </form>
       <div class="footer">

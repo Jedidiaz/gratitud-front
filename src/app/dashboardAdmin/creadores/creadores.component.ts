@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CreadoresComponent implements OnInit {
 
   tablaCreadores: Array<any> = []
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     for (let i = 10; i > 0; i--){
@@ -20,6 +21,17 @@ export class CreadoresComponent implements OnInit {
         pro: 'HACER PRO',
       })
     }
+
+  }
+
+  getCreators(){
+    this.userService.getcreators().subscribe({
+      next: (el)=>{
+        console.log(el)
+      },error: (err)=> {
+        console.log(err)
+      }
+    })
   }
 
 }

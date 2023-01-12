@@ -1,7 +1,7 @@
 import { ResponseI } from './../../models/users.interface';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,11 @@ import { Observable } from 'rxjs';
 })
 
 export class UserService {
-  private readonly url = environment.api;
+  headers = new HttpHeaders()
+    .append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+
+  private readonly url = environment.api + 'user/';
+  private readonly urlAdmin = environment.api + 'admin/';
 
   constructor( private http: HttpClient ) { }
 
@@ -19,7 +23,7 @@ export class UserService {
   }
 
   SignUp(form: FormData):Observable<ResponseI>{
-    return this.http.post<ResponseI>(this.url + 'register', form)
+    return this.http.post<ResponseI>(this.urlAdmin + 'register', form)
   }
   //token
   setToken(Token: string){
@@ -29,4 +33,14 @@ export class UserService {
   getToken(){
     return localStorage.getItem('token')
   }
+
+  //admin
+  getcreators():Observable<ResponseI>{
+    return this.http.get<ResponseI>(`${this.url}seeu`, {headers: this.headers})
+  }
+
+  deleteUser(email:string):Observable<any>{
+    return this.http.delete<any>(`${this.url}deleteu/${email}`, {headers: this.headers})
+  }
+
 }

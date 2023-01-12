@@ -42,7 +42,6 @@ export class LoComponent implements OnInit {
         }, error: (err) => {
           if(err.status === 500)this.messageError = 'Este usuario no esta registrado'
           else if (err.status === 400)this.messageError = 'Contraseña Incorrecta'
-
           console.log(err)
           this.formLogin.reset()
         }
