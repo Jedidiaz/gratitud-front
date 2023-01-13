@@ -115,10 +115,6 @@ h3, p, label{
   color: #EDD0CA;
 }
 
-#description{
-  height: 300px;
-}
-
 /* upload */
 #upload{
   display: none;

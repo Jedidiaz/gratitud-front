@@ -6,11 +6,11 @@
     </h1>
     <br/>
     <div class="edit-img">
-      <img src="../../../assets/danielacorrea.png">
+      <img [src]="image || '../../../assets/default.png'">
       <i class="bi bi-pencil-fill"></i>
     </div>
     <div class="form">
-      <form [formGroup]="formEdit">
+      <form [formGroup]="formEdit" (ngSubmit)="updateInfo()">
         <div class="test">
           <label for="url" class="urlink">gratitud.link/</label>
           <input
@@ -60,6 +60,7 @@
             GUARDAR
           </button>
         </div>
+        <p style="color: red;">{{messageError}}</p>
       </form>
     </div>
   </div>
@@ -69,7 +70,7 @@
     </h1>
     <br/>
     <div class="form">
-      <form [formGroup]="formRedes">
+      <form [formGroup]="formRedes" (ngSubmit)="updateRedes()">
         <div class="test">
           <input
             class="form-control"
@@ -101,7 +102,6 @@
           <button
             class="btn btn-primary"
             type="submit"
-            [disabled]="!formRedes.valid"
           >
             GUARDAR
           </button>

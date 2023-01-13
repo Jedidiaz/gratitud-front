@@ -1,0 +1,42 @@
+.content-valid {
+  padding: 10px;
+  width: 100%;
+  height: calc(100vh - 141px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content-valid h1 {
+  font-size: 30px;
+}
+
+.content-valid p{
+  font-size: 18px;
+  color: rgb(44, 44, 44);
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #F36A6A;
+  margin-top: 30px;
+}
+
+.btn:active{
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  .content-valid h1 {
+    font-size: 50px;
+  }
+
+  .content-valid p{
+    font-size: 26px;
+    width: 600px;
+  }
+}

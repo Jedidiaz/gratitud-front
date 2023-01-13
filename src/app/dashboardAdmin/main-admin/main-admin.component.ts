@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,9 +17,16 @@ export class MainAdminComponent implements OnInit {
   configuracion: boolean = false
   home: boolean = false
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  //salir
+  salir(){
+    localStorage.removeItem('token')
+    this.router.navigate(['/'])
   }
 
   inicioView(){

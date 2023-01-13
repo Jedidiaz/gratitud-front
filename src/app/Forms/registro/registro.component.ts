@@ -1,6 +1,7 @@
 import { UserService } from './../../services/user/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -13,10 +14,11 @@ export class RegistroComponent implements OnInit {
   value = 'hola';
   //mesage error
   messageError:string= ''
+  username: any = ''
 
   validEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
   Verify = false
-  constructor( private formBuilder: FormBuilder, private UserService: UserService) {
+  constructor( private formBuilder: FormBuilder, private UserService: UserService, private _router: ActivatedRoute) {
     this.formRegister = formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(this.validEmail)]],
@@ -25,21 +27,23 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username = this._router.snapshot.paramMap.get('username');
   }
 
   register(){
     if(this.formRegister.valid){
       const form = new FormData()
       form.append('name', this.formRegister.value.name)
-      form.append('email', this.formRegister.value.email)
+      form.append('email', this.formRegister.value.email.toLowerCase())
       form.append('password', this.formRegister.value.password)
-      form.append('username', 'test')
+      form.append('username', this.username.toLowerCase())
       this.UserService.SignUp(form).subscribe({
         next: (el)=> {
           console.log(el)
           this.Verify = true
         },error: (err)=> {
-          if(err.status === 500)this.messageError = '*Imagen requerida*'
+          if(err.status === 500)this.messageError = '*Este correo ya esta en uso*'
+          else if(err.status === 400)this.messageError = '*esta direccion ya está en uso*'
           console.log(err)
         }
       })

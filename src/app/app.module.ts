@@ -40,6 +40,9 @@ import { UsuariosComponent } from './dashboardAdmin/usuarios/usuarios.component'
 import { ProsComponent } from './dashboardAdmin/pros/pros.component';
 import { HistorialRetirosComponent } from './dashboardAdmin/historial-retiros/historial-retiros.component';
 import { AjustesAdminComponent } from './dashboardAdmin/ajustes-admin/ajustes-admin.component';
+import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
+import { PayMethodComponent } from './pay/pay-method/pay-method.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,9 @@ import { AjustesAdminComponent } from './dashboardAdmin/ajustes-admin/ajustes-ad
     UsuariosComponent,
     ProsComponent,
     HistorialRetirosComponent,
-    AjustesAdminComponent
+    AjustesAdminComponent,
+    AuthEmailComponent,
+    PayMethodComponent
 
 
   ],
@@ -82,7 +87,8 @@ import { AjustesAdminComponent } from './dashboardAdmin/ajustes-admin/ajustes-ad
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ClipboardModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, ],
   bootstrap: [AppComponent]

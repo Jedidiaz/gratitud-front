@@ -21,7 +21,7 @@ export class CreadoresComponent implements OnInit {
         pro: 'HACER PRO',
       })
     }
-
+    this.getCreators()
   }
 
   getCreators(){

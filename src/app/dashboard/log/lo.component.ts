@@ -32,16 +32,17 @@ export class LoComponent implements OnInit {
   login(){
     if (this.formLogin.valid){
       const formDataAuth = new FormData()
-      formDataAuth.append('email', this.formLogin.value.email)
+      formDataAuth.append('email', this.formLogin.value.email.toLowerCase())
       formDataAuth.append('password', this.formLogin.value.password)
       this.userApi.login(formDataAuth).subscribe({
         next: (re) => {
           localStorage.setItem('token', re.token!)
-          if (re.isAdmin)this.router.navigate(['/admin'])
-          else this.router.navigate([''])
+          if (re.isAdmin) window.location.href="/admin"
+          else  window.location.href="/perfil";
         }, error: (err) => {
-          if(err.status === 500)this.messageError = 'Este usuario no esta registrado'
-          else if (err.status === 400)this.messageError = 'Contraseña Incorrecta'
+          if(err.status === 500)this.messageError = '*Este usuario no esta registrado*'
+          else if (err.status === 400)this.messageError = '*Contraseña Incorrecta*'
+          else if (err.status === 501)this.messageError = '*Cuenta no activa, Revise su correo*'
           console.log(err)
           this.formLogin.reset()
         }

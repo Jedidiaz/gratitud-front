@@ -6,8 +6,10 @@
   </nav>
   <div class="content-form">
     <div class="creator" *ngIf="!giftView && !payView">
-      <img src="../../../assets/danielacorrea.png" />
-      <h3>Daniela Correa</h3>
+      <img
+        [src]="infoCreator.imgpro.filePath || '../../../assets/default.png'"
+      />
+      <h3>{{ infoCreator.name }}</h3>
     </div>
     <div class="text-box" *ngIf="!giftView && !payView">
       <div class="triangle"></div>
@@ -52,11 +54,7 @@
         />
       </div>
       <div class="buttons">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="preName()"
-        >
+        <button type="button" class="btn btn-primary" (click)="preName()">
           <i class="bi bi-chevron-left"></i> Anterior
         </button>
         <button
@@ -72,21 +70,25 @@
     <!-- formulario 3 -->
     <form [formGroup]="formDescription" *ngIf="messageView">
       <div class="mb-5">
-        <input
+        <textarea
+          id="description"
+          class="form-control"
+          rows="3"
+          placeholder="Tu mensaje"
+          formControlName="description"
+          required
+        ></textarea>
+        <!-- <input
           type="text"
           class="form-control"
           id="description"
           placeholder="Tu mensaje"
           formControlName="description"
           required
-        />
+        /> -->
       </div>
       <div class="buttons">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="preTitle()"
-        >
+        <button type="button" class="btn btn-primary" (click)="preTitle()">
           <i class="bi bi-chevron-left"></i> Anterior
         </button>
         <button
@@ -149,6 +151,7 @@
             el <span>Aviso de Privacidad.</span>
           </label>
         </div>
+        <span class="mt-3" style="color: red;" *ngIf="!formEmail.value.terminos">*Acepte los terminos*</span>
       </div>
       <div class="button-continue">
         <button
@@ -171,7 +174,7 @@
     <div class="gift" *ngIf="giftView">
       <div class="description">
         <h3>¿Te gustaría enviarle un regalo en efectivo a Daniela Correa?</h3>
-        <br/>
+        <br />
         <p>
           Imagina lo feliz que será, al recibir un detalle de cariño y gratitud
           como este. Seguramente le impulsará a seguir creando más contenido
@@ -188,9 +191,7 @@
               id="check5usd"
               checked
             />
-            <label class="form-check-label" for="check5usd">
-              $5.00
-            </label>
+            <label class="form-check-label" for="check5usd"> $5.00 </label>
           </div>
           <div class="form-check">
             <input
@@ -199,9 +200,7 @@
               name="donations"
               id="check10usd"
             />
-            <label class="form-check-label" for="check10usd">
-              $10.00
-            </label>
+            <label class="form-check-label" for="check10usd"> $10.00 </label>
           </div>
           <div class="form-check">
             <input
@@ -210,9 +209,7 @@
               name="donations"
               id="check20usd"
             />
-            <label class="form-check-label" for="check20usd">
-              $20.00
-            </label>
+            <label class="form-check-label" for="check20usd"> $20.00 </label>
           </div>
         </div>
         <div class="check0">
@@ -223,61 +220,28 @@
               name="donations"
               id="check0usd"
             />
-            <label class="form-check-label" for="check0usd">
-              $0.00
-            </label>
+            <label class="form-check-label" for="check0usd"> $0.00 </label>
           </div>
         </div>
         <p>(Moneda $ USD) Será direccionado a una zona segura de pagos</p>
       </div>
-      <button type="button" class="btn btn-primary" (click)="nextPay()">¡Sí, Quiero Colaborar!</button>
+      <button type="button" class="btn btn-primary" (click)="nextPay()">
+        ¡Sí, Quiero Colaborar!
+      </button>
       <div class="regalo">
-        <h3>En gratitud por tu detalle, podrás descargar
-          un invaluable pack de regalos exclusivos, de parte de
-          muchos de los colaboradores de este proyecto. </h3>
-          <img src="../../../assets/PACK SECRETO.png">
-          <p routerLink="/" >¡Click aquí, si no deseas colaborar,
-            ni tampoco acceder al Pack de Obsequios Exclusivos.</p>
+        <h3>
+          En gratitud por tu detalle, podrás descargar un invaluable pack de
+          regalos exclusivos, de parte de muchos de los colaboradores de este
+          proyecto.
+        </h3>
+        <img src="../../../assets/PACK SECRETO.png" />
+        <p routerLink="/">
+          ¡Click aquí, si no deseas colaborar, ni tampoco acceder al Pack de
+          Obsequios Exclusivos.
+        </p>
       </div>
     </div>
     <!-- formulario 8 -->
-    <div class="payMetodoh" *ngIf="payView">
-      <div>
-        <h1>Método de pago</h1>
-        <div class="metoh">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="payM"
-              id="creditCard"
-            />
-            <label class="form-check-label" for="creditCard">
-              <img src="../../../assets/tarjeta.png"> Tarjeta de crédito o débito
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="payM"
-              id="check10usd"
-            />
-            <label class="form-check-label" for="check10usd">
-              <img src="../../../assets/Grupo 199.png">
-            </label>
-          </div>
-        </div>
-        <div class="monto">
-          <p>Contribución:</p>
-          <span>US$ 10.00</span>
-        </div>
-        <div class="buttons-pay">
-          <button type="button" class="btn btn-secondary">CONTINUAR</button>
-          <p>Al continuar, estás aceptando los <a routerLink="/terminos-y-condiciones">Términos y condiciones</a> de
-            gratitud.link PRO y confirmas que leíste nuestra <a routerLink="/aviso-privacidad">Política de privacidad</a></p>
-        </div>
-      </div>
-    </div>
+    <app-pay-method *ngIf="payView"></app-pay-method>
   </div>
 </div>

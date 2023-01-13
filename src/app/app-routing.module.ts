@@ -1,3 +1,5 @@
+import { PayMethodComponent } from './pay/pay-method/pay-method.component';
+import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
 import { MainAdminComponent } from './dashboardAdmin/main-admin/main-admin.component';
 import { AjustesComponent } from './dashboardCreators/ajustes/ajustes.component';
 import { RegalosComponent } from './dashboardCreators/regalos/regalos.component';
@@ -30,16 +32,19 @@ const routes: Routes = [
   { path: 'terminos-y-condiciones', component: TerminosComponent },
   { path: 'aviso-privacidad', component: PrivacidadComponent },
   { path: 'comisiones', component: ComisionesComponent },
-  { path: 'front-creator', component: FrontCreatorComponent },
-  { path: 'form', component: FormComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'creators', component: CreatoresComponent },
+  { path: 'registro/:username', component: RegistroComponent },
+  { path: 'perfil', component: CreatoresComponent },
   { path: 'editar', component: EditBioComponent },
   { path: 'messages', component: MenssagesComponent },
   { path: 'messages/:id', component: MessageComponent },
   { path: 'regalos-recibidos', component: RegalosComponent },
   { path: 'ajustes', component: AjustesComponent },
   { path: 'admin', component: MainAdminComponent },
+  { path: 'valid', component: AuthEmailComponent },
+  { path: 'donacion', component: PayMethodComponent },
+  { path: ':username', component: FrontCreatorComponent },
+  { path: ':username/mensaje', component: FormComponent },
+
 ];
 
 

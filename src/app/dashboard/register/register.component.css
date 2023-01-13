@@ -98,6 +98,10 @@ h1 > span {
     font-weight: 600;
 }
 
+.iconCheck{
+  display: none;
+}
+
 .test .form-control-lg{
     padding-left: 170px;
     height: 70px;
@@ -128,5 +132,10 @@ h1 > span {
 
     .test label{
         height: 100px;
+    }
+
+    .iconCheck{
+      display: flex;
+      margin-left: 550px !important;
     }
 }

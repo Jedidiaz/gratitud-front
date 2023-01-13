@@ -2,47 +2,42 @@
   <div class="container">
     <section>
       <div class="creator">
-        <img src="../../../assets/danielacorrea.png" >
-        <h1>Daniela Correa</h1>
-        <span>Facilitadora de Conciencia</span>
+        <img [src]="infoCreator.imgpro.filePath || '../../../assets/default.png'" >
+        <h1>{{infoCreator.name || 'Daniela Correa'}}</h1>
+        <span>{{ infoCreator.titulo || '*Titulo*'}}</span>
       </div>
         <div class="description">
           <h3>¿Cuánta gratitud puedo elegir ser por todo y por todos?</h3>
-          <p>Hola, bienvenido a mi lugar favorito, porque aquí es donde
-            recibo todas sus muestras de cariño. A veces siento que no
-            merezco tanto amor de su parte, pero recuerdo que no solo
-            recibo de ustedes, también puedo mostrarles cuanto los amo y
-            agradecerles todo lo que hemos construido juntos.
-            Gracias Infinitas para ti.</p>
+          <p>{{infoCreator.description || '*Sin descripcion*'}}</p>
           <div class="buttons">
-            <button type="button" class="btn btn-primary"><img src="../../../assets/FACEBOOK ICON.png" ></button>
-            <button type="button" class="btn btn-primary"><img src="../../../assets/TIKTOK ICON.png" ></button>
-            <button type="button" class="btn btn-primary"><img src="../../../assets/INSTAGRAM ICON.png" ></button>
-            <button type="button" class="btn btn-primary"><img src="../../../assets/SHARE ICON.png" ></button>
+            <a [href]="infoCreator.facebook || 'https://www.facebook.com'"><img src="../../../assets/FACEBOOK ICON.png" ></a>
+            <a [href]="infoCreator.tiktok || 'https://www.tiktok.com/es'"><img src="../../../assets/TIKTOK ICON.png" ></a>
+            <a [href]="infoCreator.instagram|| 'https://www.instagram.com'"><img src="../../../assets/INSTAGRAM ICON.png" ></a>
+            <a ><img src="../../../assets/SHARE ICON.png" ></a>
           </div>
         </div>
         <div class="share">
           <h1>¡Compárteme unas palabras!</h1>
-          <button type="button" class="btn btn-primary">Sí, quiero compartir</button>
+          <button type="button" class="btn btn-primary" routerLink="mensaje">Sí, quiero compartir</button>
         </div>
     </section>
     <section>
       <h1>Mensajes de <span>Cariño y Gratitud Recibidos</span></h1>
       <img src="../../../assets/creator.png" >
       <div class="content-cards">
-        <div class="card-creator" *ngFor="let card of cards">
-          <h5>Para: <span>{{card.name}}</span></h5>
-          <div><p>{{card.clase}}</p></div>
-          <img [src]="card.image">
-          <div><p>{{card.description}}</p></div>
-          <h5>{{card.nameFollow}}</h5>
+        <div class="card-creator" *ngFor="let message of MessagesCreator">
+          <h5>Para: <span>{{infoCreator.name}}</span></h5>
+          <div><p>{{message.title}}</p></div>
+          <img src="../../../assets/default.png">
+          <div><p>{{message.description}}</p></div>
+          <h5>{{message.name}}</h5>
 
           <ng-template #t let-fill="fill">
             <i class="bi-heart-fill">
               <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
             </i>
           </ng-template>
-          <ngb-rating [(rate)]="card.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+          <ngb-rating (rate)="3" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
         </div>
       </div>
       <h3>CARGAR MÁS</h3>

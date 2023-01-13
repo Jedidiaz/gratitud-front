@@ -5,14 +5,28 @@
     <span>$0.00</span>
   </div>
   <div class="img">
-    <img src="../../../assets/default.png">
+    <img [src]="ImageCreator || '../../../assets/default.png'" />
   </div>
   <div class="pro-icon" *ngIf="!pro">
-    <img src="../../../assets/PRO.png" >
+    <img src="../../../assets/PRO.png" />
     <h5>PRO</h5>
   </div>
   <div class="options">
-    <p id="copyy">gratitud.link/<span>danielacorrea</span> <i class="bi bi-clipboard"></i></p>
+    <div #container>
+      <p id="copyy">
+        gratitud.link/<span>{{infoCreator}}</span>
+        <button
+          ngxClipboard
+          [cbContent]="'http://localhost:4200/' + infoCreator"
+          [container]="container"
+          style="border: 0;
+          background-color: transparent;
+          "
+        >
+          <i class="bi bi-clipboard"></i>
+        </button>
+      </p>
+    </div>
     <ul>
       <li>
         <a routerLink="/editar">EDITAR BIO</a>
@@ -27,10 +41,12 @@
     <div class="box">
       <div class="contentbox">
         <h4>BENEFICIOS DE SER PRO</h4>
-        <p>Incrementa tu reputación con la posibilidad de publicar testimonios
-          de forma ilimitada, y también puedes recibir regalos en efectivo.
-          Descarga y postea en tus redes sociales las palabras de cariño de tus fans.
-          ¡Cancela cuando quieras!</p>
+        <p>
+          Incrementa tu reputación con la posibilidad de publicar testimonios de
+          forma ilimitada, y también puedes recibir regalos en efectivo.
+          Descarga y postea en tus redes sociales las palabras de cariño de tus
+          fans. ¡Cancela cuando quieras!
+        </p>
       </div>
       <div></div>
       <div></div>
@@ -43,7 +59,7 @@
         <a href="">REGLAS DE USO</a>
         <a href="">AVISO DE PRIVACIDAD</a>
         <a href="">AYUDA</a>
-        <a href="">CERRAR SESIÓN</a>
+        <a (click)="salir()">CERRAR SESIÓN</a>
       </li>
     </ul>
   </div>
