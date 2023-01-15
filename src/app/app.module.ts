@@ -44,6 +44,7 @@ import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
 import { PayMethodComponent } from './pay/pay-method/pay-method.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
+import { FilterPipe } from './shared/pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.compo
     AjustesAdminComponent,
     AuthEmailComponent,
     PayMethodComponent,
-    LoadGiftComponent
+    LoadGiftComponent,
+    FilterPipe
 
 
   ],

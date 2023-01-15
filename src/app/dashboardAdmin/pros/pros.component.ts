@@ -13,6 +13,8 @@ export class ProsComponent implements OnInit {
   creatorsPro: CreatorsAdminModel[] = []
   historial: boolean = false
   email = ''
+
+  filterSearch = ''
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {

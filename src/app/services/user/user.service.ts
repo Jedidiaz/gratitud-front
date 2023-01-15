@@ -1,4 +1,4 @@
-import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin } from './../../models/users.interface';
+import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin, ResponseGetAdminTemp } from './../../models/users.interface';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
@@ -122,6 +122,10 @@ export class UserService {
 
   getCreatorsProHistory(email: string):Observable<ResponseGetAdmin>{
     return this.http.get<any>(`${this.urlAdmin}oneUT/${email}`, {headers: this.headers})
+  }
+
+  getUsers():Observable<ResponseGetAdminTemp>{
+    return this.http.get<ResponseGetAdminTemp>(`${this.urlAdmin}seem`, {headers: this.headers})
   }
 
   deleteUser(email:string):Observable<ResponseGetAdmin>{

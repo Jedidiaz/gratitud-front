@@ -13,6 +13,8 @@ export class CreadoresComponent implements OnInit {
   tablaCreadores: Array<any> = [];
 
   dataSource: any
+
+  filterSearch = ''
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
@@ -37,7 +39,6 @@ export class CreadoresComponent implements OnInit {
   getCreators() {
     this.userService.getcreators().subscribe({
       next: (res) => {
-        console.log(res)
         this.creators = res.data;
         this.creators.map((item, index) => {
           item.id = index + 1;

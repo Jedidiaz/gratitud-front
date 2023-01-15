@@ -105,3 +105,20 @@ export interface ResponseGetAdmin{
   data1?: withdrawAdminModel[]
 }
 
+export interface ResponseGetAdminTemp {
+  message: temp[]
+  response: string
+}
+
+export interface temp {
+  _id: string
+  emailUser: string
+  name: string
+  title: string
+  description: string
+  email: string
+  __v: number
+  img: imageProModel
+  id?: number
+}
+

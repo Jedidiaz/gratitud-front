@@ -1,23 +1,40 @@
 <div class="requests" *ngIf="!historial">
   <div>
-    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png"> CREADORES PRO</button>
+    <button type="button" class="btn btn-primary">
+      <img src="../../../assets/arrow1.png" /> CREADORES PRO
+    </button>
     <span>
       <label for="search"><i class="bi bi-search-heart"></i></label>
-      <input type="text" id="search" class="form-control" placeholder="Buscar por nombre o apellido">
+      <input
+        type="text"
+        id="search"
+        class="form-control"
+        placeholder="Buscar por nombre o apellido"
+        [(ngModel)]="filterSearch"
+      />
     </span>
   </div>
-  <br/>
+  <br />
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of creatorsPro">
-        <th>{{column.id}}</th>
-        <th>{{column.name}}</th>
-        <th>{{column.email}}</th>
-        <th style="color: #F36A6A;">${{column.money}}</th>
-        <th><i class="bi bi-chevron-right" (click)="Historial(column.email)" style="cursor: pointer;" ></i></th>
+      <tr *ngFor="let column of creatorsPro | filter: filterSearch">
+        <th>{{ column.id }}</th>
+        <th>{{ column.name }}</th>
+        <th>{{ column.email }}</th>
+        <th style="color: #f36a6a">${{ column.money }}</th>
+        <th>
+          <i
+            class="bi bi-chevron-right"
+            (click)="Historial(column.email)"
+            style="cursor: pointer"
+          ></i>
+        </th>
       </tr>
     </tbody>
   </table>
 </div>
-<app-historial-retiros (messageEvent)="ReciveEvebt($event)" [email]="email"  *ngIf="historial"></app-historial-retiros>
-
+<app-historial-retiros
+  (messageEvent)="ReciveEvebt($event)"
+  [email]="email"
+  *ngIf="historial"
+></app-historial-retiros>

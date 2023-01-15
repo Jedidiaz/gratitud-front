@@ -15,6 +15,9 @@ export class HistorialRetirosComponent implements OnInit {
   back: boolean = false
 
   pro: withdrawAdminModel[] = []
+  name = ''
+  statusPay: boolean = false
+
   constructor(private UserService: UserService) { }
 
   ngOnInit(): void {
@@ -40,9 +43,14 @@ export class HistorialRetirosComponent implements OnInit {
     this.UserService.getProByEmail(this.email)
       .subscribe({
         next: (res)=> {
+          console.log(res)
+          this.name = res.data1![0].name
           this.pro = res.data1!
           this.pro.map((item, index) => {
           item.id = index + 1;
+          if (item.statusTransaction === "Complete")this.statusPay = true
+          else this.statusPay = false
+          item.createdAt = item.createdAt.substring(0, 10);
         });
         this.pro = this.pro.reverse();
         }, error: (err)=> {

@@ -1,6 +1,6 @@
 <div class="requests">
   <div>
-    <button type="button" class="btn btn-primary" (click)="sendBoolean()"><img src="../../../assets/arrow1.png"> DANIELA CORREA</button>
+    <button type="button" class="btn btn-primary" (click)="sendBoolean()"><img src="../../../assets/arrow1.png"> {{name}}</button>
   </div>
   <br/>
   <table class="table">
@@ -11,7 +11,10 @@
         <th>{{column.emailUser}}</th>
         <th>INGRESOS</th>
         <th style="color: #F36A6A;">{{column.monto | currency}}</th>
-        <th style="color: #F36A6A;">{{column.monto}}</th>
+        <th style="color: #F36A6A; cursor: pointer;" *ngIf="!statusPay">Pagar</th>
+        <th style="color: #000;" *ngIf="statusPay">{{column.createdAt}}</th>
+        <th style="color: #F36A6A;" *ngIf="!statusPay"></th>
+        <th style="text-align: s;" *ngIf="statusPay"><i class="bi bi-check2" style="color: green; font-size: 25px;"></i></th>
       </tr>
     </tbody>
   </table>

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  infoPanel = {creators: 0, pros: 0}
+  infoPanel = {creators: 0, pros: 0, users: 0}
   request: withdrawAdminModel[] = []
 
   tablaSolicitud: Array<any> = []
@@ -27,13 +27,15 @@ export class InicioComponent implements OnInit {
     }
     this.getCreators()
     this.requestWithdraw()
+    this.getUsers()
   }
 
   getCreators() {
     this.userService.getcreators().subscribe({
       next: (res) => {
         this.infoPanel = {creators: res.data.length,
-          pros: res.data.filter(el => el.isPro == true).length
+          pros: res.data.filter(el => el.isPro == true).length,
+          users: 0
         }
       },
       error: (err) => {
@@ -50,7 +52,7 @@ export class InicioComponent implements OnInit {
           this.request.map((item, index) => {
           item.id = index + 1;
           item.createdAt = item.createdAt.substring(0, 10);
-        });
+          });
         this.request = this.request.reverse();
         }, error: (err)=> {
           console.log(err)
@@ -58,4 +60,16 @@ export class InicioComponent implements OnInit {
       })
   }
 
+  //users
+
+  getUsers(){
+    this.userService.getUsers()
+      .subscribe({
+        next: (res)=> {
+          this.infoPanel.users = res.message.length
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
+  }
 }

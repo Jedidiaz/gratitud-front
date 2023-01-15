@@ -1,21 +1,28 @@
 <div class="requests">
   <div>
-    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png"> CREADORES</button>
+    <button type="button" class="btn btn-primary">
+      <img src="../../../assets/arrow1.png" /> CREADORES
+    </button>
     <span>
       <label for="search"><i class="bi bi-search-heart"></i></label>
-      <input type="text" id="search" class="form-control" placeholder="Buscar por nombre o apellido">
+      <input
+        type="text"
+        id="search"
+        class="form-control"
+        placeholder="Buscar por nombre o apellido"
+        [(ngModel)]="filterSearch"
+      />
     </span>
   </div>
-  <br/>
+  <br />
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of tablaUsuarios">
-        <th>{{column.id}}</th>
-        <th>{{column.name}}</th>
-        <th>{{column.email}}</th>
-        <th style="color: #F36A6A;"><i class="bi bi-trash-fill"></i></th>
+      <tr *ngFor="let column of users | filter: filterSearch">
+        <th>{{ column.id }}</th>
+        <th>{{ column.name }}</th>
+        <th>{{ column.email }}</th>
+        <th style="color: #f36a6a"><i class="bi bi-trash-fill"></i></th>
       </tr>
     </tbody>
   </table>
 </div>
-

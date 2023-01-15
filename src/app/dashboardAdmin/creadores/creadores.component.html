@@ -1,21 +1,31 @@
 <div class="requests">
   <div>
-    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png"> CREADORES</button>
+    <button type="button" class="btn btn-primary">
+      <img src="../../../assets/arrow1.png" /> CREADORES
+    </button>
     <span>
       <label for="search"><i class="bi bi-search-heart"></i></label>
-      <input type="text" id="search" class="form-control" placeholder="Buscar por nombre o apellido">
+      <input
+        type="text"
+        id="search"
+        class="form-control"
+        placeholder="Buscar por nombre o apellido"
+        [(ngModel)]="filterSearch"
+      />
     </span>
   </div>
-  <br/>
+  <br />
   <table class="table">
     <tbody>
-      <tr *ngFor="let item of creators">
-        <th>{{item.id}}</th>
-        <th>{{item.name}}</th>
-        <th>{{item.email}}</th>
-        <th>{{item.createdAt}}</th>
-        <th *ngIf="item.isPro" style="color: #F36A6A;">PRO</th>
-        <th *ngIf="!item.isPro" style="color: #F36A6A; cursor: pointer;">HACER PRO</th>
+      <tr *ngFor="let item of creators | filter: filterSearch">
+        <th>{{ item.id }}</th>
+        <th>{{ item.name }}</th>
+        <th>{{ item.email }}</th>
+        <th>{{ item.createdAt }}</th>
+        <th *ngIf="item.isPro" style="color: #f36a6a">PRO</th>
+        <th *ngIf="!item.isPro" style="color: #f36a6a; cursor: pointer">
+          HACER PRO
+        </th>
       </tr>
     </tbody>
   </table>
