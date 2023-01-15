@@ -12,6 +12,7 @@ export class ProsComponent implements OnInit {
   tablaCreadoresPro: Array<any> = []
   creatorsPro: CreatorsAdminModel[] = []
   historial: boolean = false
+  email = ''
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -28,10 +29,17 @@ export class ProsComponent implements OnInit {
     this.getCreatorsPro()
   }
 
-  Historial(){
+  Historial(email:any){
     this.historial = true
+    this.email = email
   }
 
+  ReciveEvebt($event: any){
+    this.historial = $event
+    console.log(this.historial)
+  }
+
+  //get pros
   getCreatorsPro(){
     this.userService.getcreatorsPro()
       .subscribe({

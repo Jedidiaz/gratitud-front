@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { withdrawAdminModel } from './../../models/users.interface';
+import { UserService } from './../../services/user/user.service';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-historial-retiros',
@@ -7,10 +9,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HistorialRetirosComponent implements OnInit {
 
-  @Output() historial = new EventEmitter<boolean>()
+  @Output() messageEvent  = new EventEmitter<boolean>()
+  @Input() email!: string
   tablaHistorial: Array<any> = []
-  back: boolean = true
-  constructor() { }
+  back: boolean = false
+
+  pro: withdrawAdminModel[] = []
+  constructor(private UserService: UserService) { }
 
   ngOnInit(): void {
     for (let i = 10; i > 0; i--){
@@ -23,10 +28,27 @@ export class HistorialRetirosComponent implements OnInit {
         pago: 'Pagar'
       })
     }
+    this.getPro()
   }
 
-  Historial(){
-    this.historial.emit(this.back = false)
+  sendBoolean(){
+    this.messageEvent.emit(this.back = false)
+  }
+
+  //get pro
+  getPro(){
+    this.UserService.getProByEmail(this.email)
+      .subscribe({
+        next: (res)=> {
+          this.pro = res.data1!
+          this.pro.map((item, index) => {
+          item.id = index + 1;
+        });
+        this.pro = this.pro.reverse();
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
 }

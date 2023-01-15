@@ -1,7 +1,7 @@
 <div class="contenedor">
   <div class="content-login" *ngIf="!Verify">
     <div class="form">
-      <form [formGroup]="formAjustes">
+      <form [formGroup]="formAjustes" (ngSubmit)="updatePrice()">
         <button type="button" class="btn btn-secondary"><img src="../../../assets/arrow1.png" > AJUSTES</button>
         <br/>
         <h3>PRECIO DE SUSCRIPCIÓN ANUAL PRO EN USD$</h3>
@@ -24,6 +24,7 @@
             formControlName="mes"
           />
         </div>
+        <span [ngStyle]="{'color': messageA.color}">{{messageA.message}}</span>
         <div class="btn-login">
           <button
             class="btn btn-primary"
@@ -35,7 +36,7 @@
         </div>
       </form>
       <!-- password change -->
-      <form [formGroup]="formPassword">
+      <form [formGroup]="formPassword" (ngSubmit)="updatePassword()">
         <h3>NUEVA CONTRASEÑA</h3>
         <div class="test">
           <input
@@ -52,7 +53,7 @@
             type="password"
             placeholder="Nueva Contraseña"
             id="passwordNew"
-            formControlName="password"
+            formControlName="passwordN"
           />
         </div>
         <div class="test">
@@ -64,6 +65,7 @@
             formControlName="repeatPassword"
           />
         </div>
+        <span [ngStyle]="{'color': message.color}">{{message.message}}</span>
         <div class="btn-login">
           <button
             class="btn btn-primary"

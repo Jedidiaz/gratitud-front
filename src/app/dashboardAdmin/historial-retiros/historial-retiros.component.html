@@ -1,17 +1,17 @@
-<div class="requests" *ngIf="back">
+<div class="requests">
   <div>
-    <button type="button" class="btn btn-primary"><img src="../../../assets/arrow1.png" (click)="Historial()" > DANIELA CORREA</button>
+    <button type="button" class="btn btn-primary" (click)="sendBoolean()"><img src="../../../assets/arrow1.png"> DANIELA CORREA</button>
   </div>
   <br/>
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of tablaHistorial">
+      <tr *ngFor="let column of pro">
         <th>{{column.id}}</th>
         <th>{{column.name}}</th>
-        <th>{{column.email}}</th>
-        <th>{{column.ingresos}}</th>
-        <th style="color: #F36A6A;">${{column.pro}}</th>
-        <th style="color: #F36A6A;">{{column.pro}}</th>
+        <th>{{column.emailUser}}</th>
+        <th>INGRESOS</th>
+        <th style="color: #F36A6A;">{{column.monto | currency}}</th>
+        <th style="color: #F36A6A;">{{column.monto}}</th>
       </tr>
     </tbody>
   </table>

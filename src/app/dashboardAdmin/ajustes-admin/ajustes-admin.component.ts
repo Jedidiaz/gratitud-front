@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -12,21 +13,61 @@ export class AjustesAdminComponent implements OnInit {
   formPassword: FormGroup
 
   Verify = false
-  constructor( private formBuilder: FormBuilder) {
+  message = { message: '', color: 'black' }
+  messageA = { message: '', color: 'black' }
+  constructor( private formBuilder: FormBuilder, private UserService: UserService) {
     this.formAjustes = formBuilder.group({
-      año: [99.00, Validators.required],
-      mes: [10.00, Validators.required],
+      año: ['', Validators.required],
+      mes: ['', Validators.required],
     })
 
     this.formPassword = formBuilder.group({
-      passwordA: ['', Validators.required],
-      password: ['', Validators.required],
-      repeatPassword: ['', Validators.required],
+      passwordA: ['', [Validators.required, Validators.minLength(5)]],
+      passwordN: ['', [Validators.required, Validators.minLength(5)]],
+      repeatPassword: ['', [Validators.required, Validators.minLength(5)]],
     })
   }
 
   ngOnInit(): void {
   }
 
+  //update
+  updatePassword(){
+    const form = new FormData()
+    form.append('passwordOld', this.formPassword.value.passwordA)
+    form.append('passwordNew1', this.formPassword.value.passwordN)
+    form.append('passwordNew2', this.formPassword.value.repeatPassword)
+    this.UserService.updatePasswordAdmin(form)
+      .subscribe({
+        next: (res)=>{
+          if(res.response === 'Success'){
+            this.message = {message: res.message!, color: 'green'}
+            this.formPassword.reset()
+          }
+          else this.message = {message: res.message!, color: 'red'}
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
+  }
+
+  //update price
+  updatePrice(){
+    const form = new FormData()
+    form.append('year', this.formAjustes.value.año)
+    form.append('month', this.formAjustes.value.mes)
+    this.UserService.updatePriceAdmin(form)
+      .subscribe({
+        next: (res)=>{
+          if(res.response === 'Success'){
+            this.messageA = {message: res.message!, color: 'green'}
+            this.formPassword.reset()
+          }
+          else this.messageA = {message: res.message!, color: 'red'}
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
+  }
 
 }

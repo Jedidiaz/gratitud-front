@@ -14,7 +14,8 @@
         <th>{{item.name}}</th>
         <th>{{item.email}}</th>
         <th>{{item.createdAt}}</th>
-        <th style="color: #F36A6A;">HACER PRO</th>
+        <th *ngIf="item.isPro" style="color: #F36A6A;">PRO</th>
+        <th *ngIf="!item.isPro" style="color: #F36A6A; cursor: pointer;">HACER PRO</th>
       </tr>
     </tbody>
   </table>

@@ -94,6 +94,7 @@ export interface withdrawAdminModel{
   __v: number
   createdAt: string
   statusTransaction: string
+  emailUser: string
   id?: number
 }
 

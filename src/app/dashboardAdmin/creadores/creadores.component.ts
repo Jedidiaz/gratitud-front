@@ -11,6 +11,8 @@ export class CreadoresComponent implements OnInit {
   creators: CreatorsAdminModel[] = [];
   number: Array<any> = [];
   tablaCreadores: Array<any> = [];
+
+  dataSource: any
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
@@ -26,6 +28,12 @@ export class CreadoresComponent implements OnInit {
     this.getCreators();
   }
 
+  filtrar(event: Event){
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase
+  }
+
+//get creators
   getCreators() {
     this.userService.getcreators().subscribe({
       next: (res) => {

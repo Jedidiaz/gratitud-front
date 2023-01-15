@@ -112,12 +112,12 @@ export class UserService {
     return this.http.get<any>(`${this.urlAdmin}seepro`, {headers: this.headers})
   }
 
-  getRequestWithdraw():Observable<ResponseGetAdmin>{
-    return this.http.get<any>(`${this.urlAdmin}seer`, {headers: this.headers})
+  getProByEmail(email: string):Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}oneUT/${email}`, {headers: this.headers})
   }
 
-  getCreatorsPro():Observable<ResponseGetAdmin>{
-    return this.http.get<any>(`${this.urlAdmin}seepro`, {headers: this.headers})
+  getRequestWithdraw():Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}seer`, {headers: this.headers})
   }
 
   getCreatorsProHistory(email: string):Observable<ResponseGetAdmin>{
@@ -126,5 +126,13 @@ export class UserService {
 
   deleteUser(email:string):Observable<ResponseGetAdmin>{
     return this.http.delete<any>(`${this.urlAdmin}deleteu/${email}`,  {headers: this.headers})
+  }
+  //ajustes admin
+  updatePasswordAdmin(form: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}passwordChange`, form, {headers: this.headers})
+  }
+
+  updatePriceAdmin(form: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}price`, form, {headers: this.headers})
   }
 }
