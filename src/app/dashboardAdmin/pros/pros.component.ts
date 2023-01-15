@@ -1,4 +1,6 @@
+import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
+import { CreatorsAdminModel } from 'src/app/models/users.interface';
 
 @Component({
   selector: 'app-pros',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProsComponent implements OnInit {
 
   tablaCreadoresPro: Array<any> = []
+  creatorsPro: CreatorsAdminModel[] = []
   historial: boolean = false
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     for (let i = 10; i > 0; i--){
@@ -21,10 +24,27 @@ export class ProsComponent implements OnInit {
         pro: 100.00,
       })
     }
+
+    this.getCreatorsPro()
   }
 
   Historial(){
     this.historial = true
+  }
+
+  getCreatorsPro(){
+    this.userService.getcreatorsPro()
+      .subscribe({
+        next: (res)=> {
+          this.creatorsPro = res.data;
+          this.creatorsPro.map((item, index) => {
+          item.id = index + 1;
+        });
+        this.creatorsPro = this.creatorsPro.reverse();
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
 }

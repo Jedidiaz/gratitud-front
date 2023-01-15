@@ -43,6 +43,7 @@ import { AjustesAdminComponent } from './dashboardAdmin/ajustes-admin/ajustes-ad
 import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
 import { PayMethodComponent } from './pay/pay-method/pay-method.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     HistorialRetirosComponent,
     AjustesAdminComponent,
     AuthEmailComponent,
-    PayMethodComponent
+    PayMethodComponent,
+    LoadGiftComponent
 
 
   ],

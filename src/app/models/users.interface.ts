@@ -1,7 +1,6 @@
 export interface ResponseI {
   name?: string;
   message?: string;
-  error?: Error;
   response: string;
   token?: string;
   ok?: boolean;
@@ -9,10 +8,6 @@ export interface ResponseI {
   statusText?: string;
   url?: string;
   isAdmin?: boolean;
-}
-
-export interface Error {
-  message: string;
 }
 
 export interface CreatorModel {
@@ -39,9 +34,11 @@ export interface CreatorModel {
 export interface ResponseInfoModel {
   message: MessagesModel[];
   user: CreatorModel;
+  error?: string
+  response: string
 }
 
-interface imageProModel {
+export interface imageProModel {
   fileName: string
   filePath: string
   fileSize: string
@@ -52,9 +49,58 @@ export interface MessagesModel {
   description: string;
   email: string;
   name: string;
-  nameUser: string;
+  emailUser: string;
   title: string;
+  img: imageProModel
   __v: number;
   _id: string;
   id?: number
 }
+
+export interface ResponseMessageModel {
+  data?: MessagesModel
+  response: string
+  user?: string
+  message?: string
+}
+
+export interface CreatorsAdminModel {
+  createdAt: string;
+  description: string;
+  email: string;
+  isActive: boolean;
+  isAdmin: boolean;
+  isPro: boolean;
+  money: number;
+  name: string;
+  password: string;
+  username: string;
+  profesion: string;
+  tiktok: string;
+  titulo: string;
+  facebook: string;
+  imgpro: imageProModel;
+  instagram: string;
+  __v: number;
+  _id: string;
+  id?: number
+}
+
+export interface withdrawAdminModel{
+  _id: string
+  name: string
+  email: string
+  monto: number
+  __v: number
+  createdAt: string
+  statusTransaction: string
+  id?: number
+}
+
+export interface ResponseGetAdmin{
+  response: string
+  message?: string;
+  data: CreatorsAdminModel[]
+  data1?: withdrawAdminModel[]
+}
+

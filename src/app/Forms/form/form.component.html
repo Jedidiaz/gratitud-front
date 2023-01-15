@@ -5,9 +5,10 @@
     </div>
   </nav>
   <div class="content-form">
-    <div class="creator" *ngIf="!giftView && !payView">
+    <div class="creator" *ngIf="!giftView && !payView" >
       <img
         [src]="infoCreator.imgpro.filePath || '../../../assets/default.png'"
+        style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;"
       />
       <h3>{{ infoCreator.name }}</h3>
     </div>
@@ -107,6 +108,7 @@
         <input
           type="file"
           id="upload"
+          accept="image/*"
           (change)="onFileSelected($event)"
           #fileUpload
         />
@@ -115,7 +117,10 @@
           class="btn btn-secondary"
           (click)="fileUpload.click()"
         >
-          <img src="../../../assets/subir.png" />
+          <img src="../../../assets/subir.png" *ngIf="!fileFill; else image2" />
+          <ng-template #image2>
+            <img src="../../../assets/subido.png" />
+          </ng-template>
         </button>
         <button class="btn btn-secondary" type="button">Tomar selfie</button>
       </div>
@@ -123,7 +128,7 @@
         <button type="button" class="btn btn-primary" (click)="preMessage()">
           <i class="bi bi-chevron-left"></i> Anterior
         </button>
-        <button type="button" class="btn btn-primary" (click)="nextEmail()">
+        <button type="button" class="btn btn-primary" [disabled]="!fileFill" (click)="nextEmail()">
           Siguiente <i class="bi bi-chevron-right"></i>
         </button>
       </div>

@@ -2,7 +2,7 @@
 <div class="statistics">
   <span>
     <h3>CREADORES</h3>
-    <h3>120</h3>
+    <h3>{{infoPanel.creators}}</h3>
   </span>
   <hr/>
   <span>
@@ -12,12 +12,12 @@
   <hr/>
   <span>
     <h3>PROS</h3>
-    <h3>120</h3>
+    <h3>{{infoPanel.pros}}</h3>
   </span>
   <hr/>
   <span>
     <h3>DONACIONES</h3>
-    <h3>120</h3>
+    <h3>{{0 | currency}}</h3>
   </span>
   <br/>
   <br/>
@@ -29,12 +29,12 @@
   <br/>
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of tablaSolicitud">
+      <tr *ngFor="let column of request">
         <th>{{column.id}}</th>
         <th>{{column.name}}</th>
         <th>{{column.email}}</th>
-        <th>{{column.date}}</th>
-        <th style="color: #F36A6A;">${{column.dispo}}</th>
+        <th>{{column.createdAt}}</th>
+        <th style="color: #F36A6A;">{{column.monto | currency}}</th>
       </tr>
     </tbody>
   </table>

@@ -13,6 +13,8 @@ export class CreatoresComponent implements OnInit {
 
   infoCreator!: string
   ImageCreator!: string
+  money: any
+  colorMoney = '#CBCBCB'
 
   pro: boolean = true
   constructor(private UserService: UserService, private router: Router) {
@@ -27,8 +29,11 @@ export class CreatoresComponent implements OnInit {
       next: (el)=>{
         this.infoCreator = el.user.username
         this.ImageCreator = el.user.imgpro.filePath
+        this.pro = el.user.isPro
+        this.money = el.user.money
+        if (this.pro)this.colorMoney = '#F36A6A'
       },error: (err)=> {
-        console.log(err)
+        window.location.href="/login"
       }
     })
   }

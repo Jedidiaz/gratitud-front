@@ -9,12 +9,12 @@
   <br/>
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of tablaCreadores">
-        <th>{{column.id}}</th>
-        <th>{{column.name}}</th>
-        <th>{{column.email}}</th>
-        <th>{{column.date}}</th>
-        <th style="color: #F36A6A;">{{column.pro}}</th>
+      <tr *ngFor="let item of creators">
+        <th>{{item.id}}</th>
+        <th>{{item.name}}</th>
+        <th>{{item.email}}</th>
+        <th>{{item.createdAt}}</th>
+        <th style="color: #F36A6A;">HACER PRO</th>
       </tr>
     </tbody>
   </table>

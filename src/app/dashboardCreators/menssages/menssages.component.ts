@@ -12,6 +12,8 @@ export class MenssagesComponent implements OnInit {
 
   messages: MessagesModel[] = []
   messageList: Array<any> = []
+
+  pro: boolean = false
   constructor( private router: Router, private UserService: UserService) {}
 
   ngOnInit(): void {
@@ -19,26 +21,19 @@ export class MenssagesComponent implements OnInit {
   }
 
   viewMessage(id:any){
-    this.router.navigate(['/messages/'+ id])
+    this.router.navigate(['perfil/messages/'+ id])
   }
 
 
   getCreator(){
     this.UserService.getInfo().subscribe({
       next: (res)=>{
-        res.message.map((el, index)=> {
-          this.messages.push({
-            description: el.description,
-            email: el.email,
-            name: el.name,
-            nameUser: el.nameUser,
-            title: el.title,
-            __v: el.__v,
-            _id: el._id,
-            id: index + 1
-          })
-        })
-        console.log(this.messages)
+        this.messages = res.message;
+        this.messages.map((item, index) => {
+          item.id = index + 1;
+        });
+        this.messages = this.messages.reverse();
+        this.pro = res.user.isPro
       },error: (err)=> {
         console.log(err)
       }

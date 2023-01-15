@@ -2,12 +2,12 @@
 <div class="container">
   <div class="regalos">
     <h3>REGALOS RECIBIDOS</h3>
-    <span>$0.00</span>
+    <span [style]="{'color': colorMoney}" >{{money | currency: 'USD'}}</span>
   </div>
   <div class="img">
     <img [src]="ImageCreator || '../../../assets/default.png'" />
   </div>
-  <div class="pro-icon" *ngIf="!pro">
+  <div class="pro-icon" *ngIf="pro">
     <img src="../../../assets/PRO.png" />
     <h5>PRO</h5>
   </div>
@@ -29,15 +29,15 @@
     </div>
     <ul>
       <li>
-        <a routerLink="/editar">EDITAR BIO</a>
-        <a routerLink="/messages">MENSAJES DE CARIÑO</a>
-        <a routerLink="/regalos-recibidos">REGALOS RECIBIDOS</a>
-        <a routerLink="/editar">CARGAR REGALO</a>
-        <a routerLink="/ajustes">AJUSTES</a>
+        <a routerLink="editar">EDITAR BIO</a>
+        <a routerLink="messages">MENSAJES DE CARIÑO</a>
+        <a routerLink="regalos-recibidos">REGALOS RECIBIDOS</a>
+        <a routerLink="cargar-regalos">CARGAR REGALO</a>
+        <a routerLink="ajustes">AJUSTES</a>
       </li>
     </ul>
   </div>
-  <div class="pro" *ngIf="pro">
+  <div class="pro" *ngIf="!pro">
     <div class="box">
       <div class="contentbox">
         <h4>BENEFICIOS DE SER PRO</h4>
@@ -57,7 +57,7 @@
     <ul>
       <li>
         <a href="">REGLAS DE USO</a>
-        <a href="">AVISO DE PRIVACIDAD</a>
+        <a href="aviso-privacidad">AVISO DE PRIVACIDAD</a>
         <a href="">AYUDA</a>
         <a (click)="salir()">CERRAR SESIÓN</a>
       </li>

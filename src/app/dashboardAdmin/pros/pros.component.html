@@ -9,12 +9,12 @@
   <br/>
   <table class="table">
     <tbody>
-      <tr *ngFor="let column of tablaCreadoresPro">
+      <tr *ngFor="let column of creatorsPro">
         <th>{{column.id}}</th>
         <th>{{column.name}}</th>
         <th>{{column.email}}</th>
-        <th style="color: #F36A6A;">${{column.pro}}</th>
-        <th><i class="bi bi-chevron-right" (click)="Historial()"></i></th>
+        <th style="color: #F36A6A;">${{column.money}}</th>
+        <th><i class="bi bi-chevron-right" (click)="Historial()" style="cursor: pointer;" ></i></th>
       </tr>
     </tbody>
   </table>

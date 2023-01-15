@@ -1,4 +1,4 @@
-import { ResponseI, ResponseInfoModel } from './../../models/users.interface';
+import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin } from './../../models/users.interface';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
@@ -45,16 +45,13 @@ export class UserService {
   }
 
   //mensages
-  postMessages(username: string, body: FormData):Observable<ResponseI>{
-    const headers = new HttpHeaders()
-      .append('Content-Type', 'application/x-www-form-urlencoded')
+  postMessages(body: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(`${this.urlUser}message`, body)
+  }
 
-    const params = new HttpParams()
-      .append('username', username)
-
-    return this.http.post<ResponseI>(`${this.urlUser}message`, body, {
-      headers: headers,
-      params: params
+  getMessagesById(id: string):Observable<ResponseMessageModel>{
+    return this.http.get<ResponseMessageModel>(`${this.url}message/${id}`, {
+      headers: this.headers
     })
   }
 
@@ -72,8 +69,25 @@ export class UserService {
   }
 
   getInfo():Observable<ResponseInfoModel>{
-    console.log(this.getToken())
     return this.http.get<ResponseInfoModel>(`${this.urlUser}profile/data`, {headers: this.headers})
+  }
+
+  updateImg(image: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.url}editp`, image,{headers: this.headers})
+  }
+
+  postWithdraw(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(`${this.urlUser}withdraw`, form, {headers: this.headers})
+  }
+
+  //uploadPack
+  uploadPack(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(`${this.urlUser}upload/rewards`, form, {headers: this.headers})
+  }
+
+  //update password
+  updatePassword(form: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.url}passwordChange`, form, {headers: this.headers})
   }
 
   //token
@@ -90,12 +104,27 @@ export class UserService {
   }
 
   //admin
-  getcreators():Observable<ResponseI>{
-    return this.http.get<ResponseI>(`${this.urlAdmin}seeu`, {headers: this.headers})
+  getcreators():Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}seeu`, {headers: this.headers})
   }
 
-  deleteUser(email:string):Observable<any>{
+  getcreatorsPro():Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}seepro`, {headers: this.headers})
+  }
+
+  getRequestWithdraw():Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}seer`, {headers: this.headers})
+  }
+
+  getCreatorsPro():Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}seepro`, {headers: this.headers})
+  }
+
+  getCreatorsProHistory(email: string):Observable<ResponseGetAdmin>{
+    return this.http.get<any>(`${this.urlAdmin}oneUT/${email}`, {headers: this.headers})
+  }
+
+  deleteUser(email:string):Observable<ResponseGetAdmin>{
     return this.http.delete<any>(`${this.urlAdmin}deleteu/${email}`,  {headers: this.headers})
   }
-
 }

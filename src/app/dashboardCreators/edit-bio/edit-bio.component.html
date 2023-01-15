@@ -1,13 +1,32 @@
 <app-bar></app-bar>
 <div class="contenedor">
   <div class="content-login">
-    <h1>
-      Editar Bio
-    </h1>
-    <br/>
+    <h1>Editar Bio</h1>
+    <br />
     <div class="edit-img">
-      <img [src]="image || '../../../assets/default.png'">
-      <i class="bi bi-pencil-fill"></i>
+      <img [src]="image || '../../../assets/default.png'" />
+      <input
+        #photo
+        type="file"
+        accept="image/png, image/jpeg"
+        style="display: none"
+        (change)="onFileSelected($event)"
+      />
+      <i
+        style="cursor: pointer"
+        class="bi bi-pencil-fill"
+        (click)="photo.click()"
+      ></i>
+    </div>
+    <div class="mt-3" *ngIf="!disable">
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="border: 0; border-radius: 30px; background-color: #f36a6a"
+        (click)="updateImageProfile()"
+      >
+        Cambiar imagen
+      </button>
     </div>
     <div class="form">
       <form [formGroup]="formEdit" (ngSubmit)="updateInfo()">
@@ -49,8 +68,15 @@
           />
         </div>
         <div class="test">
-          <textarea class="form-control" id="description" formControlName="description" placeholder="describe brevemente quien eres y que haces" rows="3"></textarea>
+          <textarea
+            class="form-control"
+            id="description"
+            formControlName="description"
+            placeholder="describe brevemente quien eres y que haces"
+            rows="3"
+          ></textarea>
         </div>
+        <span [style]="{'color': messageEdit.color, 'font-size': '20px'}">{{ messageEdit.message }}</span>
         <div class="btn-login">
           <button
             class="btn btn-primary"
@@ -60,15 +86,12 @@
             GUARDAR
           </button>
         </div>
-        <p style="color: red;">{{messageError}}</p>
       </form>
     </div>
   </div>
   <div class="content-login">
-    <h1>
-      AGREGAR REDES SOCIALES
-    </h1>
-    <br/>
+    <h1>AGREGAR REDES SOCIALES</h1>
+    <br />
     <div class="form">
       <form [formGroup]="formRedes" (ngSubmit)="updateRedes()">
         <div class="test">
@@ -98,19 +121,12 @@
             formControlName="tiktok"
           />
         </div>
+        <span [style]="{'color': messageRed.color, 'font-size': '20px'}">{{ messageRed.message }}</span>
         <div class="btn-login">
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            GUARDAR
-          </button>
+          <button class="btn btn-primary" type="submit">GUARDAR</button>
         </div>
       </form>
-      <div class="redes">
-
-      </div>
+      <div class="redes"></div>
     </div>
   </div>
 </div>
-

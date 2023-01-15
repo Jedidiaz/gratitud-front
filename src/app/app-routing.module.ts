@@ -1,3 +1,4 @@
+import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 import { PayMethodComponent } from './pay/pay-method/pay-method.component';
 import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
 import { MainAdminComponent } from './dashboardAdmin/main-admin/main-admin.component';
@@ -34,11 +35,12 @@ const routes: Routes = [
   { path: 'comisiones', component: ComisionesComponent },
   { path: 'registro/:username', component: RegistroComponent },
   { path: 'perfil', component: CreatoresComponent },
-  { path: 'editar', component: EditBioComponent },
-  { path: 'messages', component: MenssagesComponent },
-  { path: 'messages/:id', component: MessageComponent },
-  { path: 'regalos-recibidos', component: RegalosComponent },
-  { path: 'ajustes', component: AjustesComponent },
+  { path: 'perfil/cargar-regalos', component: LoadGiftComponent },
+  { path: 'perfil/editar', component: EditBioComponent },
+  { path: 'perfil/messages', component: MenssagesComponent },
+  { path: 'perfil/messages/:id', component: MessageComponent },
+  { path: 'perfil/regalos-recibidos', component: RegalosComponent },
+  { path: 'perfil/ajustes', component: AjustesComponent },
   { path: 'admin', component: MainAdminComponent },
   { path: 'valid', component: AuthEmailComponent },
   { path: 'donacion', component: PayMethodComponent },

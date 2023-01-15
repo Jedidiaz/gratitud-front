@@ -36,6 +36,7 @@ h1, h2, h3, h5, span{
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+  align-items: center;
 }
 
 .creator h1{
@@ -43,6 +44,13 @@ h1, h2, h3, h5, span{
 }
 .creator span{
   font-size: 14px;
+}
+
+.imgProfile{
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* description */

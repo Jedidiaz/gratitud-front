@@ -3,7 +3,7 @@
 <div class="contenedor">
   <div class="content-login">
     <div class="form">
-      <form [formGroup]="formAjuste">
+      <form [formGroup]="formAjuste" (ngSubmit)="updatePassword()">
         <h1>
           AJUSTES
         </h1>
@@ -36,6 +36,7 @@
             formControlName="repeatPassword"
           />
         </div>
+        <span [ngStyle]="{'color': message.color}">{{message.message}}</span>
         <div class="btn-login">
           <button
             class="btn btn-primary"
@@ -48,8 +49,10 @@
         </div>
       </form>
       <div class="footer">
-        <p>RECUPERAR CONTRASEÑA</p>
-        <p>Enviar contraseña a mi correo</p>
+        <span style="cursor: pointer;">
+          <p>RECUPERAR CONTRASEÑA</p>
+          <p>Enviar contraseña a mi correo</p>
+        </span>
         <br/>
         <button class="btn btn-primary" type="button">ENVIAR</button>
         <br/>

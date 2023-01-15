@@ -1,3 +1,5 @@
+import { withdrawAdminModel } from './../../models/users.interface';
+import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
+  infoPanel = {creators: 0, pros: 0}
+  request: withdrawAdminModel[] = []
+
   tablaSolicitud: Array<any> = []
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     for (let i = 10; i > 0; i--){
@@ -20,6 +25,37 @@ export class InicioComponent implements OnInit {
         dispo: 100.00,
       })
     }
+    this.getCreators()
+    this.requestWithdraw()
+  }
+
+  getCreators() {
+    this.userService.getcreators().subscribe({
+      next: (res) => {
+        this.infoPanel = {creators: res.data.length,
+          pros: res.data.filter(el => el.isPro == true).length
+        }
+      },
+      error: (err) => {
+        console.log(err)
+      },
+    });
+  }
+
+  requestWithdraw(){
+    this.userService.getRequestWithdraw()
+      .subscribe({
+        next: (res)=> {
+          this.request = res.data1!;
+          this.request.map((item, index) => {
+          item.id = index + 1;
+          item.createdAt = item.createdAt.substring(0, 10);
+        });
+        this.request = this.request.reverse();
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
 }

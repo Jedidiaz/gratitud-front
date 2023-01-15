@@ -1,3 +1,6 @@
+import { ResponseMessageModel, MessagesModel } from './../../models/users.interface';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
+  user: any
+  name: any
+  description: any
+  title: any
+
   card: Array<any> = []
-  constructor() { }
+  constructor(private UserService: UserService, private _router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = this._router.snapshot.paramMap.get('id')
+    console.log(id)
     this.card.push({
       name: 'Daniela Correa',
       clase: 'Una clase super maravillosa!',
@@ -21,6 +31,21 @@ export class MessageComponent implements OnInit {
       select: false,
       like: false
     })
+    this.getMessage(id)
+  }
+
+  getMessage(id:any){
+    this.UserService.getMessagesById(id)
+      .subscribe({
+        next: (res)=> {
+          this.user = res.user
+          this.name = res.data?.name
+          this.description = res.data?.description
+          this.title = res.data?.title
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
 }

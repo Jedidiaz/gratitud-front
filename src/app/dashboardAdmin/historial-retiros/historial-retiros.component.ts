@@ -9,7 +9,7 @@ export class HistorialRetirosComponent implements OnInit {
 
   @Output() historial = new EventEmitter<boolean>()
   tablaHistorial: Array<any> = []
-  back: boolean = false
+  back: boolean = true
   constructor() { }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class HistorialRetirosComponent implements OnInit {
   }
 
   Historial(){
-    this.historial.emit(this.back)
+    this.historial.emit(this.back = false)
   }
 
 }

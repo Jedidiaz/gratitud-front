@@ -1,0 +1,64 @@
+<app-bar></app-bar>
+<div class="container">
+  <h1>Sé el regalo de un gran regalo.</h1>
+  <img src="../../../assets/PACK SECRETO.png" />
+  <h4>
+    Sube un audio o un PDF de tu autoría, el cual estará disponible para su
+    descarga de forma gratuita para todos los donadores, los tuyos y los de
+    otros creadores de contenido como tu.
+  </h4>
+  <br />
+  <h4 style="font-weight: 700;">
+    ¡Imagina el alcance que puedes tener si te apresuras a subir tu material,
+    cada vez hay más y más personas que te están buscando y no lo saben,
+    aprovecha esta posibilidad!
+  </h4>
+  <br />
+  <form class="btnContent" [formGroup]="formGift" (ngSubmit)="uploadPack()">
+    <h3>Carga tu regalo</h3>
+    <div style="width: 100%;">
+      <button type="button" class="btn btn-primary" (click)="upload.click()" [disabled]="!pro">
+        <img src="../../../assets/subir.png" *ngIf="!fileFill; else subido" />
+        <ng-template #subido>
+          <img src="../../../assets/subido.png" />
+        </ng-template>
+        <span> Buscar en dispositivo</span>
+        <input type="file" #upload style="display: none" (change)="getImg($event)" />
+      </button>
+    </div>
+    <input
+      type="text"
+      placeholder="Titulo"
+      name="title"
+      class="form-control"
+      formControlName="title"
+      [readOnly]="!pro"
+    />
+    <input
+      type="text"
+      placeholder="Nombre"
+      name="nombre"
+      class="form-control"
+      formControlName="name"
+      [readOnly]="!pro"
+    />
+    <p>
+      Declaro que el presente material es de mi autoría, y lo comparto para su
+      descarga gratuita en: gratitud.link
+    </p>
+    <br/>
+    <span [ngStyle]="{'color': message.color, 'margin': '0'}">{{message.message}}</span>
+    <button
+      class="btn btn-secondary"
+      type="submit"
+      [disabled]="!formGift.valid"
+    >
+      SUBIR
+    </button>
+  </form>
+  <br />
+  <h2 style="color: #CBCBCB;">Esta opción solo está disponible para creadores PRO</h2>
+  <br />
+  <br />
+  <app-pro *ngIf="!pro"></app-pro>
+</div>
