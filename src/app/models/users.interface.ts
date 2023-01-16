@@ -96,6 +96,7 @@ export interface withdrawAdminModel{
   statusTransaction: string
   emailUser: string
   id?: number
+  statusPay?: boolean
 }
 
 export interface ResponseGetAdmin{
