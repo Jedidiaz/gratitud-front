@@ -13,8 +13,8 @@
         <th>{{ column.emailUser }}</th>
         <th>INGRESOS</th>
         <th style="color: #f36a6a">{{ column.monto | currency }}</th>
-        <th style="color: #f36a6a; cursor: pointer" *ngIf="!column.statusPay" >
-          Pagar
+        <th  *ngIf="!column.statusPay">
+          <span (click)="Pay(column._id)" style="color: #f36a6a; cursor: pointer">Pagar</span>
         </th>
         <th style="color: #000" *ngIf="column.statusPay">{{ column.createdAt }}</th>
         <th style="color: #f36a6a" *ngIf="!column.statusPay"></th>

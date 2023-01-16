@@ -57,4 +57,19 @@ export class HistorialRetirosComponent implements OnInit {
       },
     });
   }
+
+  // update
+  Pay(id: string) {
+    const form = new FormData()
+    form.append('id', id)
+    this.UserService.updatePayPro(form).subscribe({
+      next: (res) => {
+        console.log(res)
+        this.getPro()
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

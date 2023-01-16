@@ -140,6 +140,10 @@ export class UserService {
     return this.http.put<ResponseI>(`${this.urlAdmin}price`, form, {headers: this.headers})
   }
 
+  updatePayPro(form: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}pay`, form, {headers: this.headers})
+  }
+
   ConvertPro(form: FormData):Observable<ResponseI>{
     return this.http.post<ResponseI>(`${this.urlAdmin}convertPRO`, form, {headers: this.headers})
   }
