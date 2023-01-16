@@ -45,6 +45,8 @@ import { PayMethodComponent } from './pay/pay-method/pay-method.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 import { FilterPipe } from './shared/pipe/filter.pipe';
+import { BoletinComponent } from './dashboardAdmin/boletin/boletin.component';
+import { SettingsComponent } from './dashboardAdmin/settings/settings.component';
 
 
 @NgModule({
@@ -82,7 +84,9 @@ import { FilterPipe } from './shared/pipe/filter.pipe';
     AuthEmailComponent,
     PayMethodComponent,
     LoadGiftComponent,
-    FilterPipe
+    FilterPipe,
+    BoletinComponent,
+    SettingsComponent
 
 
   ],

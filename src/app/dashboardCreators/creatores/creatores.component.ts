@@ -40,7 +40,7 @@ export class CreatoresComponent implements OnInit {
 
   salir(){
     localStorage.removeItem('token')
-    this.router.navigate(['/'])
+    window.location.href="/"
   }
 
 }

@@ -130,10 +130,6 @@ img{
       justify-content: start;
   }
 
-  label, .test .form-control{
-      font-size: 28px;
-  }
-
   .test .form-control-lg{
       height: 100px;
       padding-left: 210px;
@@ -152,14 +148,11 @@ img{
     width: 600px;
   }
 
-  input, input::placeholder{
-    font-size: 24px;
-  }
-  .urlink{
-    font-size: 24px;
+  input, input::placeholder, .urlink{
+    font-size: 20px;
   }
 
   #url{
-    padding-left: 183px !important;
+    padding-left: 15  3px !important;
   }
 }

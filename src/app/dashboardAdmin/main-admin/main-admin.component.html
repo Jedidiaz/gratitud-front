@@ -1,58 +1,80 @@
 <div class="contenedor">
   <div class="panel">
-    <img src="../../../assets/logo gratitud.svg">
+    <img src="../../../assets/logo gratitud.svg" />
     <div class="optiones">
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="inicio" (click)="inicioView()" checked>
-        <label class="form-check-label" for="inicio">
-          INICIO
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="inicio"
+          (click)="inicioView()"
+          checked
+        />
+        <label class="form-check-label" for="inicio"> INICIO </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="creadores" (click)="creadoresView()">
-        <label class="form-check-label" for="creadores">
-          CREADORES
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="creadores"
+          (click)="creadoresView()"
+        />
+        <label class="form-check-label" for="creadores"> CREADORES </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="usuarios" (click)="usuariosView()">
-        <label class="form-check-label" for="usuarios">
-          USUARIOS
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="usuarios"
+          (click)="usuariosView()"
+        />
+        <label class="form-check-label" for="usuarios"> USUARIOS </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="pros" (click)="prosView()">
-        <label class="form-check-label" for="pros">
-          PROS
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="pros"
+          (click)="prosView()"
+        />
+        <label class="form-check-label" for="pros"> PROS </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="ajustes" (click)="ajustesView()">
-        <label class="form-check-label" for="ajustes">
-          AJUSTES
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="ajustes"
+          (click)="ajustesView()"
+        />
+        <label class="form-check-label" for="ajustes"> AJUSTES </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="boletin">
-        <label class="form-check-label" for="boletin">
-          BOLETÍN
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="boletin"
+          (click)="boletinView()"
+        />
+        <label class="form-check-label" for="boletin"> BOLETÍN </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="config">
-        <label class="form-check-label" for="config">
-          CONFIGURACIÓN
-        </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="admin"
+          id="config"
+          (click)="configuracionView()"
+        />
+        <label class="form-check-label" for="config"> CONFIGURACIÓN </label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="admin" id="home">
-        <label class="form-check-label" for="home">
-          HOME
-        </label>
-      </div>
-      <span (click)="salir()">
-        SALIR
-      </span>
+      <span (click)="goHome()">HOME</span>
+      <span (click)="salir()"> SALIR </span>
     </div>
   </div>
   <div class="content">
@@ -61,5 +83,7 @@
     <app-usuarios *ngIf="usuarios"></app-usuarios>
     <app-pros *ngIf="pros"></app-pros>
     <app-ajustes-admin *ngIf="ajustes"></app-ajustes-admin>
+    <app-boletin *ngIf="boletin"></app-boletin>
+    <app-settings *ngIf="configuracion"></app-settings>
   </div>
 </div>

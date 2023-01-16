@@ -31,7 +31,7 @@ export class EditBioComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.maxLength(100),
+          Validators.maxLength(400),
           Validators.minLength(10),
         ],
       ],

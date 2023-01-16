@@ -1,0 +1,38 @@
+<div class="boletin">
+  <button type="button" class="btn btn-primary">
+    <img src="../../../assets/arrow1.png" /> BOLETÍN
+  </button>
+  <div class="content">
+    <br>
+    <form [formGroup]="formBoletin">
+      <input
+        type="text"
+        placeholder="Asunto"
+        formArrayName="asunto"
+        class="form-control"
+        required
+      />
+      <br />
+      <textarea
+        rows="10"
+        type="text"
+        placeholder="Mensaje"
+        formArrayName="mensaje"
+        class="form-control"
+        required
+      ></textarea>
+      <br />
+      <input
+        type="text"
+        placeholder="URL"
+        formArrayName="url"
+        class="form-control"
+        required
+      />
+      <br />
+      <div style="display: flex; justify-content: end; width: 100%">
+        <button type="submit" class="btn btn-secondary" [disabled]="!formBoletin.valid">ENVÍAR</button>
+      </div>
+    </form>
+  </div>
+</div>

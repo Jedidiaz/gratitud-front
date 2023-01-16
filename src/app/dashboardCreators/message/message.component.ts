@@ -2,6 +2,8 @@ import { ResponseMessageModel, MessagesModel } from './../../models/users.interf
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
+import html2canvas from 'html2canvas';
+
 
 @Component({
   selector: 'app-message',
@@ -49,18 +51,18 @@ export class MessageComponent implements OnInit {
   }
 
   //download
-  // private _downloadnew() {
-  //   let docElem = document.getElementById('printSection');
-  //   html2canvas(docElem).then(canvas => {
-  //     let generatedImage = canvas
-  //       .toDataURL('image/png')
-  //       .replace('image/png', 'image/octet-stream');
-  //     let a = document.createElement('a');
-  //     a.href = generatedImage;
-  //     a.download = `test.png`;
-  //     a.click();
-  //     // at this point, image has been downloaded, then call the next download.
-  //     // this._download(index + 1, array)
-  //   });
-
+  download() {
+    let card = document.getElementById('card');
+    html2canvas(card!).then(canvas => {
+      let generatedImage = canvas
+        .toDataURL('image/png')
+        .replace('image/png', 'image/octet-stream');
+      let a = document.createElement('a');
+      a.href = generatedImage;
+      a.download = `test.png`;
+      a.click();
+      // at this point, image has been downloaded, then call the next download.
+      // this._download(index + 1, array)
+    });
+  }
 }

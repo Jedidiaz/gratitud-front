@@ -13,7 +13,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FrontCreatorComponent implements OnInit {
 
-  infoCreator!: CreatorModel;
+  infoCreator!: CreatorModel
   MessagesCreator!: MessagesModel[];
   cards: Array<any> = []
   constructor(private UserService: UserService, private _router: ActivatedRoute, private router: Router) { }
@@ -41,8 +41,7 @@ export class FrontCreatorComponent implements OnInit {
         this.MessagesCreator = res.message
         console.log(this.infoCreator.imgpro)
       }, error: (err)=> {
-        console.log(err)
-        // this.router.navigate(['/'])
+        window.location.href="/"
       }
     })
   }

@@ -26,7 +26,11 @@ export class MainAdminComponent implements OnInit {
   //salir
   salir(){
     localStorage.removeItem('token')
-    this.router.navigate(['/'])
+    window.location.href="/login"
+  }
+
+  goHome(){
+    window.location.href="/"
   }
 
   inicioView(){
@@ -81,6 +85,28 @@ export class MainAdminComponent implements OnInit {
     this.ajustes = true
     this.boletin = false
     this.configuracion = false
+    this.home = false
+  }
+
+  boletinView(){
+    this.inicio = false
+    this.creadores = false
+    this.usuarios = false
+    this.pros = false
+    this.ajustes = false
+    this.boletin = true
+    this.configuracion = false
+    this.home = false
+  }
+
+  configuracionView(){
+    this.inicio = false
+    this.creadores = false
+    this.usuarios = false
+    this.pros = false
+    this.ajustes = false
+    this.boletin = false
+    this.configuracion = true
     this.home = false
   }
 }

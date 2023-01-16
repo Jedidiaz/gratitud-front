@@ -1,0 +1,55 @@
+<div class="boletin">
+  <button type="button" class="btn btn-primary">
+    <img src="../../../assets/arrow1.png" /> CONFIGURACIÓN
+  </button>
+  <div class="content">
+    <br />
+    <form [formGroup]="formSettings" style="display: flex; flex-direction: column; gap: 20px;">
+      <label for="1">ACERCA</label>
+      <textarea
+        rows="10"
+        type="text"
+        formArrayName="mensaje"
+        class="form-control"
+        id="1"
+        required
+      ></textarea>
+      <label for="2">AVISO DE PRIVACIDAD</label>
+      <textarea
+        rows="10"
+        type="text"
+        formArrayName="mensaje"
+        class="form-control"
+        id="2"
+        required
+      ></textarea>
+      <label for="3">REGLAS DE USO</label>
+      <textarea
+        rows="10"
+        type="text"
+        formArrayName="mensaje"
+        class="form-control"
+        id="3"
+        required
+      ></textarea>
+      <label for="4">COMISIONES</label>
+      <textarea
+        rows="10"
+        type="text"
+        formArrayName="mensaje"
+        class="form-control"
+        id="4"
+        required
+      ></textarea>
+      <div style="display: flex; justify-content: end; width: 100%">
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          [disabled]="!formSettings.valid"
+        >
+          ENVÍAR
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

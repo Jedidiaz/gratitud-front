@@ -51,7 +51,7 @@ export class FormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.maxLength(50),
+          Validators.maxLength(400),
           Validators.minLength(10),
         ],
       ],
