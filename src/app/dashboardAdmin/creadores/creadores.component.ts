@@ -51,4 +51,17 @@ export class CreadoresComponent implements OnInit {
       },
     });
   }
+
+  converToPro(email: string){
+    const form = new FormData()
+    form.append('email', email)
+    this.userService.ConvertPro(form).subscribe({
+      next: (res) => {
+        this.getCreators()
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

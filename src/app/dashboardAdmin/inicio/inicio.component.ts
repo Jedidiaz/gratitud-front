@@ -48,7 +48,7 @@ export class InicioComponent implements OnInit {
     this.userService.getRequestWithdraw()
       .subscribe({
         next: (res)=> {
-          this.request = res.data1!;
+          this.request = res.data1!.filter(el => el.statusTransaction != 'Complete')
           this.request.map((item, index) => {
           item.id = index + 1;
           item.createdAt = item.createdAt.substring(0, 10);

@@ -23,8 +23,8 @@
         <th>{{ item.email }}</th>
         <th>{{ item.createdAt }}</th>
         <th *ngIf="item.isPro" style="color: #f36a6a">PRO</th>
-        <th *ngIf="!item.isPro" style="color: #f36a6a; cursor: pointer">
-          HACER PRO
+        <th *ngIf="!item.isPro">
+          <span style="color: #f36a6a; cursor: pointer" (click)="converToPro(item.email)">HACER PRO</span>
         </th>
       </tr>
     </tbody>

@@ -38,7 +38,6 @@ export class ProsComponent implements OnInit {
 
   ReciveEvebt($event: any){
     this.historial = $event
-    console.log(this.historial)
   }
 
   //get pros

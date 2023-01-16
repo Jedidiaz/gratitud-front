@@ -46,6 +46,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 import { FilterPipe } from './shared/pipe/filter.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,

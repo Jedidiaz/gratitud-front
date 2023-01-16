@@ -1,23 +1,40 @@
 <div class="requests">
   <div>
-    <button type="button" class="btn btn-primary" (click)="sendBoolean()"><img src="../../../assets/arrow1.png"> {{name}}</button>
+    <button type="button" class="btn btn-primary" (click)="sendBoolean()">
+      <img src="../../../assets/arrow1.png" /> {{ name || "Atras" }}
+    </button>
   </div>
-  <br/>
-  <table class="table">
+  <br />
+  <table class="table" *ngIf="pro.length > 0; else spin">
     <tbody>
       <tr *ngFor="let column of pro">
-        <th>{{column.id}}</th>
-        <th>{{column.name}}</th>
-        <th>{{column.emailUser}}</th>
+        <th>{{ column.id }}</th>
+        <th>{{ column.name }}</th>
+        <th>{{ column.emailUser }}</th>
         <th>INGRESOS</th>
-        <th style="color: #F36A6A;">{{column.monto | currency}}</th>
-        <th style="color: #F36A6A; cursor: pointer;" *ngIf="!statusPay">Pagar</th>
-        <th style="color: #000;" *ngIf="statusPay">{{column.createdAt}}</th>
-        <th style="color: #F36A6A;" *ngIf="!statusPay"></th>
-        <th style="text-align: s;" *ngIf="statusPay"><i class="bi bi-check2" style="color: green; font-size: 25px;"></i></th>
+        <th style="color: #f36a6a">{{ column.monto | currency }}</th>
+        <th style="color: #f36a6a; cursor: pointer" *ngIf="!statusPay">
+          Pagar
+        </th>
+        <th style="color: #000" *ngIf="statusPay">{{ column.createdAt }}</th>
+        <th style="color: #f36a6a" *ngIf="!statusPay"></th>
+        <th style="text-align: s" *ngIf="statusPay">
+          <i class="bi bi-check2" style="color: green; font-size: 25px"></i>
+        </th>
       </tr>
     </tbody>
   </table>
+  <ng-template #spin>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+      "
+    >
+      <h2>No hay resultados para este creador :C</h2>
+    </div>
+  </ng-template>
 </div>
-
-

@@ -43,7 +43,6 @@ export class HistorialRetirosComponent implements OnInit {
     this.UserService.getProByEmail(this.email)
       .subscribe({
         next: (res)=> {
-          console.log(res)
           this.name = res.data1![0].name
           this.pro = res.data1!
           this.pro.map((item, index) => {
