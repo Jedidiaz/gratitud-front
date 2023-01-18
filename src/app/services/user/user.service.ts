@@ -147,4 +147,12 @@ export class UserService {
   ConvertPro(form: FormData):Observable<ResponseI>{
     return this.http.post<ResponseI>(`${this.urlAdmin}convertPRO`, form, {headers: this.headers})
   }
+
+  boletinUpdate(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(`${this.urlAdmin}boletin`, form, {headers: this.headers})
+  }
+
+  configUpdate(form: FormData):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}info`, form, {headers: this.headers})
+  }
 }

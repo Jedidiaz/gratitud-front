@@ -4,11 +4,11 @@
   </button>
   <div class="content">
     <br>
-    <form [formGroup]="formBoletin">
+    <form [formGroup]="formBoletin" (ngSubmit)="sendBoletin()">
       <input
         type="text"
         placeholder="Asunto"
-        formArrayName="asunto"
+        formControlName="asunto"
         class="form-control"
         required
       />
@@ -17,7 +17,7 @@
         rows="10"
         type="text"
         placeholder="Mensaje"
-        formArrayName="mensaje"
+        formControlName="mensaje"
         class="form-control"
         required
       ></textarea>
@@ -25,13 +25,13 @@
       <input
         type="text"
         placeholder="URL"
-        formArrayName="url"
+        formControlName="url"
         class="form-control"
         required
       />
       <br />
       <div style="display: flex; justify-content: end; width: 100%">
-        <button type="submit" class="btn btn-secondary" [disabled]="!formBoletin.valid">ENVÍAR</button>
+        <button type="submit" class="btn btn-secondary" >ENVÍAR</button>
       </div>
     </form>
   </div>

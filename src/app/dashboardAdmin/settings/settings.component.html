@@ -4,12 +4,12 @@
   </button>
   <div class="content">
     <br />
-    <form [formGroup]="formSettings" style="display: flex; flex-direction: column; gap: 20px;">
+    <form [formGroup]="formSettings" (ngSubmit)="sendSettings()" style="display: flex; flex-direction: column; gap: 20px;">
       <label for="1">ACERCA</label>
       <textarea
         rows="10"
         type="text"
-        formArrayName="mensaje"
+        formControlName="acerca"
         class="form-control"
         id="1"
         required
@@ -18,7 +18,7 @@
       <textarea
         rows="10"
         type="text"
-        formArrayName="mensaje"
+        formControlName="aviso"
         class="form-control"
         id="2"
         required
@@ -27,7 +27,7 @@
       <textarea
         rows="10"
         type="text"
-        formArrayName="mensaje"
+        formControlName="reglas"
         class="form-control"
         id="3"
         required
@@ -36,7 +36,7 @@
       <textarea
         rows="10"
         type="text"
-        formArrayName="mensaje"
+        formControlName="comision"
         class="form-control"
         id="4"
         required
@@ -45,7 +45,6 @@
         <button
           type="submit"
           class="btn btn-secondary"
-          [disabled]="!formSettings.valid"
         >
           ENVÍAR
         </button>
