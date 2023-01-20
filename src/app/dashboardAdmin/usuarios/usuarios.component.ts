@@ -32,7 +32,7 @@ export class UsuariosComponent implements OnInit {
   deleteuser(email: string) {
     this.UserService.deleteUser(email).subscribe({
       next: (el) => {
-        console.log(el);
+        this.getUsers()
       },
       error: (err) => {
         console.log(err);
@@ -57,6 +57,7 @@ export class UsuariosComponent implements OnInit {
   getUsers() {
     this.UserService.getUsers().subscribe({
       next: (res) => {
+        console.log(res)
         this.users = res.message;
         this.users.map((item, index) => {
           item.id = index + 1;

@@ -21,7 +21,7 @@
         <th>{{ column.id }}</th>
         <th>{{ column.name }}</th>
         <th>{{ column.email }}</th>
-        <th style="color: #f36a6a"><i class="bi bi-trash-fill"></i></th>
+        <th style="color: #f36a6a; cursor: pointer;" (click)="deleteuser(column.email)"><i class="bi bi-trash-fill"></i></th>
       </tr>
     </tbody>
   </table>

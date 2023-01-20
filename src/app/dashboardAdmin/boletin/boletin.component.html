@@ -3,7 +3,7 @@
     <img src="../../../assets/arrow1.png" /> BOLETÍN
   </button>
   <div class="content">
-    <br>
+    <br />
     <form [formGroup]="formBoletin" (ngSubmit)="sendBoletin()">
       <input
         type="text"
@@ -30,8 +30,17 @@
         required
       />
       <br />
+      <span [style]="{ color: message.color, 'font-size': '20px' }">{{
+        message.message
+      }}</span>
       <div style="display: flex; justify-content: end; width: 100%">
-        <button type="submit" class="btn btn-secondary" >ENVÍAR</button>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          [disabled]="!formBoletin.valid"
+        >
+          ENVÍAR
+        </button>
       </div>
     </form>
   </div>

@@ -41,10 +41,12 @@
         id="4"
         required
       ></textarea>
+      <span [style]="{'color': message.color, 'font-size': '20px'}">{{ message.message }}</span>
       <div style="display: flex; justify-content: end; width: 100%">
         <button
           type="submit"
           class="btn btn-secondary"
+          [disabled]="!formSettings.valid"
         >
           ENVÍAR
         </button>

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="contenedor">
-  <section id="uno">
+  <section id="uno" class="container">
     <div class="description">
       <h1>
         Recibe y gestiona el cariño de tus seguidores para seguir creando y
@@ -15,16 +15,59 @@
       <br />
     </div>
     <div class="caroousel">
-      <ngb-carousel *ngIf="carousel">
+      <!-- <ngb-carousel *ngIf="carousel">
         <ng-template ngbSlide *ngFor="let image of carousel">
           <div class="picsum-img-wrapper">
             <img [src]="image" alt="Random first slide" />
           </div>
         </ng-template>
-      </ngb-carousel>
+      </ngb-carousel> -->
+      <button type="button" class="btnScroll left" (click)="scrollLeft()">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <div class="scrollCarousel">
+        <div class="cardHome" *ngFor="let card of usersE">
+          <div class="box" style="width: 100%">
+            <div class="contentbox" style="text-align: center">
+              <i
+                class="bi bi-heart-fill"
+                style="color: #f36a6a; font-size: 28px; text-align: center"
+              ></i>
+              <p style="color: #a07260; font-size: 22px">1200</p>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div style="width: 100px">
+            <img
+              [src]="card.imgpro.filePath || '../../../assets/default.png'"
+              style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;"
+            />
+          </div>
+          <br />
+          <h4
+            style="
+              color: #a07260;
+              width: 355px;
+              text-align: center;
+              padding: 0 20px;
+              font-size: 26px;
+              font-weight: 600;
+            "
+          >
+            {{ card.name }}
+          </h4>
+          <div style="border-top: 1px solid #a07260; width: 150px"></div>
+          <br />
+          <span style="color: #a07260">{{ card.titulo }}</span>
+        </div>
+      </div>
+      <button type="button" class="btnScroll right" (click)="scrollRight()">
+        <i class="bi bi-chevron-right"></i>
+      </button>
     </div>
   </section>
-  <section id="dos">
+  <section id="dos" class="container">
     <div class="des">
       <h3>Crea tu propio <span>link de gratitud</span></h3>
       <p>
@@ -42,7 +85,7 @@
       </button>
     </div>
   </section>
-  <section id="tres">
+  <section id="tres" class="container">
     <div class="tres">
       <div class="des">
         <h3>¿Qué puedes hacer con tu <span>link de gratitud</span>?</h3>
@@ -57,26 +100,26 @@
           más amas hacer.
         </p>
         <div class="btn-crear">
-            <button class="btn btn-primary" type="button" routerLink="/register">
-              CREAR CUENTA
-            </button>
-          </div>
+          <button class="btn btn-primary" type="button" routerLink="/register">
+            CREAR CUENTA
+          </button>
+        </div>
       </div>
       <div class="imgsec">
-        <img src="../../../assets/section.png" alt="">
+        <img src="../../../assets/section.png" alt="" />
       </div>
     </div>
   </section>
-  <section #4>
+  <section #4 class="container">
     <div class="creadores">
       <h2>Conoce a otros <span>creadores como tú</span></h2>
       <div class="users">
-        <div class="cards" *ngFor="let card of users">
-          <div class="image">
-            <img [src]="card.image" alt="" />
+        <div class="cards" *ngFor="let card of usersE">
+          <div class="image" >
+            <img [src]="card.imgpro.filePath" style="width: 100%; border-radius: 50%; object-fit: cover; width: 180px; height: 180px;"/>
           </div>
           <h4>{{ card.name }}</h4>
-          <p>{{ card.description }}</p>
+          <p>{{ card.titulo }}</p>
         </div>
       </div>
     </div>

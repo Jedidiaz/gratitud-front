@@ -13,7 +13,7 @@ export class LoComponent implements OnInit {
   formLogin: FormGroup;
   validEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
 
-  messageError: string = ''
+  messageError = {message: '', color: 'black'}
 
   constructor( private formBuilder: FormBuilder, private userApi: UserService, private router: Router) {
     this.formLogin = formBuilder.group({
@@ -35,16 +35,19 @@ export class LoComponent implements OnInit {
       formDataAuth.append('email', this.formLogin.value.email.toLowerCase())
       formDataAuth.append('password', this.formLogin.value.password)
       this.userApi.login(formDataAuth).subscribe({
-        next: (re) => {
-          localStorage.setItem('token', re.token!)
-          if (re.isAdmin) window.location.href="/admin"
-          else  window.location.href="/perfil";
+        next: (res) => {
+          console.log(res)
+          localStorage.setItem('token', res.token!)
+          if(res.response === 'Success'){
+            this.messageError = {message: res.message!, color: 'green'}
+            if (res.isAdmin) {
+              window.location.href="/admin"
+              console.log(res.isAdmin)
+            }else  window.location.href="/perfil";
+          }
+          else this.messageError = {message: res.message!, color: 'red'}; this.formLogin.reset();
         }, error: (err) => {
-          if(err.status === 500)this.messageError = '*Este usuario no esta registrado*'
-          else if (err.status === 400)this.messageError = '*Contraseña Incorrecta*'
-          else if (err.status === 501)this.messageError = '*Cuenta no activa, Revise su correo*'
           console.log(err)
-          this.formLogin.reset()
         }
       })
     }

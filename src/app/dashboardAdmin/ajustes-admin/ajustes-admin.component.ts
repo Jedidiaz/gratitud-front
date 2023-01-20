@@ -29,6 +29,22 @@ export class AjustesAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getInfo()
+  }
+
+  //get info
+  getInfo(){
+    this.UserService.getGratitudInfo()
+      .subscribe({
+        next: (res)=> {
+          this.formAjustes.setValue({
+            año: res.datainfo[0].year,
+            mes: res.datainfo[0].month
+          })
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
   //update
@@ -61,7 +77,6 @@ export class AjustesAdminComponent implements OnInit {
         next: (res)=>{
           if(res.response === 'Success'){
             this.messageA = {message: res.message!, color: 'green'}
-            this.formPassword.reset()
           }
           else this.messageA = {message: res.message!, color: 'red'}
         }, error: (err)=> {

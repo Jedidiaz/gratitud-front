@@ -1,8 +1,10 @@
-import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin, ResponseGetAdminTemp } from './../../models/users.interface';
+import { saveAs } from 'file-saver';
+import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin, ResponseGetAdminTemp, ResponsePackModel, ResponseInfoPageModel } from './../../models/users.interface';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +57,27 @@ export class UserService {
     })
   }
 
+  getPacks():Observable<ResponsePackModel>{
+    return this.http.get<ResponsePackModel>(`${this.url}rewards`)
+  }
+
+  getFile(name: string, url: string, type: string){
+    return this.http.get(url, {responseType: 'blob'})
+    .pipe(
+      tap(content =>{
+        const blob = new Blob([content], {type})
+        saveAs(blob, name)
+      }),
+      map(()=> true)
+    )
+  }
+
+  //home
+
+  getCreatorHome():Observable<ResponseGetAdmin>{
+    return this.http.get<ResponseGetAdmin>(`${this.urlUser}home/recently`)
+  }
+
   //creators
   editBio(form: FormData):Observable<ResponseI>{
     return this.http.put<ResponseI>(`${this.url}editinfo`, form, {
@@ -70,6 +93,10 @@ export class UserService {
 
   getInfo():Observable<ResponseInfoModel>{
     return this.http.get<ResponseInfoModel>(`${this.urlUser}profile/data`, {headers: this.headers})
+  }
+
+  getGratitudInfo():Observable<ResponseInfoPageModel>{
+    return this.http.get<ResponseInfoPageModel>(`${this.urlAdmin}info`, {headers: this.headers})
   }
 
   updateImg(image: FormData):Observable<ResponseI>{
@@ -129,7 +156,7 @@ export class UserService {
   }
 
   deleteUser(email:string):Observable<ResponseGetAdmin>{
-    return this.http.delete<any>(`${this.urlAdmin}deleteu/${email}`,  {headers: this.headers})
+    return this.http.delete<ResponseGetAdmin>(`${this.urlAdmin}deleteu/${email}`,  {headers: this.headers})
   }
   //ajustes admin
   updatePasswordAdmin(form: FormData):Observable<ResponseI>{

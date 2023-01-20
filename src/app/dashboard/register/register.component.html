@@ -13,7 +13,7 @@
                     <label class="iconCheck"><i class="bi bi-check-circle-fill" style="color: green;" *ngIf="verifyIcon"></i></label>
                     <input class="form-control form-control-lg" type="text" placeholder="Tu nombre" id="url" formControlName="url" #urlUp>
                 </div>
-                  <p *ngIf="verifyIcon" style="color: gray;">El nombre de usuario si está disponible</p>
+                  <p style="color: gray;">{{message}}</p>
                 <div class="btn-login">
                     <button class="btn btn-primary" type="submit" [disabled]="!verifyIcon" (click)="signUp()" >CONTINUAR</button>
                 </div>

@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class BoletinComponent implements OnInit {
 
   formBoletin: FormGroup
+  message = {message: '', color: 'black'}
   constructor(private formbuilder: FormBuilder, private UserServices: UserService) {
     this.formBoletin = formbuilder.group({
       asunto: ['', Validators.required],
@@ -29,7 +30,11 @@ export class BoletinComponent implements OnInit {
     this.UserServices.boletinUpdate(form)
       .subscribe({
         next:(res)=> {
-          console.log(res)
+          if(res.response === 'Success'){
+            this.message = {message: res.message!, color: 'green'}
+            this.formBoletin.reset()
+          }
+          else this.message = {message: res.message!, color: 'red'}
         }, error:(err)=> {
           console.log(err)
         }

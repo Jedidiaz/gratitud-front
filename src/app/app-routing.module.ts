@@ -1,3 +1,4 @@
+import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
 import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 import { PayMethodComponent } from './pay/pay-method/pay-method.component';
 import { AuthEmailComponent } from './auth/auth-email/auth-email.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'admin', component: MainAdminComponent },
   { path: 'valid', component: AuthEmailComponent },
   { path: 'donacion', component: PayMethodComponent },
+  { path: 'lista-regalos', component: ListGiftComponent },
   { path: ':username', component: FrontCreatorComponent },
   { path: ':username/mensaje', component: FormComponent },
 

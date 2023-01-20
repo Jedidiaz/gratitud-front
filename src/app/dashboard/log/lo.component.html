@@ -40,7 +40,7 @@
         <div class="btn-login">
           <button class="btn btn-primary" type="submit" [disabled]="!formLogin.valid">CONTINUAR</button>
         </div>
-        <span style="color: red">{{messageError}}</span>
+        <span [style]="{'color': messageError.color}">{{messageError.message}}</span>
         <p>
           Aún no tengo una cuenta.
           <span><a routerLink="/register">Crear cuenta aquí</a></span>

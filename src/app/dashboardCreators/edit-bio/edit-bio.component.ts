@@ -88,7 +88,6 @@ export class EditBioComponent implements OnInit {
   getCreator() {
     this.UserService.getInfo().subscribe({
       next: (el) => {
-        console.log(el)
         this.formEdit.setValue({
           url: el.user.username,
           name: el.user.name,
@@ -131,12 +130,6 @@ export class EditBioComponent implements OnInit {
       form.append('name', this.formEdit.value.name);
       form.append('profesion', this.formEdit.value.profesion);
       form.append('username', this.formEdit.value.url.toLowerCase());
-      console.log(this.formEdit.value.description,
-        this.formEdit.value.titulo,
-        this.formEdit.value.name,
-        this.formEdit.value.profesion,
-        this.formEdit.value.url.toLowerCase()
-        )
       this.UserService.editBio(form).subscribe({
         next: (res) => {
           if(res.response === 'Success'){

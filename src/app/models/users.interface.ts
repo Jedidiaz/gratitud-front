@@ -123,3 +123,34 @@ export interface temp {
   id?: number
 }
 
+export interface PacksModel {
+  email: string
+  file: imageProModel
+  title: string
+  name: string
+  __v: number
+  _id: string
+  id?: number
+}
+
+export interface ResponsePackModel {
+  message: PacksModel[]
+  response: string
+}
+
+export interface ResponseInfoPageModel {
+  response: string
+  datainfo: infoPageModel[]
+}
+
+export interface infoPageModel{
+  _id:string
+  year: number
+  month: number
+  __v: number
+  acerca: string
+  aviso: string
+  reglas: string
+  comision: string
+}
+

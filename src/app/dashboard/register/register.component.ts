@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   value = 'hola';
 
   verifyIcon: boolean = false;
+  message = '';
   constructor(
     private formBuilder: FormBuilder,
     private UserService: UserService,
@@ -46,10 +47,14 @@ export class RegisterComponent implements OnInit {
           return evento;
         }),
         debounceTime(700),
-        tap((evento: string) => console.log(evento))
       )
       .subscribe((data: string) => {
-        this.verify(data);
+        if (data != ''){
+          this.verify(data)
+        }else{
+          this.verifyIcon = false
+          this.message = 'Campo vacio'
+        }
       });
   }
 
@@ -60,17 +65,26 @@ export class RegisterComponent implements OnInit {
     if (this.formRegister.valid) {
       this.UserService.verifyURL(form).subscribe({
         next: (el) => {
-          if (el.message === 'OK') this.verifyIcon = true;
+          console.log(el);
+          if (el.response === 'Success') {
+            this.verifyIcon = true;
+            this.message = el.message!;
+          } else {
+            this.verifyIcon = false;
+            this.message = el.message!;
+          }
         },
         error: (err) => {
           console.log(err);
-          if (err.status === 500) this.verifyIcon = false;
         },
       });
     }
   }
 
   signUp() {
-    if (this.formRegister.valid && this.verifyIcon) this.router.navigate([`/registro/${this.formRegister.value.url.toLowerCase()}`])
+    if (this.formRegister.valid && this.verifyIcon)
+      this.router.navigate([
+        `/registro/${this.formRegister.value.url.toLowerCase()}`,
+      ]);
   }
 }

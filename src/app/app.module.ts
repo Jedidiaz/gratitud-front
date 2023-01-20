@@ -47,6 +47,7 @@ import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.compo
 import { FilterPipe } from './shared/pipe/filter.pipe';
 import { BoletinComponent } from './dashboardAdmin/boletin/boletin.component';
 import { SettingsComponent } from './dashboardAdmin/settings/settings.component';
+import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { SettingsComponent } from './dashboardAdmin/settings/settings.component'
     LoadGiftComponent,
     FilterPipe,
     BoletinComponent,
-    SettingsComponent
+    SettingsComponent,
+    ListGiftComponent
 
 
   ],

@@ -1,3 +1,4 @@
+import { infoPageModel } from './../../models/users.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
@@ -10,6 +11,8 @@ import { UserService } from 'src/app/services/user/user.service';
 export class SettingsComponent implements OnInit {
 
   formSettings: FormGroup
+  message = { message: '', color: 'black' };
+  info!: infoPageModel
   constructor(private formbuilder: FormBuilder, private UserServices: UserService) {
     this.formSettings = formbuilder.group({
       acerca: ['', Validators.required],
@@ -20,6 +23,24 @@ export class SettingsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getInfo()
+  }
+
+  getInfo(){
+    this.UserServices.getGratitudInfo()
+      .subscribe({
+        next: (res)=> {
+          console.log(res)
+          this.formSettings.setValue({
+            acerca: res.datainfo[0].acerca,
+            aviso: res.datainfo[0].aviso,
+            reglas: res.datainfo[0].reglas,
+            comision: res.datainfo[0].comision,
+          })
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
   sendSettings(){
@@ -31,7 +52,10 @@ export class SettingsComponent implements OnInit {
     this.UserServices.configUpdate(form)
       .subscribe({
         next:(res)=> {
-          console.log(res)
+          if(res.response === 'Success'){
+            this.message = {message: res.message!, color: 'green'}
+          }
+          else this.message = {message: res.message!, color: 'red'}
         }, error:(err)=> {
           console.log(err)
         }

@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="container">
+  <h1>¡GRACIAS POR TU CONTRIBUCIÓN!</h1>
+  <h3>Disfruta de todos estos obsequios creados para ti con mucho cariño.</h3>
+  <br/>
+  <img src="../../../assets/PACK REVELADO.png" alt="">
+  <br/>
+  <h2>PACK DE REGALOS</h2>
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let item of packs">
+        <th style="color: #A07260;">{{item.id}}</th>
+        <th style="color: #F36A6A; font-weight: 600;">{{item.name}}</th>
+        <th>{{item.title}}</th>
+        <th style="cursor: pointer;">
+          <a (click)="download(item.file, item.title)" ><img src="../../../assets/descargar.png"></a>
+          </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>
