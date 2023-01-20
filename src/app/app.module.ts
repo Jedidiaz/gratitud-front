@@ -99,7 +99,7 @@ import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    ClipboardModule
+    ClipboardModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, ],
   bootstrap: [AppComponent]
