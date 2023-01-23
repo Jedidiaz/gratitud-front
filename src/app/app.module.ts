@@ -48,6 +48,9 @@ import { FilterPipe } from './shared/pipe/filter.pipe';
 import { BoletinComponent } from './dashboardAdmin/boletin/boletin.component';
 import { SettingsComponent } from './dashboardAdmin/settings/settings.component';
 import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
+import { SuscriptionComponent } from './pay/suscription/suscription.component';
+import { ConvertProComponent } from './pay/convert-pro/convert-pro.component';
+import { TestComponent } from './modules/test/test.component';
 
 
 @NgModule({
@@ -88,7 +91,10 @@ import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
     FilterPipe,
     BoletinComponent,
     SettingsComponent,
-    ListGiftComponent
+    ListGiftComponent,
+    SuscriptionComponent,
+    ConvertProComponent,
+    TestComponent
 
 
   ],

@@ -1,0 +1,64 @@
+<div class="contenedor">
+  <div class="content-form">
+    <div class="payMetodoh">
+      <div>
+        <h1>Elijo ser PRO</h1>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span class="span">
+            <i class="bi bi-check2 icons"></i>
+            <p style="font-size: 20px;">Recibe y Publica de Forma Ilimitada
+              Mensajes de Cariño.</p>
+          </span>
+          <span class="span">
+            <i class="bi bi-check2 icons"></i>
+            <p style="font-size: 20px;">Recibe y Publica de Forma Ilimitada
+              Mensajes de Cariño.</p>
+          </span>
+        </div>
+        <form class="metoh" [formGroup]="formPay">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="proM"
+              formControlName="proM"
+              id="ckeck1"
+              value="mes"
+            />
+            <div>
+              <label class="form-check-label" for="ckeck1" style="color: #F36A6A;">
+                <span style="color: #A07260; font-weight: 600; margin-right: 10px;">Anual</span> MEJOR OFERTA - AHORRA US$21.00
+              </label>
+              <p style="color: #a8877a;">US$99.00</p>
+            </div>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="proM"
+              formControlName="proM"
+              id="ckeck2"
+              value="año"
+            />
+            <div>
+              <label class="form-check-label" for="ckeck2" style="color: #A07260; font-weight: 600;">
+                Mensual
+              </label>
+              <p style="color: #a8877a;">US$10.00</p>
+            </div>
+          </div>
+        </form>
+        <div class="monto">
+          <p>Vence en 365 días</p>
+          <span>US{{'100' | currency}}</span>
+        </div>
+        <div class="buttons-pay">
+          <button type="button" class="btn btn-secondary" [disabled]="!formPay.valid" >CONTINUAR</button>
+          <p style="width: 100%; text-align: start;">Al continuar, estás aceptando los <a routerLink="/terminos-y-condiciones">Términos y condiciones</a> de
+            gratitud.link PRO y confirmas que leíste nuestra <a routerLink="/aviso-privacidad">Política de privacidad</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,10 +15,13 @@ export class FormComponent implements OnInit {
   formTitle: FormGroup;
   formDescription: FormGroup;
   formEmail: FormGroup;
+  formGift: FormGroup;
+
   message: string = 'Hola, quiero conocerte ¿Cuál es tu nombre?';
   username: any;
   image: any;
   fileFill: boolean = false;
+  price = ''
 
   infoCreator!: CreatorModel;
   //variables, vistas
@@ -30,6 +33,8 @@ export class FormComponent implements OnInit {
   thanksView: boolean = false;
   giftView: boolean = false;
   payView: boolean = false;
+
+  infoPay: any
 
   validEmail: any =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,6 +51,10 @@ export class FormComponent implements OnInit {
     this.formTitle = formBuilder.group({
       title: ['', Validators.required],
     });
+
+    this.formGift = formBuilder.group({
+      donations: ['', Validators.required],
+    });
     this.formDescription = formBuilder.group({
       description: [
         '',
@@ -60,6 +69,7 @@ export class FormComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern(this.validEmail)]],
       terminos: [false, [Validators.required]],
     });
+
   }
 
   ngOnInit(): void {
@@ -147,8 +157,18 @@ export class FormComponent implements OnInit {
     this.giftView = true;
   }
   nextPay() {
-    this.giftView = false;
-    this.payView = true;
+    this.infoPay = {
+      username: this.username,
+      name: this.formName.value.name,
+      email: this.formEmail.value.email,
+      amount: this.price,
+    }
+    if (this.infoPay.amount != '0.00'){
+      this.giftView = false;
+      this.payView = true;
+    }else{
+      window.location.href="/lista-regalos"
+    }
   }
   //prev
   preName() {
@@ -168,5 +188,10 @@ export class FormComponent implements OnInit {
       'Ahora si, cuéntame que contribución he sido para ti, me hará muy feliz saberlo.';
     this.messageView = true;
     this.photoView = false;
+  }
+
+
+  key($event: any){
+    this.price =  $event.target.value
   }
 }

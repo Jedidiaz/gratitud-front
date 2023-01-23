@@ -1,3 +1,6 @@
+import { TestComponent } from './modules/test/test.component';
+import { ConvertProComponent } from './pay/convert-pro/convert-pro.component';
+import { SuscriptionComponent } from './pay/suscription/suscription.component';
 import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
 import { LoadGiftComponent } from './dashboardCreators/load-gift/load-gift.component';
 import { PayMethodComponent } from './pay/pay-method/pay-method.component';
@@ -42,10 +45,13 @@ const routes: Routes = [
   { path: 'perfil/messages/:id', component: MessageComponent },
   { path: 'perfil/regalos-recibidos', component: RegalosComponent },
   { path: 'perfil/ajustes', component: AjustesComponent },
+  { path: 'perfil/pro', component: ConvertProComponent },
   { path: 'admin', component: MainAdminComponent },
   { path: 'valid', component: AuthEmailComponent },
   { path: 'donacion', component: PayMethodComponent },
   { path: 'lista-regalos', component: ListGiftComponent },
+  { path: 'suscripcion', component: SuscriptionComponent },
+  { path: 'test', component: TestComponent },
   { path: ':username', component: FrontCreatorComponent },
   { path: ':username/mensaje', component: FormComponent },
 

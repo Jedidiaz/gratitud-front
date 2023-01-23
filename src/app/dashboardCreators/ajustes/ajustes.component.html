@@ -57,7 +57,9 @@
         <button class="btn btn-primary" type="button">ENVIAR</button>
         <br/>
         <br/>
-        <p class="mb-5" *ngIf="pro">CANCELAR CUENTA PRO</p>
+        <span (click)="cancelar()">
+          <p class="mb-5" *ngIf="pro" style="cursor: pointer;">CANCELAR CUENTA PRO</p>
+        </span>
       </div>
     </div>
   </div>

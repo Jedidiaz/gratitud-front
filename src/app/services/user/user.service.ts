@@ -107,6 +107,10 @@ export class UserService {
     return this.http.post<ResponseI>(`${this.urlUser}withdraw`, form, {headers: this.headers})
   }
 
+  cancelarSub():Observable<ResponseI>{
+    return this.http.get<ResponseI>(`${this.url}paysuspend`, {headers: this.headers})
+  }
+
   //uploadPack
   uploadPack(form: FormData):Observable<ResponseI>{
     return this.http.post<ResponseI>(`${this.urlUser}upload/rewards`, form, {headers: this.headers})

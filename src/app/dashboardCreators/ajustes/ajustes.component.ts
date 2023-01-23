@@ -12,7 +12,7 @@ export class AjustesComponent implements OnInit {
 
   email!: string
   formAjuste: FormGroup
-  pro: boolean = true
+  pro: boolean = false
 
   message = {message: '', color: 'black'}
   constructor( private formbuilder: FormBuilder, private UserService: UserService) {
@@ -35,10 +35,23 @@ export class AjustesComponent implements OnInit {
     this.UserService.getInfo().subscribe({
       next: (res)=>{
         this.email = res.user.email
+        this.pro = res.user.isPro
       },error: (err)=> {
         console.log(err)
       }
     })
+  }
+
+  //cancelar sub
+  cancelar(){
+    this.UserService.cancelarSub()
+      .subscribe({
+        next: (res)=> {
+          this.getCreator()
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
   //update

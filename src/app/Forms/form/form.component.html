@@ -186,7 +186,7 @@
           maravilloso para personas como tú.
         </p>
       </div>
-      <div class="checks">
+      <form class="checks" [formGroup]="formGift">
         <div class="checks-top">
           <div class="form-check">
             <input
@@ -194,7 +194,9 @@
               type="radio"
               name="donations"
               id="check5usd"
-              checked
+              value="5.00"
+              formControlName="donations"
+              (click)="key($event)"
             />
             <label class="form-check-label" for="check5usd"> $5.00 </label>
           </div>
@@ -204,6 +206,9 @@
               type="radio"
               name="donations"
               id="check10usd"
+              value="10.00"
+              formControlName="donations"
+              (click)="key($event)"
             />
             <label class="form-check-label" for="check10usd"> $10.00 </label>
           </div>
@@ -213,6 +218,9 @@
               type="radio"
               name="donations"
               id="check20usd"
+              value="20.00"
+              formControlName="donations"
+              (click)="key($event)"
             />
             <label class="form-check-label" for="check20usd"> $20.00 </label>
           </div>
@@ -224,13 +232,16 @@
               type="radio"
               name="donations"
               id="check0usd"
+              value="0.00"
+              formControlName="donations"
+              (click)="key($event)"
             />
             <label class="form-check-label" for="check0usd"> $0.00 </label>
           </div>
         </div>
         <p>(Moneda $ USD) Será direccionado a una zona segura de pagos</p>
-      </div>
-      <button type="button" class="btn btn-primary" (click)="nextPay()">
+      </form>
+      <button type="button" class="btn btn-primary" [disabled]="!formGift.valid" (click)="nextPay()">
         ¡Sí, Quiero Colaborar!
       </button>
       <div class="regalo">
@@ -240,13 +251,13 @@
           proyecto.
         </h3>
         <img src="../../../assets/PACK SECRETO.png" />
-        <p routerLink="/">
+        <p routerLink="/" style="cursor: pointer;">
           ¡Click aquí, si no deseas colaborar, ni tampoco acceder al Pack de
           Obsequios Exclusivos.
         </p>
       </div>
     </div>
     <!-- formulario 8 -->
-    <app-pay-method *ngIf="payView"></app-pay-method>
+    <app-pay-method *ngIf="payView" [infoPay]="infoPay" ></app-pay-method>
   </div>
 </div>
