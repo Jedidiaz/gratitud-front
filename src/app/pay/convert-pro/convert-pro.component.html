@@ -1,5 +1,5 @@
 <div class="contenedor">
-  <div class="content-form">
+  <div class="content-form" *ngIf="!pay">
     <div class="payMetodoh">
       <div>
         <h1>Elijo ser PRO</h1>
@@ -23,7 +23,8 @@
               name="proM"
               formControlName="proM"
               id="ckeck1"
-              value="mes"
+              value="99"
+              (click)="select($event)"
             />
             <div>
               <label class="form-check-label" for="ckeck1" style="color: #F36A6A;">
@@ -39,7 +40,8 @@
               name="proM"
               formControlName="proM"
               id="ckeck2"
-              value="año"
+              value="10"
+              (click)="select($event)"
             />
             <div>
               <label class="form-check-label" for="ckeck2" style="color: #A07260; font-weight: 600;">
@@ -51,14 +53,15 @@
         </form>
         <div class="monto">
           <p>Vence en 365 días</p>
-          <span>US{{'100' | currency}}</span>
+          <span>US{{selected | currency}}</span>
         </div>
         <div class="buttons-pay">
-          <button type="button" class="btn btn-secondary" [disabled]="!formPay.valid" >CONTINUAR</button>
+          <button type="button" class="btn btn-secondary" [disabled]="!formPay.valid" (click)="pagar()" >CONTINUAR</button>
           <p style="width: 100%; text-align: start;">Al continuar, estás aceptando los <a routerLink="/terminos-y-condiciones">Términos y condiciones</a> de
             gratitud.link PRO y confirmas que leíste nuestra <a routerLink="/aviso-privacidad">Política de privacidad</a></p>
         </div>
       </div>
     </div>
   </div>
+  <app-suscription *ngIf="pay" [selected]="selected" [username]="username" ></app-suscription>
 </div>

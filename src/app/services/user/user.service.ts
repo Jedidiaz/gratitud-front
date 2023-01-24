@@ -107,6 +107,11 @@ export class UserService {
     return this.http.post<ResponseI>(`${this.urlUser}withdraw`, form, {headers: this.headers})
   }
 
+//stripe
+  postDonationStripe(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(`${this.urlUser}success`, form)
+  }
+
   cancelarSub():Observable<ResponseI>{
     return this.http.get<ResponseI>(`${this.url}paysuspend`, {headers: this.headers})
   }

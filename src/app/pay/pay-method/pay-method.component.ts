@@ -30,6 +30,10 @@ export class PayMethodComponent implements OnInit {
 
   formPayM: FormGroup
   metoh: any
+
+  stripe1 = environment.donation_stripe1
+  stripe2 = environment.donation_stripe2
+  stripe3 = environment.donation_stripe3
   constructor( private formbuilder: FormBuilder) {
     this.formPayM = formbuilder.group({
       payM: ['', Validators.required]
@@ -40,66 +44,74 @@ export class PayMethodComponent implements OnInit {
     const url = this.url
     const infoPay = this.infoPay
     if(infoPay.amount === '5.00'){
-      this.planID = 'price_1MQEomDqSAlgA2D1jS3a40OU'
+      this.planID = this.stripe1
     }else if(infoPay.amount === '10.00'){
-      this.planID = 'price_1MQEdrDqSAlgA2D1ElK2gPmB'
+      this.planID = this.stripe2
     }else if(infoPay.amount === '20.00'){
-      this.planID = 'price_1MQEiIDqSAlgA2D1H3Gz0Y8A'
+      this.planID = this.stripe3
     }
 
-    paypal
-      .Buttons({
-        style: {
-          shape: 'pill',
-          color: 'gold',
-          layout: 'horizontal',
-          label: 'paypal',
-        },
-        createOrder: function (data: any, actions: any) {
-          return fetch(`http://25.78.142.190:9000/api/orders`, {
-            method: 'post',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-              amount: infoPay.amount,
-            }),
-          })
-            .then((response) => response.json())
-            .then((order) => order.id);
-        },
-        onApprove: function (data: any, actions: any) {
-          return fetch(
-            `http://25.78.142.190:9000/api/orders/${data.orderID}/capture`,
-            {
+    const paypalRender = this.paypalElement.nativeElement
+    function loadAsync(url: any, callback: any) {
+      var s = document.createElement('script');
+      s.setAttribute('src', url); s.onload = callback;
+      document.head.insertBefore(s, document.head.firstElementChild);
+    }
+    loadAsync('https://www.paypal.com/sdk/js?client-id=AW44U8epcESMROONuZgFbEn-FCnFlQINGIl-s4iPNVIdc-7-FNipAesAgTCAkXVn5CgvGavuNSi3PIWn&currency=USD&intent=capture', function(){
+      paypal
+        .Buttons({
+          style: {
+            shape: 'pill',
+            color: 'gold',
+            layout: 'horizontal',
+            label: 'paypal',
+          },
+          createOrder: function (data: any, actions: any) {
+            return fetch(`${url}orders`, {
               method: 'post',
               headers: {
                 'content-type': 'application/json',
               },
               body: JSON.stringify({
-                email: infoPay.email,
-                username: infoPay.username,
-                name: infoPay.name,
                 amount: infoPay.amount,
               }),
-            }
-          )
-            .then((response) => response.json())
-            .then((orderData) => {
-              console.log(
-                'Capture result',
-                orderData,
-                JSON.stringify(orderData, null, 2)
-              );
-              var transaction =
-                orderData.purchase_units[0].payments.captures[0];
-              if(transaction.status === 'COMPLETED'){
-                window.location.href="/lista-regalos"
+            })
+              .then((response) => response.json())
+              .then((order) => order.id);
+          },
+          onApprove: function (data: any, actions: any) {
+            return fetch(
+              `${url}orders/${data.orderID}/capture`,
+              {
+                method: 'post',
+                headers: {
+                  'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                  email: infoPay.email,
+                  username: infoPay.username,
+                  name: infoPay.name,
+                  amount: infoPay.amount,
+                }),
               }
-            });
-        },
-      })
-      .render(this.paypalElement.nativeElement);
+            )
+              .then((response) => response.json())
+              .then((orderData) => {
+                console.log(
+                  'Capture result',
+                  orderData,
+                  JSON.stringify(orderData, null, 2)
+                );
+                var transaction =
+                  orderData.purchase_units[0].payments.captures[0];
+                if(transaction.status === 'COMPLETED'){
+                  window.location.href="/lista-regalos"
+                }
+              });
+          },
+        })
+        .render(paypalRender);
+    })
   }
 
   back() {
@@ -133,7 +145,8 @@ export class PayMethodComponent implements OnInit {
       plan_id: this.planID,
       username: this.infoPay.username,
       email: this.infoPay.email,
-      amount: this.infoPay.amount
+      amount: this.infoPay.amount,
+      name: this.infoPay.name
     })
   })
     .then(res => {

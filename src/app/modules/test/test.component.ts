@@ -13,61 +13,72 @@ export class TestComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    paypal
-      .Buttons({
-        // Sets up the transaction when a payment button is clicked
-        createOrder: function (data: any, actions: any) {
-          return fetch('http://25.78.142.190:9000/api/orders', {
-            method: 'post',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              amount: '70.00',
-            }),
-            // use the "body" param to optionally pass additional order information
-            // like product ids or amount
-          })
-            .then((response) => response.json())
-            .then((order) => order.id);
-        },
-        // Finalize the transaction after payer approval
-        onApprove: function (data: any, actions: any) {
-          return fetch(
-            `http://25.78.142.190:9000/api/orders/${data.orderID}/capture`,
-            {
+    const paypalRender = this.paypalElement.nativeElement
+    function loadAsync(url: any, callback: any) {
+      var s = document.createElement('script');
+      s.setAttribute('src', url); s.onload = callback;
+      document.head.insertBefore(s, document.head.firstElementChild);
+    }
+
+    loadAsync('https://www.paypal.com/sdk/js?client-id=AW44U8epcESMROONuZgFbEn-FCnFlQINGIl-s4iPNVIdc-7-FNipAesAgTCAkXVn5CgvGavuNSi3PIWn&currency=USD&intent=capture', function(){
+      paypal
+        .Buttons({
+          // Sets up the transaction when a payment button is clicked
+          createOrder: function (data: any, actions: any) {
+            return fetch(`http://25.78.142.190:9000/api/orders`, {
               method: 'post',
               headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                email: 'infoPay.email',
-                username: 'infoPay.username',
-                name: 'infoPay.name',
-                amount: '100',
+                amount: '70.00',
               }),
-            }
-          )
-            .then((response) => response.json())
-            .then((orderData) => {
-              // Successful capture! For dev/demo purposes:
-              console.log(
-                'Capture result',
-                orderData,
-                JSON.stringify(orderData, null, 2)
-              );
-              var transaction =
-                orderData.purchase_units[0].payments.captures[0];
-              if (transaction.status === 'COMPLETED') {
-                window.location.href = '/lista-regalos';
+              // use the "body" param to optionally pass additional order information
+              // like product ids or amount
+            })
+              .then((response) => response.json())
+              .then((order) => order.id);
+          },
+          // Finalize the transaction after payer approval
+          onApprove: function (data: any, actions: any) {
+            return fetch(
+              `http://25.78.142.190:9000/api/orders/${data.orderID}/capture`,
+              {
+                method: 'post',
+                headers: {
+                  'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                  email: 'infoPay.email',
+                  username: 'infoPay.username',
+                  name: 'infoPay.name',
+                  amount: '100',
+                }),
               }
-              // When ready to go live, remove the alert and show a success message within this page. For example:
-              // var element = document.getElementById('paypal-button-container');
-              // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-              // Or go to another URL:  actions.redirect('thank_you.html');
-            });
-        },
-      })
-      .render(this.paypalElement.nativeElement);
+            )
+              .then((response) => response.json())
+              .then((orderData) => {
+                // Successful capture! For dev/demo purposes:
+                console.log(
+                  'Capture result',
+                  orderData,
+                  JSON.stringify(orderData, null, 2)
+                );
+                var transaction =
+                  orderData.purchase_units[0].payments.captures[0];
+                if (transaction.status === 'COMPLETED') {
+                  window.location.href = '/lista-regalos';
+                }
+                // When ready to go live, remove the alert and show a success message within this page. For example:
+                // var element = document.getElementById('paypal-button-container');
+                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                // Or go to another URL:  actions.redirect('thank_you.html');
+              });
+          },
+        })
+        .render(paypalRender);
+    })
   }
+
+
 }
