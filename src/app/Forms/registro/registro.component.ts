@@ -13,7 +13,7 @@ export class RegistroComponent implements OnInit {
   formRegister: FormGroup;
   value = 'hola';
   //mesage error
-  messageError:string= ''
+  messageError = {message: '', color: '#fff'}
   username: any = ''
 
   validEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
@@ -38,13 +38,16 @@ export class RegistroComponent implements OnInit {
       form.append('password', this.formRegister.value.password)
       form.append('username', this.username.toLowerCase())
       this.UserService.SignUp(form).subscribe({
-        next: (el)=> {
-          console.log(el)
-          this.Verify = true
+        next: (res)=> {
+          if(res.response === 'Success'){
+            this.messageError.message = res.message!
+            this.messageError.color = 'green'
+            this.Verify = true
+          }else{
+            this.messageError.message = res.message!
+            this.messageError.color = 'red'
+          }
         },error: (err)=> {
-          if(err.status === 500)this.messageError = '*Este correo ya esta en uso*'
-          else if(err.status === 400)this.messageError = '*esta direccion ya está en uso*'
-          console.log(err)
         }
       })
     }

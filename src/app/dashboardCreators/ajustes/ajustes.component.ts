@@ -44,14 +44,7 @@ export class AjustesComponent implements OnInit {
 
   //cancelar sub
   cancelar(){
-    this.UserService.cancelarSub()
-      .subscribe({
-        next: (res)=> {
-          this.getCreator()
-        }, error: (err)=> {
-          console.log(err)
-        }
-      })
+    window.location.href = "/cancelar"
   }
 
   //update

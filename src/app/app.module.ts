@@ -54,6 +54,8 @@ import { ConvertProComponent } from './pay/convert-pro/convert-pro.component';
 import { TestComponent } from './modules/test/test.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
+import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.component';
 
 
 @NgModule({
@@ -97,7 +99,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListGiftComponent,
     SuscriptionComponent,
     ConvertProComponent,
-    TestComponent
+    TestComponent,
+    ForgotPasswordComponent,
+    CancelarComponent
 
 
   ],

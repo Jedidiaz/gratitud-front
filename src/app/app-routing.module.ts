@@ -1,3 +1,5 @@
+import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.component';
+import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
 import { TestComponent } from './modules/test/test.component';
 import { ConvertProComponent } from './pay/convert-pro/convert-pro.component';
 import { SuscriptionComponent } from './pay/suscription/suscription.component';
@@ -31,7 +33,7 @@ import { FormComponent } from './Forms/form/form.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoComponent },
-  { path: 'reset', component: RecoveryPasswordComponent },
+  { path: 'recuperar-contraseña', component: RecoveryPasswordComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'acerca-de', component: AcercaDeComponent },
   { path: 'terminos-y-condiciones', component: TerminosComponent },
@@ -52,6 +54,8 @@ const routes: Routes = [
   { path: 'lista-regalos', component: ListGiftComponent },
   { path: 'suscripcion', component: SuscriptionComponent },
   { path: 'test', component: TestComponent },
+  { path: 'reset', component: ForgotPasswordComponent },
+  { path: 'cancelar', component: CancelarComponent },
   { path: ':username', component: FrontCreatorComponent },
   { path: ':username/mensaje', component: FormComponent },
 

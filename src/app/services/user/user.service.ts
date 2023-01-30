@@ -29,6 +29,10 @@ export class UserService {
     return this.http.post<ResponseI>(this.url + 'register', form)
   }
 
+  recoveryPassword(form: FormData):Observable<ResponseI>{
+    return this.http.post<ResponseI>(this.url + 'register', form)
+  }
+
   authGet(token: string):Observable<ResponseI>{
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
@@ -124,6 +128,16 @@ export class UserService {
   //update password
   updatePassword(form: FormData):Observable<ResponseI>{
     return this.http.put<ResponseI>(`${this.url}passwordChange`, form, {headers: this.headers})
+  }
+
+  resetPassword(form: FormData, token: any):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.url}reset`, form, {
+      params: token
+    })
+  }
+
+  sendEmailPassword(form: FormData){
+    return this.http.post<ResponseI>(`${this.url}reset`, form)
   }
 
   //token
