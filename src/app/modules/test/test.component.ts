@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 declare var paypal: any;
 
@@ -10,7 +12,7 @@ declare var paypal: any;
 export class TestComponent implements OnInit {
   @ViewChild('paypal', { static: true }) paypalElement!: ElementRef;
 
-  constructor() {}
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     const paypalRender = this.paypalElement.nativeElement
@@ -80,5 +82,10 @@ export class TestComponent implements OnInit {
     })
   }
 
+  openSnackBar() {
+    this.snackBar.open('Se perdió la conexión', 'ok', {
+      duration: 3000
+    });
+  }
 
 }

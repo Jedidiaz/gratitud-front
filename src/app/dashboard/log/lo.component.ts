@@ -25,10 +25,6 @@ export class LoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click(){
-
-  }
-
   login(){
     if (this.formLogin.valid){
       const formDataAuth = new FormData()

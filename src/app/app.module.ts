@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { spinnerInterceptor } from './shared/interceptor/spinner.interceptor';
 //Angular components
 import { NgModule } from '@angular/core';
@@ -51,6 +52,8 @@ import { ListGiftComponent } from './Forms/list-gift/list-gift.component';
 import { SuscriptionComponent } from './pay/suscription/suscription.component';
 import { ConvertProComponent } from './pay/convert-pro/convert-pro.component';
 import { TestComponent } from './modules/test/test.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -106,8 +109,11 @@ import { TestComponent } from './modules/test/test.component';
     NgbModule,
     HttpClientModule,
     ClipboardModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
+
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, ],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, BrowserAnimationsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
