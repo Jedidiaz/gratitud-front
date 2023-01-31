@@ -104,6 +104,7 @@ export interface ResponseGetAdmin {
   message?: string;
   data: CreatorsAdminModel[];
   data1?: withdrawAdminModel[];
+  total?: number
 }
 
 export interface ResponseGetAdminTemp {

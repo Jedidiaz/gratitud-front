@@ -205,4 +205,9 @@ export class UserService {
   configUpdate(form: FormData):Observable<ResponseI>{
     return this.http.put<ResponseI>(`${this.urlAdmin}info`, form, {headers: this.headers})
   }
+
+  getDonationAmount():Observable<ResponseGetAdmin>{
+    return this.http.get<ResponseGetAdmin>(`${this.urlAdmin}amountd`, {headers: this.headers})
+  }
+
 }

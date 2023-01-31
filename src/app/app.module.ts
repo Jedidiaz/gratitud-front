@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoComponent } from './dashboard/log/lo.component';
 import { RegisterComponent } from './dashboard/register/register.component';
 import { RecoveryPasswordComponent } from './dashboard/recovery-password/recovery-password.component';
+
 //Modules
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './dashboard/home/home.component';
@@ -114,7 +115,7 @@ import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.compone
     HttpClientModule,
     ClipboardModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, BrowserAnimationsModule],
