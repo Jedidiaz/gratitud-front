@@ -1,3 +1,4 @@
+import { LoadingSubComponent } from './Forms/loading-sub/loading-sub.component';
 import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.component';
 import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
 import { TestComponent } from './modules/test/test.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'reset', component: ForgotPasswordComponent },
   { path: 'cancelar', component: CancelarComponent },
+  { path: 'loading', component: LoadingSubComponent },
   { path: ':username', component: FrontCreatorComponent },
   { path: ':username/mensaje', component: FormComponent },
 

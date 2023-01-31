@@ -49,10 +49,11 @@
         </div>
       </form>
       <div class="footer">
-        <span style="cursor: pointer;">
+        <span style="cursor: pointer;" (click)="recovery()">
           <p>RECUPERAR CONTRASEÑA</p>
           <p>Enviar contraseña a mi correo</p>
         </span>
+        <span [ngStyle]="{'color': messagePass.color}">{{messagePass.message}}</span>
         <br/>
         <button class="btn btn-primary" type="button">ENVIAR</button>
         <br/>

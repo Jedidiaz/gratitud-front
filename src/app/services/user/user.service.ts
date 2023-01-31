@@ -116,6 +116,10 @@ export class UserService {
     return this.http.post<ResponseI>(`${this.urlUser}success`, form)
   }
 
+  postSubStripe(form: FormData):Observable<any>{
+    return this.http.put<any>(`${this.urlUser}subSuccess`, form)
+  }
+
   cancelarSub():Observable<ResponseI>{
     return this.http.get<ResponseI>(`${this.url}paysuspend`, {headers: this.headers})
   }

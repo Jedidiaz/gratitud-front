@@ -74,7 +74,9 @@ export class SuscriptionComponent implements OnInit {
           })
             .then((response)=> response.json())
             .then((subscriptionID)=> {
-              console.log(subscriptionID)
+              if(!subscriptionID.cancel){
+                window.location.href="/perfil"
+              }
             })
         }
       })

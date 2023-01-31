@@ -57,7 +57,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password.component';
 import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.component';
-
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { LoadingSubComponent } from './Forms/loading-sub/loading-sub.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.compone
     ConvertProComponent,
     TestComponent,
     ForgotPasswordComponent,
-    CancelarComponent
+    CancelarComponent,
+    LoadingSubComponent
 
 
   ],
@@ -116,6 +118,7 @@ import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.compone
     ClipboardModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
+    NgxCaptchaModule
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: spinnerInterceptor, multi: true}, BrowserAnimationsModule],

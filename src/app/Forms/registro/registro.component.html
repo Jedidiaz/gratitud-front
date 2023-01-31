@@ -7,9 +7,7 @@
   <div class="content-login" *ngIf="!Verify">
     <div class="form">
       <form [formGroup]="formRegister" (submit)="register()">
-        <h1>
-          Ingresa tus información<br>de contacto
-        </h1>
+        <h1>Ingresa tus información<br />de contacto</h1>
         <div class="test">
           <input
             class="form-control"
@@ -37,10 +35,29 @@
             formControlName="password"
           />
         </div>
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <div class="g-recaptcha" data-sitekey="6LeJYj0kAAAAAOXybXuX7nkVP1SK4nmgCaevUO16"></div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <!-- <div
+            class="g-recaptcha"
+            data-sitekey="6LexeT0kAAAAALzgSUlQAJz0-I3NhnXAo_PE-gh7"
+          ></div> -->
+          <ngx-recaptcha2
+            #captchaElem
+            [siteKey]="siteKey"
+            formControlName="recaptcha"
+          >
+          </ngx-recaptcha2>
         </div>
-        <div class="btn-login" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div
+          class="btn-login"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
           <button
             class="btn btn-primary"
             type="submit"
@@ -48,7 +65,9 @@
           >
             CONTINUAR
           </button>
-          <p [style]="{'color': messageError.color}">{{messageError.message}}</p>
+          <p [style]="{ color: messageError.color }">
+            {{ messageError.message }}
+          </p>
         </div>
       </form>
       <div class="footer">
@@ -66,8 +85,7 @@
   </div>
   <div class="content-valid" *ngIf="Verify">
     <h1>Ve a tu bandeja de email</h1>
-    <br/>
-    <p>Te hemos enviado un correo electrónico para
-      verificar tu cuenta.</p>
+    <br />
+    <p>Te hemos enviado un correo electrónico para verificar tu cuenta.</p>
   </div>
 </div>

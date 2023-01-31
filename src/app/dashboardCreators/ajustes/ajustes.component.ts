@@ -15,6 +15,7 @@ export class AjustesComponent implements OnInit {
   pro: boolean = false
 
   message = {message: '', color: 'black'}
+  messagePass = {message: '', color: 'black'}
   constructor( private formbuilder: FormBuilder, private UserService: UserService) {
     this.formAjuste = formbuilder.group({
       passwordA: ['', [Validators.required, Validators.minLength(5)]],
@@ -65,6 +66,25 @@ export class AjustesComponent implements OnInit {
           console.log(err)
         }
       })
+  }
+
+  //recoverypass
+  recovery(){
+    const form = new FormData();
+    form.append('email', this.email)
+
+    this.UserService.sendEmailPassword(form).subscribe({
+      next: (res) => {
+        if (res.response === 'Success') {
+          this.messagePass.message = res.message!;
+          this.messagePass.color = 'green';
+        } else {
+          this.messagePass.message = res.message!;
+          this.messagePass.color = 'red';
+        }
+      },
+      error: (err) => {},
+    });
   }
 
 }
