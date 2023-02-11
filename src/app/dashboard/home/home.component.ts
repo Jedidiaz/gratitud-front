@@ -1,3 +1,4 @@
+import { DataModelInterface } from './../../models/homeModel.interface';
 import { CreatorsAdminModel } from './../../models/users.interface';
 import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
     name: 'Daniela Correa',
     description: 'Facilitadora de Conciencia',
   };
-  usersE: CreatorsAdminModel[] = [];
+  usersE: DataModelInterface[] = [];
   constructor(
     private UserService: UserService,
     private snackBar: MatSnackBar
@@ -37,8 +38,12 @@ export class HomeComponent implements OnInit {
   getInfo() {
     this.UserService.getCreatorHome().subscribe({
       next: (res) => {
-        console.log(res.data);
+        console.log(res);
         this.usersE = res.data;
+        this.usersE.map((item, index)=> {
+          item.num = res.datam[index]
+        })
+        console.log(this.usersE)
       },
       error: (err) => {
         if (err.status === 0) {

@@ -9,7 +9,7 @@
           id="like"
         />
         <label class="form-check-label" for="like">
-          <img src="../../../assets/HEART 2.png" />
+          <img src="../../../assets/HEART 2.png" (click)="destacar()" style="cursor: pointer;" />
         </label>
       </div>
       <div class="form-check">
@@ -20,13 +20,13 @@
           id="view"
         />
         <label class="form-check-label" for="view">
-          <img src="../../../assets/PALOMA 2.png" />
+          <img src="../../../assets/PALOMA 2.png" (click)="visible()" style="cursor: pointer;"/>
         </label>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="delete" />
         <label class="form-check-label" for="delete">
-          <img src="../../../assets/delete.png" />
+          <img src="../../../assets/delete.png" (click)="eliminar()" style="cursor: pointer;"/>
         </label>
       </div>
       <div class="form-check">
@@ -41,34 +41,24 @@
         </label>
       </div>
     </div>
-    <div class="card-creator" id="card">
-      <h5>
-        Para: <span>{{ user }}</span>
-      </h5>
-      <div>
-        <p>{{ title }}</p>
+    <div class="content-cards">
+      <div class="card-creator">
+        <h5><span style="font-family: 'Spirax', cursive; font-size: 22px;">{{name}}</span></h5>
+        <div>
+          <p style="font-size: 18px; font-weight: 600;">{{title}}</p>
+          <br>
+          <p>{{description}}</p>
+        </div>
+        <div class="imgcard">
+          <img [src]="image">
+        </div>
+        <h5>{{user}}</h5>
+        <ng-template #t let-fill="fill">
+          <i class="bi-heart-fill">
+            <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
+          </i>
+        </ng-template>
       </div>
-      <img [src]="'../../../assets/default.png'" />
-      <div>
-        <p>{{ description }}</p>
-      </div>
-      <h5>{{ name }}</h5>
-
-      <ng-template #t let-fill="fill">
-        <i class="bi-heart-fill">
-          <i
-            *ngIf="fill > 0"
-            class="bi-heart-fill filled"
-            [style.width.%]="fill"
-          ></i>
-        </i>
-      </ng-template>
-      <ngb-rating
-        [rate]="3"
-        [starTemplate]="t"
-        [readonly]="true"
-        [max]="5"
-      ></ngb-rating>
     </div>
     <br>
     <button type="button" class="btn btn-secondary"><img src="../../../assets/arrow1.png" routerLink="/perfil/messages"></button>

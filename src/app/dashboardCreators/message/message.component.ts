@@ -1,4 +1,4 @@
-import { ResponseMessageModel, MessagesModel } from './../../models/users.interface';
+import { ResponseMessageModel, MessagesModel, imageProModel } from './../../models/users.interface';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,13 +16,15 @@ export class MessageComponent implements OnInit {
   name: any
   description: any
   title: any
+  image: any
+  idE: any
 
   card: Array<any> = []
   constructor(private UserService: UserService, private _router: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this._router.snapshot.paramMap.get('id')
-    console.log(id)
+    this.idE = id
     this.card.push({
       name: 'Daniela Correa',
       clase: 'Una clase super maravillosa!',
@@ -44,6 +46,7 @@ export class MessageComponent implements OnInit {
           this.name = res.data?.name
           this.description = res.data?.description
           this.title = res.data?.title
+          this.image = res.data?.img.filePath
         }, error: (err)=> {
           console.log(err)
         }
@@ -65,4 +68,38 @@ export class MessageComponent implements OnInit {
       // this._download(index + 1, array)
     });
   }
+
+  //destacar
+  destacar(){
+    this.UserService.destacar(this.idE).subscribe({
+      next: (res)=> {
+        window.location.href = "/perfil/messages"
+      }, error:(err)=> {
+        console.log(err)
+      }
+    })
+  }
+
+  //visible
+  visible(){
+    this.UserService.visible(this.idE).subscribe({
+      next: (res)=> {
+        window.location.href = "/perfil/messages"
+      }, error:(err)=> {
+        console.log(err)
+      }
+    })
+  }
+
+  //eliminar
+  eliminar(){
+    this.UserService.eliminar(this.idE).subscribe({
+      next: (res)=> {
+        window.location.href = "/perfil/messages"
+      }, error:(err)=> {
+        console.log(err)
+      }
+    })
+  }
+
 }

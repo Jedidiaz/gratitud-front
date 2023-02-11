@@ -30,7 +30,14 @@ export class MainAdminComponent implements OnInit {
   }
 
   goHome(){
-    window.location.href="/"
+    this.inicio = false
+    this.creadores = false
+    this.usuarios = false
+    this.pros = false
+    this.ajustes = false
+    this.boletin = false
+    this.configuracion = false
+    this.home = true
   }
 
   inicioView(){

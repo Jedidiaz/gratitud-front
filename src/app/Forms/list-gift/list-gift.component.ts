@@ -22,6 +22,7 @@ export class ListGiftComponent implements OnInit {
     this._router.queryParams.subscribe({
       next: (ok) => {
         this.stripe(ok)
+        console.log(ok)
       }
     })
     if(Object.entries(query).length != 0){

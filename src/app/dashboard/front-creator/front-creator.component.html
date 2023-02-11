@@ -4,10 +4,10 @@
       <div class="creator">
         <img class="imgProfile" [src]="infoCreator.imgpro.filePath || '../../../assets/default.png'" >
         <h1>{{infoCreator.name || 'Nombre'}}</h1>
-        <span>{{ infoCreator.titulo || '*Titulo*'}}</span>
+        <span>{{ infoCreator.profesion || 'No hay Profesion'}}</span>
       </div>
         <div class="description">
-          <h3>¿Cuánta gratitud puedo elegir ser por todo y por todos?</h3>
+          <h3>{{infoCreator.titulo || 'No hay titulo'}}</h3>
           <p>{{infoCreator.description || '*Sin descripcion*'}}</p>
           <div class="buttons">
             <a [href]="infoCreator.facebook || 'https://www.facebook.com'"><img src="../../../assets/FACEBOOK ICON.png" ></a>
@@ -23,21 +23,34 @@
     </section>
     <section>
       <h1>Mensajes de <span>Cariño y Gratitud Recibidos</span></h1>
-      <img src="../../../assets/creator.png" >
+      <div class="box" style="width: 100%">
+        <div class="contentbox" style="text-align: center">
+          <i
+            class="bi bi-heart-fill"
+            style="color: #f36a6a; font-size: 28px; text-align: center"
+          ></i>
+          <p style="color: #a07260; font-size: 22px">{{MessagesCreator.length}}</p>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
       <div class="content-cards">
         <div class="card-creator" *ngFor="let message of MessagesCreator">
-          <h5>Para: <span>{{infoCreator.name}}</span></h5>
-          <div><p>{{message.title}}</p></div>
-          <img src="../../../assets/default.png">
-          <div><p>{{message.description}}</p></div>
+          <h5><span style="font-family: 'Spirax', cursive; font-size: 22px;">{{infoCreator.name}}</span></h5>
+          <div>
+            <p style="font-size: 18px; font-weight: 600;">{{message.title}}</p>
+            <br>
+            <p>{{message.description}}</p>
+          </div>
+          <div class="imgcard">
+            <img [src]="message.img.filePath">
+          </div>
           <h5>{{message.name}}</h5>
-
           <ng-template #t let-fill="fill">
             <i class="bi-heart-fill">
               <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
             </i>
           </ng-template>
-          <ngb-rating (rate)="3" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
         </div>
       </div>
       <h3>CARGAR MÁS</h3>

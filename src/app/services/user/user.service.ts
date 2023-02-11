@@ -1,3 +1,4 @@
+import { ResponseHomeUsersModel, responseGetInfoHomeModel } from './../../models/homeModel.interface';
 import { saveAs } from 'file-saver';
 import { ResponseI, ResponseInfoModel, ResponseMessageModel, ResponseGetAdmin, ResponseGetAdminTemp, ResponsePackModel, ResponseInfoPageModel } from './../../models/users.interface';
 import { Injectable } from '@angular/core';
@@ -78,8 +79,8 @@ export class UserService {
 
   //home
 
-  getCreatorHome():Observable<ResponseGetAdmin>{
-    return this.http.get<ResponseGetAdmin>(`${this.urlUser}home/recently`)
+  getCreatorHome():Observable<ResponseHomeUsersModel>{
+    return this.http.get<ResponseHomeUsersModel>(`${this.urlUser}home/recently`)
   }
 
   //creators
@@ -212,6 +213,45 @@ export class UserService {
 
   getDonationAmount():Observable<ResponseGetAdmin>{
     return this.http.get<ResponseGetAdmin>(`${this.urlAdmin}amountd`, {headers: this.headers})
+  }
+
+
+  //mesagges services
+  destacar(id: any):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.url}like/${id}`, {
+      headers: this.headers
+    })
+  }
+
+  visible(id: any):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.url}seemessage/${id}`, {
+      headers: this.headers
+    })
+  }
+
+  eliminar(id: any):Observable<ResponseI>{
+    return this.http.delete<ResponseI>(`${this.url}delmessage/${id}`, {
+      headers: this.headers
+    })
+  }
+
+  //infoHome
+  infoHome(form: any):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}home`, form,{
+      headers: this.headers
+    })
+  }
+
+  infoHomePhoto(form: any):Observable<ResponseI>{
+    return this.http.put<ResponseI>(`${this.urlAdmin}homeimg`, form,{
+      headers: this.headers
+    })
+  }
+
+  getInfoHome():Observable<responseGetInfoHomeModel>{
+    return this.http.get<responseGetInfoHomeModel>(`${this.urlUser}home/info`,{
+      headers: this.headers
+    })
   }
 
 }

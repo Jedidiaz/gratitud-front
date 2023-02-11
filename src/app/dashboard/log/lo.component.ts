@@ -23,6 +23,7 @@ export class LoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')) window.location.href = "/perfil"
   }
 
   login(){

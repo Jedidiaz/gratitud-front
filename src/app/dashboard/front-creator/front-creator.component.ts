@@ -37,6 +37,7 @@ export class FrontCreatorComponent implements OnInit {
     this.UserService.getInfoPage(username)
     .subscribe({
       next: (res)=> {
+        console.log(res)
         this.infoCreator = res.user
         this.MessagesCreator = res.message
         console.log(this.infoCreator.imgpro)

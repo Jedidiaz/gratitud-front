@@ -59,6 +59,7 @@ import { ForgotPasswordComponent } from './Forms/forgot-password/forgot-password
 import { CancelarComponent } from './dashboardCreators/cancelar/cancelar.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { LoadingSubComponent } from './Forms/loading-sub/loading-sub.component';
+import { HomeAdminComponent } from './dashboardAdmin/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { LoadingSubComponent } from './Forms/loading-sub/loading-sub.component';
     TestComponent,
     ForgotPasswordComponent,
     CancelarComponent,
-    LoadingSubComponent
+    LoadingSubComponent,
+    HomeAdminComponent
 
 
   ],
