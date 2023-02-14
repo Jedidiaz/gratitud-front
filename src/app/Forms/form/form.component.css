@@ -237,6 +237,23 @@ h3, p, label{
   background-color: #EDD0CA;
 }
 
+/* another amount */
+.amount{
+  display: flex !important;
+  width: 100% !important;
+  padding: 25px;
+  font-size: 25px;
+  color: #A07260;
+}
+
+.checks input:checked + .amount{
+  background-color: #EDD0CA;
+}
+
+.amount::placeholder{
+  font-size: 25px;
+}
+
 .checks-top{
   display: flex;
   align-items: center;

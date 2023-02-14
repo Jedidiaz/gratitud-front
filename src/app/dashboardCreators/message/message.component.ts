@@ -18,6 +18,8 @@ export class MessageComponent implements OnInit {
   title: any
   image: any
   idE: any
+  like!: boolean
+  color = '#b3b3b3'
 
   card: Array<any> = []
   constructor(private UserService: UserService, private _router: ActivatedRoute) { }
@@ -25,16 +27,6 @@ export class MessageComponent implements OnInit {
   ngOnInit(): void {
     const id = this._router.snapshot.paramMap.get('id')
     this.idE = id
-    this.card.push({
-      name: 'Daniela Correa',
-      clase: 'Una clase super maravillosa!',
-      image: '../../../assets/danielacorrea.png',
-      description: '"Ame los procesos, me encantaron, los llevo a todos lados, no solo me sirvieron para sanar mi alma, sino para despedir muchos bloqueos que me estaban destruyendo."',
-      nameFollow: 'John Doe',
-      rating: 3,
-      select: false,
-      like: false
-    })
     this.getMessage(id)
   }
 
@@ -47,6 +39,10 @@ export class MessageComponent implements OnInit {
           this.description = res.data?.description
           this.title = res.data?.title
           this.image = res.data?.img.filePath
+          this.like = res.data?.like!
+          console.log(res)
+          if (res.data?.like) this.color = '#F36A6A'
+          console.log(this.color)
         }, error: (err)=> {
           console.log(err)
         }
@@ -82,6 +78,9 @@ export class MessageComponent implements OnInit {
 
   //visible
   visible(){
+    this.like = !this.like
+    console.log(this.like)
+    const body = {visible: this.like}
     this.UserService.visible(this.idE).subscribe({
       next: (res)=> {
         window.location.href = "/perfil/messages"

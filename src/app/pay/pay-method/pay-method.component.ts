@@ -34,6 +34,7 @@ export class PayMethodComponent implements OnInit {
   stripe1 = environment.donation_stripe1
   stripe2 = environment.donation_stripe2
   stripe3 = environment.donation_stripe3
+  stripe4 = environment.donation_stripe4
   constructor( private formbuilder: FormBuilder) {
     this.formPayM = formbuilder.group({
       payM: ['', Validators.required]
@@ -49,6 +50,8 @@ export class PayMethodComponent implements OnInit {
       this.planID = this.stripe2
     }else if(infoPay.amount === '20.00'){
       this.planID = this.stripe3
+    }else {
+      this.planID = this.stripe4
     }
 
     const paypalRender = this.paypalElement.nativeElement

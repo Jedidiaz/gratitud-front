@@ -16,20 +16,11 @@ export class FrontCreatorComponent implements OnInit {
   infoCreator!: CreatorModel
   MessagesCreator!: MessagesModel[];
   cards: Array<any> = []
+  color = '#b3b3b3'
   constructor(private UserService: UserService, private _router: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const username = this._router.snapshot.paramMap.get('username')
-    for (let i = 0; i < 6; i++){
-      this.cards.push({
-        name: 'Daniela Correa',
-        clase: 'Una clase super maravillosa!',
-        image: '../../../assets/danielacorrea.png',
-        description: '"Ame los procesos, me encantaron, los llevo a todos lados, no solo me sirvieron para sanar mi alma, sino para despedir muchos bloqueos que me estaban destruyendo."',
-        nameFollow: 'John Doe',
-        rating: 3
-      })
-    }
     this.getInfo(username)
   }
 
@@ -40,6 +31,10 @@ export class FrontCreatorComponent implements OnInit {
         console.log(res)
         this.infoCreator = res.user
         this.MessagesCreator = res.message
+        this.MessagesCreator.map((item) => {
+          if(item.like) item.color = '#F36A6A'
+          else item.color = '#b3b3b3'
+        });
         console.log(this.infoCreator.imgpro)
       }, error: (err)=> {
         window.location.href="/"

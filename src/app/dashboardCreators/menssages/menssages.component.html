@@ -6,19 +6,19 @@
   <h1>Mensajes de Cariño</h1>
   <br/>
   <div class="list">
-    <div class="messages" *ngFor="let message of messages">
+    <div class="messages" *ngFor="let message of messages" (click)="viewMessage(message._id)" style="cursor: pointer">
       <div>
         <span>{{message.id}}</span>
         <h3>{{message.name}}</h3>
       </div>
       <div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (ngModel)="false" id="view">
-          <i class="bi bi-heart-fill"></i>
+          <input class="form-check-input" type="checkbox" id="view">
+          <i class="bi bi-heart-fill" *ngIf="message.like"></i>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" (ngModel)="false" id="view">
-          <i class="bi bi-eye-fill" (click)="viewMessage(message._id)"></i>
+          <input class="form-check-input" type="checkbox" id="view">
+          <i class="bi bi-eye-fill" *ngIf="message.visible"></i>
         </div>
       </div>
     </div>

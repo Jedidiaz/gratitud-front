@@ -37,6 +37,9 @@
       <div class="content-cards">
         <div class="card-creator" *ngFor="let message of MessagesCreator">
           <h5><span style="font-family: 'Spirax', cursive; font-size: 22px;">{{infoCreator.name}}</span></h5>
+          <span class="hearth" style="margin-bottom: -20px;">
+            <i class="bi-heart-fill"  [style]="{'color': message.color}"></i>
+          </span>
           <div>
             <p style="font-size: 18px; font-weight: 600;">{{message.title}}</p>
             <br>
@@ -46,14 +49,9 @@
             <img [src]="message.img.filePath">
           </div>
           <h5>{{message.name}}</h5>
-          <ng-template #t let-fill="fill">
-            <i class="bi-heart-fill">
-              <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
-            </i>
-          </ng-template>
         </div>
       </div>
-      <h3>CARGAR MÁS</h3>
+      <!-- <h3>CARGAR MÁS</h3>L -->
     </section>
   </div>
 <app-footer></app-footer>

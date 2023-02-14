@@ -35,6 +35,7 @@ export class FormComponent implements OnInit {
   payView: boolean = false;
 
   infoPay: any
+  otroValor: any
 
   validEmail: any =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -54,6 +55,7 @@ export class FormComponent implements OnInit {
 
     this.formGift = formBuilder.group({
       donations: ['', Validators.required],
+      otroValor: [''],
     });
     this.formDescription = formBuilder.group({
       description: [
@@ -157,18 +159,24 @@ export class FormComponent implements OnInit {
     this.giftView = true;
   }
   nextPay() {
-    this.infoPay = {
-      username: this.username,
-      name: this.formName.value.name,
-      email: this.formEmail.value.email,
-      amount: this.price,
-    }
-    if (this.infoPay.amount != '0.00'){
+    console.log(this.formGift.value.otroValor)
+      if (this.price != 'otro'){
+        this.infoPay = {
+          username: this.username,
+          name: this.formName.value.name,
+          email: this.formEmail.value.email,
+          amount: this.price,
+        }
+      }else if (this.price === 'otro'){
+        this.infoPay = {
+          username: this.username,
+          name: this.formName.value.name,
+          email: this.formEmail.value.email,
+          amount: this.formGift.value.otroValor,
+        }
+      }
       this.giftView = false;
       this.payView = true;
-    }else{
-      window.location.href="/lista-regalos"
-    }
   }
   //prev
   preName() {

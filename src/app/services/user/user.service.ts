@@ -218,13 +218,15 @@ export class UserService {
 
   //mesagges services
   destacar(id: any):Observable<ResponseI>{
-    return this.http.put<ResponseI>(`${this.url}like/${id}`, {
+    const body = {}
+    return this.http.put<ResponseI>(`${this.url}like/${id}`, body, {
       headers: this.headers
     })
   }
 
   visible(id: any):Observable<ResponseI>{
-    return this.http.put<ResponseI>(`${this.url}seemessage/${id}`, {
+    const body = {}
+    return this.http.put<ResponseI>(`${this.url}seemessage/${id}`, body, {
       headers: this.headers
     })
   }

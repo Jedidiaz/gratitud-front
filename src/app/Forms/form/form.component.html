@@ -5,10 +5,15 @@
     </div>
   </nav>
   <div class="content-form">
-    <div class="creator" *ngIf="!giftView && !payView" >
+    <div class="creator" *ngIf="!giftView && !payView">
       <img
         [src]="infoCreator.imgpro.filePath || '../../../assets/default.png'"
-        style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;"
+        style="
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+        "
       />
       <h3>{{ infoCreator.name }}</h3>
     </div>
@@ -128,7 +133,12 @@
         <button type="button" class="btn btn-primary" (click)="preMessage()">
           <i class="bi bi-chevron-left"></i> Anterior
         </button>
-        <button type="button" class="btn btn-primary" [disabled]="!fileFill" (click)="nextEmail()">
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!fileFill"
+          (click)="nextEmail()"
+        >
           Siguiente <i class="bi bi-chevron-right"></i>
         </button>
       </div>
@@ -156,7 +166,9 @@
             el <span>Aviso de Privacidad.</span>
           </label>
         </div>
-        <span class="mt-3" style="color: red;" *ngIf="!formEmail.value.terminos">*Acepte los terminos*</span>
+        <span class="mt-3" style="color: red" *ngIf="!formEmail.value.terminos"
+          >*Acepte los terminos*</span
+        >
       </div>
       <div class="button-continue">
         <button
@@ -232,16 +244,29 @@
               type="radio"
               name="donations"
               id="check0usd"
-              value="0.00"
+              value="otro"
               formControlName="donations"
               (click)="key($event)"
+              #check
             />
-            <label class="form-check-label" for="check0usd"> $0.00 </label>
+            <!-- <label class="form-check-label" for="check0usd"> $0.00 </label> -->
+            <input
+              type="number"
+              class="form-control amount"
+              (click)="check.click()"
+              placeholder="$0.00"
+              formControlName="otroValor"
+            />
           </div>
         </div>
         <p>(Moneda $ USD) Será direccionado a una zona segura de pagos</p>
       </form>
-      <button type="button" class="btn btn-primary" [disabled]="!formGift.valid" (click)="nextPay()">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="!formGift.valid"
+        (click)="nextPay()"
+      >
         ¡Sí, Quiero Colaborar!
       </button>
       <div class="regalo">
@@ -251,13 +276,13 @@
           proyecto.
         </h3>
         <img src="../../../assets/PACK SECRETO.png" />
-        <p routerLink="/" style="cursor: pointer;">
+        <p routerLink="/" style="cursor: pointer">
           ¡Click aquí, si no deseas colaborar, ni tampoco acceder al Pack de
           Obsequios Exclusivos.
         </p>
       </div>
     </div>
     <!-- formulario 8 -->
-    <app-pay-method *ngIf="payView" [infoPay]="infoPay" ></app-pay-method>
+    <app-pay-method *ngIf="payView" [infoPay]="infoPay"></app-pay-method>
   </div>
 </div>

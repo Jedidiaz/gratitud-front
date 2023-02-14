@@ -54,6 +54,9 @@ export interface MessagesModel {
   img: imageProModel;
   __v: number;
   _id: string;
+  like: boolean
+  visible: boolean
+  color?: string
   id?: number;
 }
 
