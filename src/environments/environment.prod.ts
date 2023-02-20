@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
   api: 'https://api.gratitud.link/api/',
+  urlPage: 'https://gratitud.link/',
   subscription_paypalMes: 'P-61A016077N618563TMPGEN3Y',
   subscription_paypalAño: 'P-1WH52851E6413843NMPE5G3Q',
   donation_stripe1: 'price_1MQEomDqSAlgA2D1jS3a40OU',
