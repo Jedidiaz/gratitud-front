@@ -27,6 +27,7 @@ export interface CreatorModel {
   facebook: string;
   imgpro: imageProModel;
   instagram: string;
+  dateF: string
   __v: number;
   _id: string;
 }

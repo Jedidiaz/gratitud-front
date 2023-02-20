@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacidadComponent implements OnInit {
 
-  constructor() { }
+  acerca!: string;
+
+  constructor(private UserService: UserService) { }
 
   ngOnInit(): void {
+    this.getInfo()
+  }
+
+  getInfo(){
+    this.UserService.getGratitudInfo()
+      .subscribe({
+        next: (res)=> {
+          this.acerca = res.datainfo[0].aviso
+          console.log(res)
+        }, error: (err)=> {
+          console.log(err)
+        }
+      })
   }
 
 }

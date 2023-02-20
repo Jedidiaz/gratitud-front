@@ -69,7 +69,7 @@ export class FormComponent implements OnInit {
     });
     this.formEmail = formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(this.validEmail)]],
-      terminos: [false, [Validators.required]],
+      terminos: [true, [Validators.required]],
     });
 
   }

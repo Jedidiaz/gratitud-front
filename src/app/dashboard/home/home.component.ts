@@ -1,4 +1,4 @@
-import { DataModelInterface } from './../../models/homeModel.interface';
+import { DataModelInterface, responseGetInfoHomeModel, dataInfoHomeModel } from './../../models/homeModel.interface';
 import { CreatorsAdminModel } from './../../models/users.interface';
 import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     description: 'Facilitadora de Conciencia',
   };
   usersE: DataModelInterface[] = [];
+  infoHome!: dataInfoHomeModel
   constructor(
     private UserService: UserService,
     private snackBar: MatSnackBar
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
       this.users.push(this.card);
     }
     this.getInfo();
+    this.getinfoHome()
   }
 
   getInfo() {
@@ -55,6 +57,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getinfoHome(){
+    this.UserService.getInfoHome().subscribe({
+      next: (res)=> {
+        console.log(res)
+        if(res.response === 'Success')this.infoHome = res.data
+      }
+    })
+  }
+
   scrollLeft() {
     const left = document.querySelector('.scrollCarousel');
     left!.scrollBy(-200, 0);
@@ -63,5 +74,9 @@ export class HomeComponent implements OnInit {
   scrollRight() {
     const left = document.querySelector('.scrollCarousel');
     left!.scrollBy(200, 0);
+  }
+
+  redirect(username:any){
+    window.location.href = '/'+ username
   }
 }

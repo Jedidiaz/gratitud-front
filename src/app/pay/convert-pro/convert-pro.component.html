@@ -24,6 +24,7 @@
               formControlName="proM"
               id="ckeck1"
               value="99"
+              #check
               (click)="select($event)"
             />
             <div>
@@ -41,6 +42,7 @@
               formControlName="proM"
               id="ckeck2"
               value="10"
+              #check
               (click)="select($event)"
             />
             <div>
@@ -52,12 +54,12 @@
           </div>
         </form>
         <div class="monto">
-          <p>Vence en 365 días</p>
+          <p *ngIf="selected != '0  '">Vence en {{vence}} días</p>
           <span>US{{selected | currency}}</span>
         </div>
         <div class="buttons-pay">
           <button type="button" class="btn btn-secondary" [disabled]="!formPay.valid" (click)="pagar()" >CONTINUAR</button>
-          <p style="width: 100%; text-align: start;">Al continuar, estás aceptando los <a routerLink="/terminos-y-condiciones">Términos y condiciones</a> de
+          <p style="width: 100%; text-align: start;">Al continuar, estás aceptando los <a href="/terminos-y-condiciones">Términos y condiciones</a> de
             gratitud.link PRO y confirmas que leíste nuestra <a routerLink="/aviso-privacidad">Política de privacidad</a></p>
         </div>
       </div>

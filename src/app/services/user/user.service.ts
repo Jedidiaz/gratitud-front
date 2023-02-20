@@ -256,4 +256,10 @@ export class UserService {
     })
   }
 
+  seecancel():Observable<any>{
+    return this.http.get<any>(`${this.url}cancelsub`,{
+      headers: this.headers
+    })
+  }
+
 }

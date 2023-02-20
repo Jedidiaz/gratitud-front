@@ -13,6 +13,8 @@ export class AjustesComponent implements OnInit {
   email!: string
   formAjuste: FormGroup
   pro: boolean = false
+  cancelado: boolean = false
+  fecha: any
 
   message = {message: '', color: 'black'}
   messagePass = {message: '', color: 'black'}
@@ -26,6 +28,7 @@ export class AjustesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCreator()
+    this.seeCancel()
   }
 
   verifyView(){
@@ -37,6 +40,19 @@ export class AjustesComponent implements OnInit {
       next: (res)=>{
         this.email = res.user.email
         this.pro = res.user.isPro
+        this.fecha = res.user.dateF
+        console.log(res)
+      },error: (err)=> {
+        console.log(err)
+      }
+    })
+  }
+
+  //ver cancelar sub
+  seeCancel(){
+    this.UserService.seecancel().subscribe({
+      next: (res)=>{
+        if (res.response === "Success") this.cancelado = true
       },error: (err)=> {
         console.log(err)
       }

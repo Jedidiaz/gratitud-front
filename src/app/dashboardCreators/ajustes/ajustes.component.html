@@ -58,8 +58,11 @@
         <button class="btn btn-primary" type="button">ENVIAR</button>
         <br/>
         <br/>
+        <span>
+          <p style="color:#F36A6A">La version pro vence: {{fecha | date }}</p>
+        </span>
         <span (click)="cancelar()">
-          <p class="mb-5" *ngIf="pro" style="cursor: pointer;">CANCELAR CUENTA PRO</p>
+          <p class="mb-5" *ngIf="pro && !cancelado" style="cursor: pointer;">CANCELAR CUENTA PRO</p>
         </span>
       </div>
     </div>

@@ -13,6 +13,7 @@ export class ConvertProComponent implements OnInit {
 
   pay: boolean = false
   selected = '0'
+  vence = '0'
   username = ''
 
   constructor(private formbuilder: FormBuilder, private userService: UserService) {
@@ -29,6 +30,8 @@ export class ConvertProComponent implements OnInit {
 
   select($event: any){
     this.selected = $event.target.value
+    if (this.selected === '99') this.vence = '365'
+    else this.vence = '30'
   }
 
   pagar(){
